@@ -17,7 +17,7 @@ let socials = {
 function telegramPost(
 	channel, messageId,
 	accent = '7085B2', darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false,
-	showComments = true, commentsLimit = 3, userColors = true
+	showComments = false, commentsLimit = 3, userColors = true
 ) {
 	let commentsEmbed = `<script id='comments__${messageId}' async
 		src="https://telegram.org/js/telegram-widget.js?18"

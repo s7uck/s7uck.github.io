@@ -107,6 +107,9 @@ body > div.content {
 	outline: none;
 	color: var(--primary);
 }
+:active, :visited {
+	color: var(--primary);
+}
 
 header, footer {
 	display: block;
@@ -143,9 +146,7 @@ gallery li {
 }
 gallery {
 	display: flex;
-	flex-wrap: wrap;
-
-	scroll-snap-type: y mandatory;
+  flex-wrap: wrap;
 }
 gallery li {
 	padding: var(--standard-padding);
@@ -173,8 +174,22 @@ info::before {
 a {
 	color: var(--primary);
 }
-a:hover, a:focus, a:active, a:visited {
-	color: var(--bright-purple);
+
+button {
+	padding: var(--standard-padding);
+
+	font-family: var(--monospace-font);
+	text-transform: uppercase;
+
+	border: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: var(--control-corner-radius);
+	background: var(--background-20);
+}
+button:hover {
+	background: var(--primary);
+	color: var(--foreground);
 }
 
 nav {
@@ -283,10 +298,7 @@ article.post,
 article.message {
 	margin: var(--standard-padding);
 
-	width: fit-content;
-}
-article section, article > .comments {
-	display: block;
+	max-width: fit-content;
 }
 
 details > summary > * {
