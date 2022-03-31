@@ -296,7 +296,8 @@ info {
 }
 article.post,
 article.message {
-	margin: var(--standard-padding);
+	margin-left: var(--min-padding);
+	margin-right: var(--min-padding);
 
 	max-width: fit-content;
 }
