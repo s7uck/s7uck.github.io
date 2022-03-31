@@ -16,15 +16,31 @@ let socials = {
 
 function telegramPost(
 	channel, messageId,
-	accent = '7085B2', darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false
+	accent = '7085B2', darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false,
+	showComments = true, commentsLimit = 3, userColors = true
 ) {
-	let embedHtml = `<article class='message'>
+	let commentsEmbed = `<script id='comments__${messageId}' async
+		src="https://telegram.org/js/telegram-widget.js?18"
+		data-telegram-discussion="${channel}/${messageId}"
+		data-comments-limit="${commentsLimit}"
+		${userColors && 'data-colorful="1"'}
+		data-color="${accent}"
+	></script>`;
+	let postEmbed = `<article class='message'>
 		<script id='post__${messageId}' async
 			src="https://telegram.org/js/telegram-widget.js?18"
 			data-telegram-post="${channel}/${messageId}"
 			data-color="${accent}"
 			${darkMode && 'data-dark="1"'}
 		></script>
+	</article>`;
+
+	let postHtml = postEmbed;
+	let commentsHtml = showComments ? commentsEmbed : '';
+
+	let embedHtml = `<article class='message'>
+		${postHtml}
+		${commentsHtml}
 	</article>`;
 
 	return {
@@ -89,7 +105,7 @@ shishcatGetChannelHistory(
 				.text?.includes('span dir')
 			) {
 				let postWidget = telegramPost(`stucklounge`, msgId);
-				$('#posts').append(postWidget.widget.html);
+				$('#posts gallery').append(postWidget.widget.html);
 			}
 		});
 	}

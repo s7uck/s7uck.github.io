@@ -142,6 +142,9 @@ gallery li {
 	block-size: 100%;
 }
 gallery {
+	display: flex;
+	flex-wrap: wrap;
+
 	scroll-snap-type: y mandatory;
 }
 gallery li {
@@ -329,8 +332,7 @@ info::before {
 	background-repeat: no-repeat;
 }
 
-img.propic,
-article.message::before {
+img.propic {
 	margin-top: var(--min-padding);
 	margin-bottom: var(--min-padding);
 
