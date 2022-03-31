@@ -23,6 +23,11 @@
 	--standard-padding: 8px;
 	--max-padding: 10px;
 	--section-padding: var(--max-padding);
+	--grid-columns: clamp(1, 2, 3);
+	--grid-column-template: repeat(
+		var(--grid-columns), min-content
+	);
+	--grid-auto-columns: fit-content;
 
 	--content-margin: clamp(0px, 10%, 25%);
 	--content-padding: 10%;
@@ -60,6 +65,7 @@
 @media only screen and (max-width: 800px) {
 	:root {
 		--content-padding: 25%;
+		--grid-columns: 1;
 	}
 }
 @media (prefers-reduced-motion) {
@@ -107,8 +113,8 @@ body > div.content {
 	outline: none;
 	color: var(--primary);
 }
-:active, :visited {
-	color: var(--primary);
+::selection {
+	background: var(--primary);
 }
 
 header, footer {
@@ -144,9 +150,11 @@ section.page,
 gallery li {
 	block-size: 100%;
 }
+.grid, grid,
 gallery {
-	display: flex;
-  flex-wrap: wrap;
+	display: grid;
+	grid-auto-columns: var(--grid-auto-columns);
+	grid-template-columns: var(--grid-column-template);
 }
 gallery li {
 	padding: var(--standard-padding);
@@ -173,6 +181,9 @@ info::before {
 
 a {
 	color: var(--primary);
+}
+a:focus, a:hover, a:active, a:visited {
+	color: var(--bright-purple);
 }
 
 button {
