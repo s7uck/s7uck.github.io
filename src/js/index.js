@@ -52,7 +52,7 @@ function telegramApiRequest(
 
 /* Thanks shishc.at	for the JSON API <3 */
 function shishcatGetChannelHistory(
-	channel, before = 100, after = 100,
+	channel, before = 0, after = 0,
 	then =(data)=> {}
 ) {
 	let result = {};
@@ -79,13 +79,18 @@ telegramApiRequest(
 );
 
 shishcatGetChannelHistory(
-	`stucklounge`, before = 100, after = 100,
+	`stucklounge`, before = 0, after = 0,
 	then =(data)=> {
 		socials.telegram[`history`] = data.msgs;
 
 		Object.keys(socials.telegram.history).reverse().forEach(msgId => {
-			let postWidget = telegramPost(`stucklounge`, msgId);
-			$('#posts').append(postWidget.widget.html);
+			if (
+				!socials.telegram.history[msgId]
+				.text?.includes('span dir')
+			) {
+				let postWidget = telegramPost(`stucklounge`, msgId);
+				$('#posts').append(postWidget.widget.html);
+			}
 		});
 	}
 );
