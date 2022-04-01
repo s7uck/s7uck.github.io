@@ -6,7 +6,9 @@ let socials = {
 		portal: -1001542175762,
 		bot: '1861542114:AAFEySytSsmFuQ4BslQv22XfBh636O36eNs',
 		api: 'https://api.telegram.org/bot',
-		history: {}
+		history: {},
+		chat: {},
+		pinnedMessages: []
 	},
 	github: {
 		me: 71439748
@@ -94,19 +96,39 @@ telegramApiRequest(
 	}
 );
 
+telegramApiRequest(
+	'getChat',
+	[`chat_id=${socials.telegram.stucklounge}`],
+	then =(data)=> {
+		socials.telegram[`chat`] = data.result;
+		socials.telegram.pinnedMessages.push(
+			socials.telegram.chat.pinned_message
+		);
+	}
+);
+
 shishcatGetChannelHistory(
 	`stucklounge`, before = 0, after = 0,
 	then =(data)=> {
 		socials.telegram[`history`] = data.msgs;
+		let history = socials.telegram.history;
+		let recentOrderHistory = Object.keys(history).reverse();
 
-		Object.keys(socials.telegram.history).reverse().forEach(msgId => {
+		recentOrderHistory.forEach(msgId => {
 			if (
-				!socials.telegram.history[msgId]
-				.text?.includes('span dir')
+				!history[msgId].text?.includes('span dir')
 			) {
-				let postWidget = telegramPost(`stucklounge`, msgId);
+				let postWidget = telegramPost(
+					`stucklounge`, msgId
+				);
 				$('#posts gallery').append(postWidget.widget.html);
 			}
 		});
+
+		let pinnedMessages = socials.telegram.pinnedMessages;
+		let motdWidget = telegramPost(
+			`stucklounge`, pinnedMessages[0].message_id
+		);
+		$('#motd').append(motdWidget.widget.html);
 	}
 );
