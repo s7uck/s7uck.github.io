@@ -156,13 +156,14 @@ gallery {
 	grid-auto-columns: var(--grid-auto-columns);
 	grid-template-columns: var(--grid-column-template);
 }
-gallery li {
-	padding: var(--standard-padding);
-
+gallery.fullscreen {
+	display: block;
+	scroll-snap-type: y mandatory;
+}
+gallery.fullscreen > * {
+	block-size: 100%;
 	scroll-snap-align: center;
 	scroll-snap-stop: always;
-	
-	list-style: none;
 }
 
 info {
@@ -323,10 +324,10 @@ details > summary::before {
 	content: attr(icon);
 }
 
-ul > li {
+li {
 	list-style: '├ ';
 }
-ul > li:last-of-type {
+li:last-of-type {
 	list-style: '└ ';
 }
 
