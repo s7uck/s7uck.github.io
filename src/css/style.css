@@ -99,14 +99,17 @@ body {
 	height: 100%;
 
 	background: var(--background);
-	box-shadow: var(--section-shadow);
 }
 
 body > div.content {
 	margin-left: var(--content-margin);
 	margin-right: var(--content-margin);
+	padding-left: var(--section-padding);
+	padding-right: var(--section-padding);
 
 	padding-bottom: var(--content-padding);
+
+	box-shadow: var(--section-box-shadow) var(--background-20);
 }
 
 .grid, grid {
@@ -316,7 +319,8 @@ nav.social a[subs]:active::before {
 }
 
 article,
-info {
+info,
+details > summary {
 	max-width: 80ch;
 }
 article.post,
@@ -331,11 +335,7 @@ details > summary > * {
 	display: inline;
 }
 details > summary {
-	margin-bottom: var(--min-padding);
-
 	list-style: none;
-
-	border-bottom: var(--border-bottom);
 }
 details > summary::before {
 	content: attr(icon);
