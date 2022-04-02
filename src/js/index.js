@@ -7,8 +7,7 @@ let socials = {
 		bot: '1861542114:AAFEySytSsmFuQ4BslQv22XfBh636O36eNs',
 		api: 'https://api.telegram.org/bot',
 		history: {},
-		chat: {},
-		pinnedMessages: []
+		chat: {}
 	},
 	github: {
 		me: 71439748
