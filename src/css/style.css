@@ -331,7 +331,11 @@ details > summary > * {
 	display: inline;
 }
 details > summary {
+	margin-bottom: var(--min-padding);
+
 	list-style: none;
+
+	border-bottom: var(--border-bottom);
 }
 details > summary::before {
 	content: attr(icon);
