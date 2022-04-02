@@ -15,6 +15,19 @@ let socials = {
 	youtube: 'UCVX9qM9QKKpQQ8PXSRWs_NA'
 };
 
+let motds = [
+	`I'm an Italian Developer, currently focused on web development, API development, .NET tech, and making new friends :)`,
+	`Why spend 2 minutes to do it manually when you can spend 6 hours trying to automate it?™`
+];
+
+let randint =(max)=> {
+	return Math.floor(Math.random() * max);
+};
+let randomChoice =(list)=> {
+	let randomIndex = randint(list.length);
+	return list[randomIndex];
+};
+
 function telegramPost(
 	channel, messageId,
 	accent = '7085B2', darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false,
@@ -99,17 +112,14 @@ telegramApiRequest(
 	'getChat',
 	[`chat_id=${socials.telegram.stucklounge}`],
 	then =(data)=> {
-		socials.telegram[`chat`] = data.result;
-		socials.telegram.pinnedMessages.push(
-			socials.telegram.chat.pinned_message
-		);
+		socials.telegram.chat = data.result;
 	}
 );
 
 shishcatGetChannelHistory(
 	`stucklounge`, before = 0, after = 0,
 	then =(data)=> {
-		socials.telegram[`history`] = data.msgs;
+		socials.telegram.history = data.msgs;
 		let history = socials.telegram.history;
 		let recentOrderHistory = Object.keys(history).reverse();
 
@@ -133,3 +143,6 @@ shishcatGetChannelHistory(
 		}); */
 	}
 );
+
+let randomMotd = randomChoice(motds);
+$('#motd').text(randomMotd);

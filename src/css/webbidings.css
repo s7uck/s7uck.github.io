@@ -21,6 +21,12 @@
 	--dark-grey: #21262D;
 
 	--primary: var(--purple);
+	--gradient-start: var(--purple);
+	--gradient-end: var(--bright-blue);
+	--gradient: linear-gradient(
+		to right,
+		var(--gradient-start), var(--gradient-end)
+	);
 
 	--background-10: var(--black);
 	--background-20: var(--bright-black);

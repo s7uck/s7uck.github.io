@@ -29,11 +29,11 @@
 	);
 	--grid-auto-columns: fit-content;
 
-	--content-margin: clamp(0px, 10%, 25%);
+	--content-margin: clamp(0px, 15%, 25%);
 	--content-padding: 10%;
 
 	--card-width: clamp(80%, 30px, 30px);
-	--propic-size: 68px;
+	--propic-size: 1em;
 	--propic-source: url('https://avatars.githubusercontent.com/u/71439748');
 
 	--font: 'Segoe UI', sans-serif;
@@ -108,8 +108,6 @@ body > div.content {
 	padding-right: var(--section-padding);
 
 	padding-bottom: var(--content-padding);
-
-	box-shadow: var(--section-box-shadow) var(--background-20);
 }
 
 .grid, grid {
@@ -348,10 +346,22 @@ li:last-of-type {
 	list-style: '└ ';
 }
 
+img {
+	vertical-align: middle;
+}
+
 .stuck {
 	font-family: var(--monospace-font);
 
 	color: var(--primary);
+}
+@supports (-webkit-background-clip: text) {
+	.stuck {
+		background: var(--gradient);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
 .stuck::after {
 	content: ' \10996';
@@ -369,9 +379,7 @@ info::before {
 }
 
 .propic {
-	background-image: var(--propic-source);
-	background-size: contain;
-	background-repeat: no-repeat;
+	content: var(--propic-source);
 }
 
 img.propic {
@@ -383,10 +391,14 @@ img.propic {
 
 	border-radius: var(--circle);
 }
+h1 .propic {
+	--propic-size: 58px;
+}
 
 icon.propic {
-	width: var(--icon-size);
-	height: var(--icon-size);
+	--propic-size: var(--icon-size);
+	width: var(--propic-size);
+	height: var(--propic-size);
 
 	border-radius: var(--circle);
 }
