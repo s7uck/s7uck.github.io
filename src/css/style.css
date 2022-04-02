@@ -109,6 +109,12 @@ body > div.content {
 	padding-bottom: var(--content-padding);
 }
 
+.grid, grid {
+	display: grid;
+	grid-auto-columns: var(--grid-auto-columns);
+	grid-template-columns: var(--grid-column-template);
+}
+
 :focus {
 	outline: none;
 	color: var(--primary);
@@ -140,21 +146,28 @@ footer {
 	text-align: center;
 }
 
+aside {
+	float: right;
+
+	margin: var(--standard-padding);
+	padding: var(--standard-padding);
+
+	border-radius: var(--section-corner-radius);
+}
+@media only screen and (max-width: 800px) {
+	aside {
+		display: none;
+	}
+}
+
 :not(main) section.page:not(:target) {
 	display: none;
 }
 main section.page, section.page:target {
 	display: block !important;
 }
-section.page,
-gallery li {
+section.page {
 	block-size: 100%;
-}
-.grid, grid,
-gallery {
-	display: grid;
-	grid-auto-columns: var(--grid-auto-columns);
-	grid-template-columns: var(--grid-column-template);
 }
 gallery.fullscreen {
 	display: block;

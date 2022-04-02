@@ -124,10 +124,12 @@ shishcatGetChannelHistory(
 			}
 		});
 
-		let pinnedMessages = socials.telegram.pinnedMessages;
-		let motdWidget = telegramPost(
-			`stucklounge`, pinnedMessages[0].message_id
-		);
-		$('#motd').append(motdWidget.widget.html);
+		/* let latestMessages = recentOrderHistory.slice(0, 3);
+		latestMessages.forEach(msgId => {
+			let previewWidget = telegramPost(
+				`stucklounge`, msgId
+			)
+			$('aside gallery').append(previewWidget.widget.html);
+		}); */
 	}
 );
