@@ -4,34 +4,36 @@ let socials = {
 		stucklounge: -1001388295920,
 		stucklings: -1001565929365,
 		portal: -1001542175762,
-		bot: '1861542114:AAFEySytSsmFuQ4BslQv22XfBh636O36eNs',
-		api: 'https://api.telegram.org/bot',
+		bot: "1861542114:AAFEySytSsmFuQ4BslQv22XfBh636O36eNs",
+		api: "https://api.telegram.org/bot",
 		history: {},
-		chat: {}
+		chat: {},
+		subCount: 0,
 	},
 	github: {
-		me: 71439748
+		me: 71439748,
 	},
-	youtube: 'UCVX9qM9QKKpQQ8PXSRWs_NA'
+	youtube: "UCVX9qM9QKKpQQ8PXSRWs_NA",
 };
 
-let motds = [
-	`I'm an Italian Developer, currently focused on web development, API development, .NET tech, and making new friends :)`,
-	`Why spend 2 minutes to do it manually when you can spend 6 hours trying to automate it?™`
-];
-
-let randint =(max)=> {
+Math["randint"] = (max) => {
 	return Math.floor(Math.random() * max);
 };
-let randomChoice =(list)=> {
-	let randomIndex = randint(list.length);
+Math["randomChoice"] = (list) => {
+	let randomIndex = Math.randint(list.length);
 	return list[randomIndex];
 };
 
 function telegramPost(
-	channel, messageId,
-	accent = '7085B2', darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false,
-	showComments = false, commentsLimit = 3, userColors = true
+	channel,
+	messageId,
+	accent = "7085B2",
+	darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+		? true
+		: false,
+	showComments = false,
+	commentsLimit = 3,
+	userColors = true
 ) {
 	let commentsEmbed = `<script id='comments__${messageId}' async
 		src="https://telegram.org/js/telegram-widget.js?18"
@@ -50,7 +52,7 @@ function telegramPost(
 	</article>`;
 
 	let postHtml = postEmbed;
-	let commentsHtml = showComments ? commentsEmbed : '';
+	let commentsHtml = showComments ? commentsEmbed : "";
 
 	let embedHtml = `<article class='message'>
 		${postHtml}
@@ -59,90 +61,78 @@ function telegramPost(
 
 	return {
 		widget: {
-			html: embedHtml
-		}
-	}
+			html: embedHtml,
+		},
+	};
 }
 
-function telegramApiRequest(
-	method, args,
-	then =(data)=> {}
-) {
+function telegramApiRequest(method, args, then = (data) => {}) {
 	let result = {};
 	fetch(
-	`${socials.telegram.api}${socials.telegram.bot}/${method}?${args.join('&')}`
+		`${socials.telegram.api}${socials.telegram.bot}/${method}?${args.join("&")}`
 	)
-	.then( (response) => { return response.json() } )
-	.then( (data) => {
-		then(data);
-		result = data;
-		return result;
-	});
-};
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			then(data);
+			result = data;
+			return result;
+		});
+}
 
 /* Thanks shishc.at	for the JSON API <3 */
 function shishcatGetChannelHistory(
-	channel, before = 0, after = 0,
-	then =(data)=> {}
+	channel,
+	before = 0,
+	after = 0,
+	then = (data) => {}
 ) {
 	let result = {};
 	fetch(
-	`https://shishc.at/sprivatetgparser.php?channel=${channel}&before=${before}&after=${after}`
+		`https://shishc.at/sprivatetgparser.php?channel=${channel}&before=${before}&after=${after}`
 	)
-	.then( (response) => { return response.json() })
-	.then( (data) => {
-		then(data);
-		result = data;
-		return result;
-	});
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			then(data);
+			result = data;
+			return result;
+		});
 }
 
 telegramApiRequest(
-	'getChatMemberCount',
+	"getChatMemberCount",
 	[`chat_id=${socials.telegram.stucklounge}`],
-	then =(data)=> {
-		socials.telegram[`subCount`] = data.result;
-
-		let stuckloungeLink = $('nav.social a.telegram.stucklounge');
-		stuckloungeLink.attr('subs', socials.telegram.subCount);
-	}
+	(then = (data) => {
+		socials.telegram.subCount = data.result;
+		stucklounge.setAttribute("subs", socials.telegram.subCount);
+	})
 );
 
 telegramApiRequest(
-	'getChat',
+	"getChat",
 	[`chat_id=${socials.telegram.stucklounge}`],
-	then =(data)=> {
+	(then = (data) => {
 		socials.telegram.chat = data.result;
-	}
+	})
 );
 
-shishcatGetChannelHistory(
-	`stucklounge`, before = 0, after = 0,
-	then =(data)=> {
+/* shishcatGetChannelHistory(
+	`stucklounge`,
+	(before = 0),
+	(after = 0),
+	(then = (data) => {
 		socials.telegram.history = data.msgs;
 		let history = socials.telegram.history;
 		let recentOrderHistory = Object.keys(history).reverse();
 
-		recentOrderHistory.forEach(msgId => {
-			if (
-				!history[msgId].text?.includes('span dir')
-			) {
-				let postWidget = telegramPost(
-					`stucklounge`, msgId
-				);
-				$('#posts gallery').append(postWidget.widget.html);
+		recentOrderHistory.forEach((msgId) => {
+			if (!history[msgId].text?.includes("span dir")) {
+				let postWidget = telegramPost(`stucklounge`, msgId);
+				posts.innerHTML = postWidget.widget.html;
 			}
 		});
-
-		/* let latestMessages = recentOrderHistory.slice(0, 3);
-		latestMessages.forEach(msgId => {
-			let previewWidget = telegramPost(
-				`stucklounge`, msgId
-			)
-			$('aside gallery').append(previewWidget.widget.html);
-		}); */
-	}
-);
-
-let randomMotd = randomChoice(motds);
-$('#motd').text(randomMotd);
+	})
+); */

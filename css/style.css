@@ -273,13 +273,15 @@ nav.social a:hover {
 nav.social a[subs]::before {
 	content: attr(subs);
 
-	margin: var(--min-padding);
 	padding: var(--min-padding);
 
 	min-width: fit-content;
 
+	font-family: var(--monospace-font);
+	font-size: small;
+
 	border-radius: var(--control-corner-radius);
-	background: var(--background);
+	background: var(--background-alt);
 
 	animation: sub-counter-load var(--longer-animation) forwards alternate;
 	transition: var(--animation);
