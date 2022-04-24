@@ -36,9 +36,6 @@
 	--foreground: var(--bright-white);
 	--foreground-alt: var(--white);
 
-	--background: var(--background-10);
-	--foreground: var(--foreground-10);
-
 	--selection-background: var(--background-alt);
 	--cursor-color: var(--background-alt);
 	--border-muted: var(--dark-grey);

@@ -23,14 +23,18 @@
 	--content-margin: clamp(0px, 15%, 25%);
 	--content-padding: 10%;
 
-	--card-width: clamp(80%, 30px, 30px);
+	--sections-immersive-margin: 40%;
+
+	--card-width: min(300px, 100%);
+	--card-width-small: min(200px, 80%);
+	--card-width-large: max(300px, 100%);
 	--propic-size: 1em;
 	--propic: url("https://avatars.githubusercontent.com/u/71439748");
 
 	--font: var(--icon-font), "Rubik";
 	--monospace-font: "JetBrains Mono NF";
 	--title-font: var(--monospace-font);
-	--title-size: 2.5rem;
+	--title-size: 1.5rem;
 	--title-weight: 400;
 	--icon-font: "Segoe Fluent Icons";
 	--icon-size: 1em;
@@ -94,13 +98,14 @@ body {
 body {
 	height: 100%;
 
+	background: var(--background);
+
 	/* 	background-image: url("../res/Duckscape.svg");
 	background-repeat: no-repeat;
 	background-size: cover; */
 }
 
 body > main {
-	margin-block-start: var(--content-margin);
 	margin-inline: var(--content-margin) !important;
 	padding-inline: var(--section-padding) !important;
 
@@ -134,6 +139,19 @@ header > * {
 }
 header:nth-child(2n) {
 	animation-delay: var(--longer-animation);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin-block: var(--min-padding);
+}
+
+h2,
+summary {
+	font-family: var(--title-font);
+	font-size: var(--title-size);
 }
 
 @keyframes slide-down {
@@ -186,12 +204,22 @@ footer {
 	background: var(--background-alt);
 }
 
-section :not(main) section.page:not(:target) {
-	display: none;
+section {
+	display: grid;
+
+	margin-block-start: var(--sections-immersive-margin);
+	padding: var(--section-padding);
+
+	border-radius: var(--section-corner-radius);
+	background: var(--background);
 }
-main section.page,
-section.page:target {
-	display: block !important;
+section:nth-of-type(2n) {
+	text-align: center;
+
+	opacity: var(--max-opacity);
+}
+section:nth-of-type(2n) > summary {
+	margin-inline-start: var(--sections-immersive-margin);
 }
 
 dialog {
@@ -236,7 +264,8 @@ button:hover {
 }
 
 nav {
-	display: block;
+	display: flex;
+	justify-content: center;
 
 	margin: var(--min-padding);
 }
@@ -244,30 +273,30 @@ nav a {
 	margin-left: var(--min-padding);
 	margin-right: var(--min-padding);
 
+	padding: var(--min-padding);
+
 	font-family: var(--monospace-font);
 	text-decoration: none;
 
+	border-radius: var(--section-corner-radius);
 	color: var(--primary);
 }
-nav.primary,
 nav a:hover {
-	color: var(--bright-purple);
+	background: var(--bright-purple);
+	color: var(--foreground);
 }
 nav a::after {
 	content: attr(title);
 }
 
 @media only screen and (max-width: 800px) {
-	nav a:not(.primary)::after {
+	nav a::after {
 		display: none;
 	}
 }
 
 nav.social a {
 	color: var(--foreground-alt);
-}
-nav.social a:hover {
-	color: var(--foreground);
 }
 .sub-counter,
 nav.social a[subs]::before {
@@ -280,6 +309,8 @@ nav.social a[subs]::before {
 	font-family: var(--monospace-font);
 	font-size: small;
 
+	vertical-align: middle;
+
 	border-radius: var(--control-corner-radius);
 	background: var(--background-alt);
 
@@ -289,7 +320,7 @@ nav.social a[subs]::before {
 nav.social a[subs]:hover::before {
 	content: "++";
 
-	background: var(--primary);
+	background: transparent;
 
 	animation: sub-counter-content var(--longer-animation) forwards alternate;
 	transition: var(--animation);
@@ -345,8 +376,7 @@ article.message {
 
 	max-width: fit-content;
 }
-summary,
-summary > * {
+summary {
 	display: inline;
 
 	padding-block-end: var(--min-padding);
@@ -388,12 +418,44 @@ img {
 	font-family: var(--hieroglyphs);
 }
 
+figure,
+figure > img {
+	position: relative;
+
+	width: var(--card-width);
+
+	border-radius: var(--section-corner-radius);
+}
+figure.small,
+figure.small > img {
+	width: var(--card-width-small);
+}
+figure.large,
+figure.large > img {
+	width: var(--card-width-large);
+}
+figcaption {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	padding: var(--section-padding);
+
+	width: inherit;
+	height: inherit;
+
+	border-radius: 0 0 var(--section-corner-radius) var(--section-corner-radius);
+	background: var(--background-alt);
+	opacity: var(--max-opacity);
+}
+
 icon,
 [icon]::before {
 	display: inline;
 
 	font-family: var(--icon-font);
 	font-size: var(--icon-size);
+
 	vertical-align: middle;
 }
 
