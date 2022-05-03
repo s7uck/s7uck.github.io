@@ -35,7 +35,10 @@
 	--monospace-font: "JetBrains Mono NF";
 	--title-font: var(--monospace-font);
 	--title-size: 1.5rem;
+	--display-size: 2.5rem;
 	--title-weight: 400;
+	--display-weight: 600;
+	--subtitle-size: 1.5rem;
 	--icon-font: "Segoe Fluent Icons";
 	--icon-size: 1em;
 	--nav-link-font: var(--monospace-font);
@@ -136,6 +139,9 @@ header {
 header > * {
 	animation: slide-down var(--long-animation) forwards;
 	animation-delay: var(--long-animation);
+}
+header > nav > *:hover {
+	transform: scale(110%);
 }
 header:nth-child(2n) {
 	animation-delay: var(--longer-animation);
@@ -282,7 +288,6 @@ nav a {
 	color: var(--primary);
 }
 nav a:hover {
-	background: var(--bright-purple);
 	color: var(--foreground);
 }
 nav a::after {
@@ -315,15 +320,13 @@ nav.social a[subs]::before {
 	background: var(--background-alt);
 
 	animation: sub-counter-load var(--longer-animation) forwards alternate;
-	transition: var(--animation);
 }
 nav.social a[subs]:hover::before {
 	content: "++";
 
-	background: transparent;
+	background: var(--primary);
 
 	animation: sub-counter-content var(--longer-animation) forwards alternate;
-	transition: var(--animation);
 }
 nav.social a[subs]:active::before {
 	content: ":D";
@@ -404,18 +407,21 @@ img {
 
 	color: var(--primary);
 }
-@supports (-webkit-background-clip: text) {
-	.stuck {
-		background: var(--gradient);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
+.stuck {
+	--background-gradient: var(--gradient);
+	background: var(--background-gradient);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.stuck:hover {
+	font-size: var(--display-size);
+	font-weight: var(--display-weight);
+
+	--background-gradient: var(--gradient-alt);
 }
 .stuck::after {
 	content: " \10996";
-
-	font-family: var(--hieroglyphs);
 }
 
 figure,

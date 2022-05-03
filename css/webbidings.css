@@ -21,13 +21,8 @@
 	--dark-grey: #21262d;
 
 	--primary: var(--purple);
-	--gradient-start: var(--purple);
-	--gradient-end: var(--bright-blue);
-	--gradient: linear-gradient(
-		to right,
-		var(--gradient-start),
-		var(--gradient-end)
-	);
+	--gradient: linear-gradient(to right, var(--purple), var(--bright-blue));
+	--gradient-alt: linear-gradient(to right, var(--blue), var(--green));
 }
 [theme="dark"],
 [theme="auto"] {
