@@ -211,8 +211,6 @@ footer {
 }
 
 section {
-	display: grid;
-
 	margin-block-start: var(--sections-immersive-margin);
 	padding: var(--section-padding);
 
@@ -380,7 +378,7 @@ article.message {
 	max-width: fit-content;
 }
 summary {
-	display: inline;
+	display: block;
 
 	padding-block-end: var(--min-padding);
 }

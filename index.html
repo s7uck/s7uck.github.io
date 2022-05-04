@@ -1,114 +1,140 @@
 <!DOCTYPE html>
 <html lang="en-AU" theme="auto">
-	<head>
-		<meta id="charset" charset="UTF-8" />
-		<meta id="compat" http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			id="viewport"
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="js/index.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<meta title="StuckDuck">
+	<title>StuckDuck &#x10996;</title>
+	<link id="favicon" rel="icon" href="https://avatars.githubusercontent.com/u/71439748">
+</head>
+<body>
+	<header>
+		<h1>
+			<img class="propic">
+			<br>
+			Hi, I'm <span class="stuck">StuckDuck</span>
+		</h1>
 
-		<script src="js/index.js"></script>
+		<nav id="navbar">
+			<a class="primary" href="#about" title="Home" icon="&#xE80F;"></a>
+			<a href="#projects" title="Projects" icon="&#xF158;"></a>
+			<a href="#setup" title="Setup" icon="&#xF156;"></a>
+			<a href="#posts" title="Posts" icon="&#xF246;"></a>
+		</nav>
 
-		<link rel="stylesheet" href="css/style.css" />
+		<nav class="social">
+			<a href="https://t.me/StuckDuck" title="@StuckDuck" icon="&#xE8BD;"></a>
+			<a id="stuckloungeLink"
+				href="https://t.me/s/Stucklounge"
+				title="@stucklounge"
+				icon="group"
+				subs="++"
+			></a>
+			<a href="https://github.com/s7uck" title="GitHub" icon="&#xE943;"></a>
+			<a href="https://discordapp.com/users/569798561844297768"
+				title="Discord"
+				icon="&#xE7FC;"
+			></a>
+		</nav>
+	</header>
 
-		<meta title="StuckDuck" />
-		<title>StuckDuck &#x10996;</title>
-		<link
-			id="favicon"
-			rel="icon"
-			href="https://avatars.githubusercontent.com/u/71439748"
-		/>
-	</head>
-	<body>
-		<header>
-			<h1>
-				<img class="propic" /><br />
-				Hi, I'm <span class="stuck">StuckDuck</span>
-			</h1>
+	<main>
+		<section id="about" class="home">
+			<summary icon="&#xE77B;">About me</summary>
 
-			<nav id="navbar">
-				<a class="primary" href="#about" title="Home" icon="&#xE80F;"></a>
-				<a href="#projects" title="Projects" icon="&#xF158;"></a>
-				<a href="#setup" title="Setup" icon="&#xF156;"></a>
-				<a href="#posts" title="Posts" icon="&#xF246;"></a>
-			</nav>
+			The name's StuckDuck and I'm a developer, which means I can laugh at
+			programming jokes and have a fancy website but not really do anything
+			useful.
+	<br>The very first thing that I built was a php website deployed with XAMPP,
+			back when accessing a website in a LAN from your phone was the coolest
+			thing in the world. Luckily I didn't pursue PHP, but today I'm a full
+			stack developer and work with <b>JavaScript</b>, <b>C#</b> and
+			<abbr title="Model View Controller"><b>MVC</b>s</abbr>. :)
+		</section>
 
-			<nav class="social">
-				<a href="https://t.me/StuckDuck" title="@StuckDuck" icon="&#xE8BD;"></a>
-				<a
-					id="stucklounge"
-					href="https://t.me/s/Stucklounge"
-					title="@stucklounge"
-					icon="group"
-					subs="++"
-				></a>
-				<a href="https://github.com/hd917" title="GitHub" icon="&#xE943;"></a>
-				<a
-					href="https://discordapp.com/users/569798561844297768"
-					title="Discord"
-					icon="&#xE7FC;"
-				></a>
-			</nav>
-		</header>
+		<section id="projects">
+			<summary icon="&#xF157;">Projects</summary>
+		</section>
 
-		<main>
-			<section id="about" class="home">
-				<summary icon="&#xE77B;">About me</summary>
-			</section>
+		<section id="setup">
+			<summary icon="&#xF156;">My Setup</summary>
 
-			<section id="projects">
-				<summary icon="&#xF157;">Projects</summary>
-			</section>
+			<figure class="stack-layer">
+				<img src="">
 
-			<section id="setup">
-				<summary icon="&#xF156;">My Setup</summary>
+				<figcaption>
+					Visual Studio
+				</figcaption>
+			</figure>
+			<figure class="stack-layer">
+				<img src="">
 
-				<!-- <figure class="large">
-					<img src="https://dl.uploadgram.me/626526bc0ffdeg?raw" />
-					<figcaption>
-						<h3>Windows 11 Nickel</h3>
-						It's one of my favorite OSs so far and i am in the Insider program,
-						so I receive beta builds.
+				<figcaption>
+					Debian 10 @WSL
+				</figcaption>
+			</figure>
+			<figure class="stack-layer">
+				<img src="">
 
-						<nav>
-							<a
-								href="https://wallpaperhub.app/wallpapers/7223"
-								icon="&#xE8B9;"
-								title="Wallpaper"
-							></a>
-						</nav>
-					</figcaption>
-				</figure>
+				<figcaption>
+					Windows 11 Dev
+				</figcaption>
+			</figure>
+			<figure class="stack-layer">
+				<img src="">
 
-				<figure class="large">
-					<img src="https://dl.uploadgram.me/626523b10a1cag?raw" />
-					<figcaption>
-						<h3>Visual Studio Code</h3>
-						My main IDE.
+				<figcaption>
+					Acer Aspire5
+				</figcaption>
+			</figure>
 
-						<nav>
-							<a
-								href="https://vscode.dev/"
-								icon="&#xE896;"
-								title="Download"
-							></a>
-							<a
-								href="https://vscode.dev/theme/sdras.night-owl"
-								icon="&#xE790;"
-								title="Theme"
-							></a>
-						</nav>
-					</figcaption>
-				</figure> -->
-			</section>
+			<!-- <figure class="large">
+				<img src="https://dl.uploadgram.me/626526bc0ffdeg?raw" />
+				<figcaption>
+					<h3>Windows 11 Nickel</h3>
+					It's one of my favorite OSs so far and i am in the Insider program,
+					so I receive beta builds.
 
-			<section id="posts">
-				<summary icon="&#xF246;">Random Posts</summary>
-			</section>
-		</main>
+					<nav>
+						<a
+							href="https://wallpaperhub.app/wallpapers/7223"
+							icon="&#xE8B9;"
+							title="Wallpaper"
+						></a>
+					</nav>
+				</figcaption>
+			</figure>
 
-		<!-- <footer class="duckscape"></footer> -->
-	</body>
+			<figure class="large">
+				<img src="https://dl.uploadgram.me/626523b10a1cag?raw" />
+				<figcaption>
+					<h3>Visual Studio Code</h3>
+					My main IDE.
+
+					<nav>
+						<a
+							href="https://vscode.dev/"
+							icon="&#xE896;"
+							title="Download"
+						></a>
+						<a
+							href="https://vscode.dev/theme/sdras.night-owl"
+							icon="&#xE790;"
+							title="Theme"
+						></a>
+					</nav>
+				</figcaption>
+			</figure> -->
+		</section>
+
+		<section id="posts">
+			<summary icon="&#xF246;">Random Posts</summary>
+		</section>
+	</main>
+
+	<!-- <footer class="duckscape"></footer> -->
+</body>
 </html>
