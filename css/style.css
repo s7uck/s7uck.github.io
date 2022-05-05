@@ -14,7 +14,7 @@
 	--document-padding: 0;
 	--min-padding: 4px;
 	--standard-padding: 8px;
-	--max-padding: 10px;
+	--max-padding: 12px;
 	--section-padding: var(--max-padding);
 	--grid-columns: clamp(1, 2, 3);
 	--grid-column-template: repeat(var(--grid-columns), min-content);
@@ -23,7 +23,7 @@
 	--content-margin: clamp(0px, 15%, 25%);
 	--content-padding: 10%;
 
-	--sections-immersive-margin: 40%;
+	--sections-immersive-margin: 20%;
 
 	--card-width: min(300px, 100%);
 	--card-width-small: min(200px, 80%);
@@ -53,7 +53,7 @@
 	--control-corner-radius: 3px;
 	--section-corner-radius: 6px;
 	--circle: 50%;
-	--text-shadow: 0px 0px var(--min-padding) currentColor;
+	--text-shadow: 0px 0px var(--min-padding) var(--bright-black);
 	--section-box-shadow: 0px 3px 6px;
 	--border-bottom: 1px solid var(--border-muted);
 
@@ -102,10 +102,10 @@ body {
 	height: 100%;
 
 	background: var(--background);
-
-	/* 	background-image: url("../res/Duckscape.svg");
+	background: var(--spacefun);
 	background-repeat: no-repeat;
-	background-size: cover; */
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 body > main {
@@ -215,7 +215,9 @@ section {
 	padding: var(--section-padding);
 
 	border-radius: var(--section-corner-radius);
-	background: var(--background);
+	background: var(--background-max-opacity);
+
+	backdrop-filter: blur(8px);
 }
 section:nth-of-type(2n) {
 	text-align: center;
@@ -281,6 +283,7 @@ nav a {
 
 	font-family: var(--monospace-font);
 	text-decoration: none;
+	text-shadow: var(--text-shadow);
 
 	border-radius: var(--section-corner-radius);
 	color: var(--primary);

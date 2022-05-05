@@ -7,6 +7,7 @@
 	--bright-cyan: #ffc3d6;
 	--black: #0d1117;
 	--bright-black: #161b22;
+	--pass-through-black: #161b22aa;
 	--plain-black: black;
 	--red: #f82f1d;
 	--bright-red: #fa776d;
@@ -23,11 +24,14 @@
 	--primary: var(--purple);
 	--gradient: linear-gradient(to right, var(--purple), var(--bright-blue));
 	--gradient-alt: linear-gradient(to right, var(--blue), var(--green));
+
+	--spacefun: radial-gradient(circle at top left, var(--primary) 0%, #3364a3 38%, #000000 100%);
 }
 [theme="dark"],
 [theme="auto"] {
 	--background: var(--black);
 	--background-alt: var(--bright-black);
+	--background-max-opacity: var(--pass-through-black);
 	--foreground: var(--bright-white);
 	--foreground-alt: var(--white);
 
