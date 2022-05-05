@@ -17,6 +17,7 @@
 	--bright-yellow: #dda124;
 	--white: #ffe4f3;
 	--bright-white: #f2f2f2;
+	--pass-through-white: #f2f2f2aa;
 	--plain-white: white;
 	--grey: #d8e4f3;
 	--dark-grey: #21262d;
@@ -24,8 +25,9 @@
 	--primary: var(--purple);
 	--gradient: linear-gradient(to right, var(--purple), var(--bright-blue));
 	--gradient-alt: linear-gradient(to right, var(--blue), var(--green));
-
+	
 	--spacefun: radial-gradient(circle at top left, var(--primary) 0%, #3364a3 38%, #000000 100%);
+	--acrylic: blur(4px);
 }
 [theme="dark"],
 [theme="auto"] {
@@ -34,8 +36,35 @@
 	--background-max-opacity: var(--pass-through-black);
 	--foreground: var(--bright-white);
 	--foreground-alt: var(--white);
-
+	
 	--selection-background: var(--background-alt);
 	--cursor-color: var(--background-alt);
-	--border-muted: var(--dark-grey);
+	--border-muted: var(--pass-through-black);
+	--box-shadow-color: var(--border-muted);
+}
+[theme="light"] {
+	--background: var(--white);
+	--background-alt: var(--bright-white);
+	--background-max-opacity: var(--pass-through-white);
+	--foreground: var(--bright-black);
+	--foreground-alt: var(--black);
+
+	--selection-background: var(--foreground-alt);
+	--cursor-color: var(--foreground-alt);
+	--border-muted: var(--pass-through-black);
+	--box-shadow-color: var(--border-muted);
+}
+@media (prefers-color-scheme: light) {
+	[theme="auto"] {
+		--background: var(--white);
+		--background-alt: var(--bright-white);
+		--background-max-opacity: var(--pass-through-white);
+		--foreground: var(--bright-black);
+		--foreground-alt: var(--black);
+
+		--selection-background: var(--foreground-alt);
+		--cursor-color: var(--foreground-alt);
+		--border-muted: var(--pass-through-black);
+		--box-shadow-color: var(--border-muted);
+	}
 }

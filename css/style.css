@@ -1,5 +1,5 @@
 @import url("webbidings.css");
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=auto");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @font-face {
 	font-family: "JetBrains Mono NF";
 	src: url("../res/fonts/JB_Mono_NF.ttf");
@@ -21,7 +21,7 @@
 	--grid-auto-columns: fit-content;
 
 	--content-margin: clamp(0px, 15%, 25%);
-	--content-padding: 10%;
+	--content-padding: clamp(0px, 5%, 10%);
 
 	--sections-immersive-margin: 20%;
 
@@ -31,9 +31,9 @@
 	--propic-size: 1em;
 	--propic: url("https://avatars.githubusercontent.com/u/71439748");
 
-	--font: var(--icon-font), "Rubik";
+	--font: var(--icon-font), "Inter";
 	--monospace-font: "JetBrains Mono NF";
-	--title-font: var(--monospace-font);
+	--title-font: var(--font);
 	--title-size: 1.5rem;
 	--display-size: 2.5rem;
 	--title-weight: 400;
@@ -41,9 +41,14 @@
 	--subtitle-size: 1.5rem;
 	--icon-font: "Segoe Fluent Icons";
 	--icon-size: 1em;
-	--nav-link-font: var(--monospace-font);
-	--nav-link-size: 1rem;
+	--nav-link-font: var(--font);
 	--hieroglyphs: "Roboto Hieroglyphs";
+
+	--thin: 300;
+	--regular: 400;
+	--bold: 600;
+	--bolder: 700;
+	--thicc: 800;
 
 	--on-top: 10;
 	--in-between: 5;
@@ -54,8 +59,8 @@
 	--section-corner-radius: 6px;
 	--circle: 50%;
 	--text-shadow: 0px 0px var(--min-padding) var(--bright-black);
-	--section-box-shadow: 0px 3px 6px;
-	--border-bottom: 1px solid var(--border-muted);
+	--section-box-shadow: 0px 0px 8px var(--box-shadow-color);
+	--border-indicator: 3px solid var(--border-muted);
 
 	--min-opacity: 60%;
 	--standard-opacity: 100%;
@@ -95,10 +100,17 @@ body {
 
 	height: 100vh;
 
-	color-scheme: dark;
+	color-scheme: dark light;
+}
+
+:focus:not(:active) {
+	outline: var(--background-max-opacity) dashed 1px;
 }
 
 body {
+	display: grid;
+	justify-items: center;
+
 	height: 100%;
 
 	background: var(--background);
@@ -109,10 +121,7 @@ body {
 }
 
 body > main {
-	margin-inline: var(--content-margin) !important;
-	padding-inline: var(--section-padding) !important;
-
-	padding-inline-end: var(--content-padding) !important;
+	margin-inline: var(--content-margin);
 
 	animation: slide-up var(--longer-animation) forwards alternate;
 	animation-delay: var(--longer-animation);
@@ -122,19 +131,23 @@ header,
 footer {
 	display: block;
 
-	padding-top: var(--section-padding);
-	padding-bottom: var(--section-padding);
+	padding: var(--max-padding);
 	z-index: var(--on-top);
 
 	text-align: center;
 }
 
 header {
-	background-image: url("../res/DuckSVG_Light.svg");
-	background-size: contain;
+	margin: var(--max-padding);
+
+	max-width: fit-content;
+
+	border-radius: var(--section-corner-radius);
+	background: var(--background-max-opacity);
+	box-shadow: var(--section-box-shadow);
+	backdrop-filter: var(--acrylic);
 
 	animation: slide-down var(--long-animation) forwards;
-	animation: background-show var(--longer-animation) forwards;
 }
 header > * {
 	animation: slide-down var(--long-animation) forwards;
@@ -145,6 +158,20 @@ header > nav > *:hover {
 }
 header:nth-child(2n) {
 	animation-delay: var(--longer-animation);
+}
+.ducks {
+	position: absolute;
+
+	box-sizing: border-box;
+	padding: var(--section-padding);
+	z-index: var(--behind-content);
+
+	width: 100%;
+	height: 100vmax;
+
+	background: url("../res/DuckSVG_Light.svg");
+
+	animation: background-show var(--longer-animation) forwards;
 }
 
 h1,
@@ -158,6 +185,18 @@ h2,
 summary {
 	font-family: var(--title-font);
 	font-size: var(--title-size);
+}
+
+h1,
+h2,
+summary {
+	font-weight: var(--bolder);
+}
+h3,
+h4,
+b,
+nav:first-of-type {
+	font-weight: var(--bold);
 }
 
 @keyframes slide-down {
@@ -190,12 +229,12 @@ summary {
 }
 @keyframes background-show {
 	0% {
-		backdrop-filter: saturate(0);
-		background-size: 0% 100%;
+		filter: var(--acrylic);
+		background-size: 40vw 50vh;
+		background-position: -80vw 10vh;
 	}
 	100% {
-		backdrop-filter: saturate(100%);
-		background-size: 100% 100%;
+		background-size: 100vw 100vh;
 	}
 }
 
@@ -215,9 +254,7 @@ section {
 	padding: var(--section-padding);
 
 	border-radius: var(--section-corner-radius);
-	background: var(--background-max-opacity);
-
-	backdrop-filter: blur(8px);
+	color: var(--white);
 }
 section:nth-of-type(2n) {
 	text-align: center;
@@ -281,9 +318,8 @@ nav a {
 
 	padding: var(--min-padding);
 
-	font-family: var(--monospace-font);
+	font-family: var(--nav-link-font);
 	text-decoration: none;
-	text-shadow: var(--text-shadow);
 
 	border-radius: var(--section-corner-radius);
 	color: var(--primary);
@@ -293,6 +329,8 @@ nav a:hover {
 }
 nav a::after {
 	content: attr(title);
+
+	vertical-align: middle;
 }
 
 @media only screen and (max-width: 800px) {
@@ -404,8 +442,6 @@ img {
 }
 
 .stuck {
-	font-family: var(--monospace-font);
-
 	color: var(--primary);
 }
 .stuck {
