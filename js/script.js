@@ -107,7 +107,7 @@ telegramApiRequest(
 	[`chat_id=${socials.telegram.stucklounge}`],
 	(then = (data) => {
 		socials.telegram.subCount = data.result;
-		stuckloungeLink.setAttribute("subs", socials.telegram.subCount);
+		sl.setAttribute("subs", socials.telegram.subCount);
 	})
 );
 

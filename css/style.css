@@ -131,16 +131,19 @@ header,
 footer {
 	display: block;
 
-	padding: var(--max-padding);
 	z-index: var(--on-top);
 
 	text-align: center;
+}
+header > main {
+	padding: var(--max-padding);
 }
 
 header {
 	margin: var(--max-padding);
 
 	max-width: fit-content;
+	overflow: clip;
 
 	border-radius: var(--section-corner-radius);
 	background: var(--background-max-opacity);
@@ -149,11 +152,11 @@ header {
 
 	animation: slide-down var(--long-animation) forwards;
 }
-header > * {
+header * {
 	animation: slide-down var(--long-animation) forwards;
 	animation-delay: var(--long-animation);
 }
-header > nav > *:hover {
+header nav *:hover {
 	transform: scale(110%);
 }
 header:nth-child(2n) {
@@ -194,8 +197,7 @@ summary {
 }
 h3,
 h4,
-b,
-nav:first-of-type {
+b {
 	font-weight: var(--bold);
 }
 
@@ -238,15 +240,31 @@ nav:first-of-type {
 	}
 }
 
-footer {
+.start {
+	padding-bottom: 48px;
+}
+.start footer {
 	position: fixed;
 	bottom: 0;
 
-	margin-top: var(--standard-padding);
+	padding: var(--min-padding);
+	margin: 0;
 
+	height: 48px;
+}
+.start footer > nav {
+	justify-content: right;
+}
+
+footer {
 	width: 100%;
 
-	background: var(--background-alt);
+	background: var(--background-max-opacity);
+	backdrop-filter: var(--acrylic);
+}
+body > footer:last-child {
+	position: fixed;
+	bottom: 0;
 }
 
 section {
