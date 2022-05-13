@@ -23,7 +23,7 @@
 	--content-margin: clamp(0px, 15%, 25%);
 	--content-padding: clamp(0px, 5%, 10%);
 
-	--sections-immersive-margin: 20%;
+	--sections-immersive-margin: 15%;
 
 	--card-width: min(300px, 100%);
 	--card-width-small: min(200px, 80%);
@@ -98,8 +98,6 @@ body {
 	margin: var(--document-padding);
 	padding: var(--document-padding);
 
-	height: 100vh;
-
 	color-scheme: dark light;
 }
 
@@ -114,7 +112,6 @@ body {
 	height: 100%;
 
 	background: var(--background);
-	background: var(--spacefun);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -135,15 +132,10 @@ footer {
 
 	text-align: center;
 }
-header > main {
-	padding: var(--max-padding);
-}
 
 header {
 	margin: var(--max-padding);
-
-	max-width: fit-content;
-	overflow: clip;
+	padding: var(--section-padding);
 
 	border-radius: var(--section-corner-radius);
 	background: var(--background-max-opacity);
@@ -156,9 +148,6 @@ header * {
 	animation: slide-down var(--long-animation) forwards;
 	animation-delay: var(--long-animation);
 }
-header nav *:hover {
-	transform: scale(110%);
-}
 header:nth-child(2n) {
 	animation-delay: var(--longer-animation);
 }
@@ -169,12 +158,13 @@ header:nth-child(2n) {
 	padding: var(--section-padding);
 	z-index: var(--behind-content);
 
+	animation: background-show var(--longer-animation) forwards;
+}
+.ducks {
 	width: 100%;
 	height: 100vmax;
 
 	background: url("../res/DuckSVG_Light.svg");
-
-	animation: background-show var(--longer-animation) forwards;
 }
 
 h1,
@@ -238,22 +228,6 @@ b {
 	100% {
 		background-size: 100vw 100vh;
 	}
-}
-
-.start {
-	padding-bottom: 48px;
-}
-.start footer {
-	position: fixed;
-	bottom: 0;
-
-	padding: var(--min-padding);
-	margin: 0;
-
-	height: 48px;
-}
-.start footer > nav {
-	justify-content: right;
 }
 
 footer {
@@ -331,9 +305,7 @@ nav {
 	margin: var(--min-padding);
 }
 nav a {
-	margin-left: var(--min-padding);
-	margin-right: var(--min-padding);
-
+	margin-inline: var(--min-padding);
 	padding: var(--min-padding);
 
 	font-family: var(--nav-link-font);
@@ -344,6 +316,8 @@ nav a {
 }
 nav a:hover {
 	color: var(--foreground);
+
+	transform: scale(115%);
 }
 nav a::after {
 	content: attr(title);
