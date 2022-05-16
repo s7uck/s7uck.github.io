@@ -87,7 +87,11 @@
 }
 
 * {
+	box-sizing: border-box;
+
 	font-family: var(--font);
+
+	color: var(--foreground);
 
 	scroll-behavior: smooth;
 	transition: var(--animation);
@@ -98,7 +102,7 @@ body {
 	margin: var(--document-padding);
 	padding: var(--document-padding);
 
-	color-scheme: dark light;
+	3-scheme: dark light;
 }
 
 :focus:not(:active) {
@@ -134,12 +138,10 @@ footer {
 }
 
 header {
-	margin: var(--max-padding);
 	padding: var(--section-padding);
 
-	border-radius: var(--section-corner-radius);
-	background: var(--background-max-opacity);
-	box-shadow: var(--section-box-shadow);
+	width: 100%;
+
 	backdrop-filter: var(--acrylic);
 
 	animation: slide-down var(--long-animation) forwards;
@@ -151,20 +153,11 @@ header * {
 header:nth-child(2n) {
 	animation-delay: var(--longer-animation);
 }
-.ducks {
-	position: absolute;
-
-	box-sizing: border-box;
-	padding: var(--section-padding);
-	z-index: var(--behind-content);
+header:first-of-type {
+	background: var(--duck-svg);
+	background-size: contain;
 
 	animation: background-show var(--longer-animation) forwards;
-}
-.ducks {
-	width: 100%;
-	height: 100vmax;
-
-	background: url("../res/DuckSVG_Light.svg");
 }
 
 h1,
@@ -222,11 +215,11 @@ b {
 @keyframes background-show {
 	0% {
 		filter: var(--acrylic);
-		background-size: 40vw 50vh;
-		background-position: -80vw 10vh;
+		background-size: 40% 50%;
+		background-position: -80% 10%;
 	}
 	100% {
-		background-size: 100vw 100vh;
+		background-size: 100% 100%;
 	}
 }
 
@@ -246,7 +239,6 @@ section {
 	padding: var(--section-padding);
 
 	border-radius: var(--section-corner-radius);
-	color: var(--white);
 }
 section:nth-of-type(2n) {
 	text-align: center;

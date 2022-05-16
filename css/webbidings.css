@@ -25,9 +25,10 @@
 	--primary: var(--purple);
 	--gradient: linear-gradient(to right, var(--purple), var(--bright-blue));
 	--gradient-alt: linear-gradient(to right, var(--blue), var(--green));
-	
+
 	--spacefun: radial-gradient(circle at top left, var(--primary) 0%, #3364a3 38%, #000000 100%);
 	--acrylic: blur(4px);
+	--duck-svg: url("../res/DuckSVG_Light.svg");
 }
 [theme="dark"],
 [theme="auto"] {
@@ -36,7 +37,7 @@
 	--background-max-opacity: var(--pass-through-black);
 	--foreground: var(--bright-white);
 	--foreground-alt: var(--white);
-	
+
 	--selection-background: var(--background-alt);
 	--cursor-color: var(--background-alt);
 	--border-muted: var(--pass-through-black);
@@ -53,6 +54,7 @@
 	--cursor-color: var(--foreground-alt);
 	--border-muted: var(--pass-through-black);
 	--box-shadow-color: var(--border-muted);
+	--duck-svg: url("../res/DuckSVG.svg");
 }
 @media (prefers-color-scheme: light) {
 	[theme="auto"] {
@@ -66,5 +68,6 @@
 		--cursor-color: var(--foreground-alt);
 		--border-muted: var(--pass-through-black);
 		--box-shadow-color: var(--border-muted);
+		--duck-svg: url("../res/DuckSVG.svg");
 	}
 }
