@@ -1,81 +1,31 @@
 @import url("webbidings.css");
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@font-face {
-	font-family: "JetBrains Mono NF";
-	src: url("../res/fonts/JB_Mono_NF.ttf");
-}
+@import url("anime.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 @font-face {
 	font-family: "Segoe Fluent Icons";
 	src: url("../res/fonts/Segoe_Fluent_Icons.ttf");
-	font-display: swap;
 }
 
 :root {
-	--document-padding: 0;
-	--min-padding: 4px;
-	--standard-padding: 8px;
-	--max-padding: 12px;
-	--section-padding: var(--max-padding);
-	--grid-columns: clamp(1, 2, 3);
-	--grid-column-template: repeat(var(--grid-columns), min-content);
-	--grid-auto-columns: fit-content;
+	--page-margin: clamp(0px, 15%, 25%);
 
-	--content-margin: clamp(0px, 15%, 25%);
-	--content-padding: clamp(0px, 5%, 10%);
-
-	--sections-immersive-margin: 15%;
-
-	--card-width: min(300px, 100%);
-	--card-width-small: min(200px, 80%);
-	--card-width-large: max(300px, 100%);
-	--propic-size: 1em;
 	--propic: url("https://avatars.githubusercontent.com/u/71439748");
 
-	--font: var(--icon-font), "Inter";
+	--font: "Inter";
 	--monospace-font: "JetBrains Mono NF";
-	--title-font: var(--font);
-	--title-size: 1.5rem;
-	--display-size: 2.5rem;
-	--title-weight: 400;
-	--display-weight: 600;
-	--subtitle-size: 1.5rem;
 	--icon-font: "Segoe Fluent Icons";
-	--icon-size: 1em;
-	--nav-link-font: var(--font);
 	--hieroglyphs: "Roboto Hieroglyphs";
 
-	--thin: 300;
-	--regular: 400;
-	--bold: 600;
-	--bolder: 700;
-	--thicc: 800;
-
-	--on-top: 10;
-	--in-between: 5;
-	--normal: 0;
-	--behind-content: -5;
-
-	--control-corner-radius: 3px;
-	--section-corner-radius: 6px;
-	--circle: 50%;
-	--text-shadow: 0px 0px var(--min-padding) var(--bright-black);
-	--section-box-shadow: 0px 0px 8px var(--box-shadow-color);
+	--corner-radius: 3px;
+	--circle: 100vmax;
+	--text-shadow: 0px 0px 4px var(--bright-black);
+	--box-shadow: 0px 0px 8px var(--box-shadow-color);
 	--border-indicator: 3px solid var(--border-muted);
-
-	--min-opacity: 60%;
-	--standard-opacity: 100%;
-	--max-opacity: 80%;
 
 	--animation: 250ms ease;
 	--long-animation: 512ms ease;
 	--longer-animation: 864ms ease;
 	--background-animation: 10s;
-}
-@media only screen and (max-width: 800px) {
-	:root {
-		--content-padding: 25%;
-		--grid-columns: 1;
-	}
 }
 @media (prefers-reduced-motion) {
 	:root {
@@ -90,7 +40,6 @@
 	box-sizing: border-box;
 
 	font-family: var(--font);
-
 	color: var(--foreground);
 
 	scroll-behavior: smooth;
@@ -99,10 +48,10 @@
 
 html,
 body {
-	margin: var(--document-padding);
-	padding: var(--document-padding);
+	margin: 0;
+	padding: 0;
 
-	3-scheme: dark light;
+	color-scheme: dark light;
 }
 
 :focus:not(:active) {
@@ -110,9 +59,9 @@ body {
 }
 
 body {
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	justify-items: center;
-
 	height: 100%;
 
 	background: var(--background);
@@ -130,102 +79,22 @@ body > main {
 
 header,
 footer {
-	display: block;
-
-	z-index: var(--on-top);
-
 	text-align: center;
 }
 
 header {
-	padding: var(--section-padding);
-
+	padding: 12px;
 	width: 100%;
 
-	backdrop-filter: var(--acrylic);
-
-	animation: slide-down var(--long-animation) forwards;
-}
-header * {
-	animation: slide-down var(--long-animation) forwards;
-	animation-delay: var(--long-animation);
-}
-header:nth-child(2n) {
-	animation-delay: var(--longer-animation);
-}
-header:first-of-type {
-	background: var(--duck-svg);
+	background-image: var(--duck-svg);
 	background-size: contain;
 
-	animation: background-show var(--longer-animation) forwards;
+	animation: slide-down var(--long-animation) forwards, background-show var(--longer-animation) forwards;
 }
-
-h1,
-h2,
-h3,
-h4 {
-	margin-block: var(--min-padding);
+header > * {
+	margin-block-end: 4px;
 }
-
-h2,
-summary {
-	font-family: var(--title-font);
-	font-size: var(--title-size);
-}
-
-h1,
-h2,
-summary {
-	font-weight: var(--bolder);
-}
-h3,
-h4,
-b {
-	font-weight: var(--bold);
-}
-
-@keyframes slide-down {
-	0% {
-		opacity: 0;
-		transform: translateY(-100%);
-	}
-	30% {
-		opacity: 0;
-		transform: translateY(-80%);
-	}
-	100% {
-		opacity: 1;
-		transform: none;
-	}
-}
-@keyframes slide-up {
-	0% {
-		opacity: 0;
-		transform: translateY(100%);
-	}
-	30% {
-		opacity: 0;
-		transform: translateY(80%);
-	}
-	100% {
-		opacity: 1;
-		transform: none;
-	}
-}
-@keyframes background-show {
-	0% {
-		filter: var(--acrylic);
-		background-size: 40% 50%;
-		background-position: -80% 10%;
-	}
-	100% {
-		background-size: 100% 100%;
-	}
-}
-
 footer {
-	width: 100%;
-
 	background: var(--background-max-opacity);
 	backdrop-filter: var(--acrylic);
 }
@@ -234,180 +103,47 @@ body > footer:last-child {
 	bottom: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	margin-block: 4px;
+}
+
+h1 {
+	font-weight: bolder;
+}
+h2, summary {
+	font-size: 1.5rem;
+	font-weight: bolder;
+}
+.stuck {
+	color: var(--primary);
+}
+
 section {
-	margin-block-start: var(--sections-immersive-margin);
-	padding: var(--section-padding);
-
-	border-radius: var(--section-corner-radius);
+	margin-block-start: 10%;
+	padding: 12px;
+	margin-inline: clamp(0%, 15%, 20%);
 }
-section:nth-of-type(2n) {
-	text-align: center;
-
-	opacity: var(--max-opacity);
+article, dialog, summary {
+	max-width: 80ch;
 }
-section:nth-of-type(2n) > summary {
-	margin-inline-start: var(--sections-immersive-margin);
-}
-
-dialog {
+summary {
 	display: block;
-
-	padding: var(--standard-padding);
-
-	min-width: fit-content;
-
-	border-radius: var(--section-corner-radius);
-	background: var(--background-alt);
-}
-dialog::before {
-	content: attr(class) " ";
+	padding-block-end: 4px;
 }
 
 a {
 	color: var(--primary);
+	text-decoration: underline currentColor;
 }
-a:focus,
-a:hover,
-a:active,
-a:visited {
-	color: var(--bright-purple);
-}
-
 button {
-	padding: var(--standard-padding);
+	padding: 8px;
 
 	font-family: var(--monospace-font);
-	text-transform: uppercase;
 
 	border: none;
-	outline: none;
-	cursor: pointer;
-	border-radius: var(--control-corner-radius);
+	border-radius: 3px;
 	background: var(--background-alt);
 }
-button:hover {
-	background: var(--primary);
-	color: var(--foreground);
-}
-
-nav {
-	display: flex;
-	justify-content: center;
-
-	margin: var(--min-padding);
-}
-nav a {
-	margin-inline: var(--min-padding);
-	padding: var(--min-padding);
-
-	font-family: var(--nav-link-font);
-	text-decoration: none;
-
-	border-radius: var(--section-corner-radius);
-	color: var(--primary);
-}
-nav a:hover {
-	color: var(--foreground);
-
-	transform: scale(115%);
-}
-nav a::after {
-	content: attr(title);
-
-	vertical-align: middle;
-}
-
-@media only screen and (max-width: 800px) {
-	nav a::after {
-		display: none;
-	}
-}
-
-nav.social a {
-	color: var(--foreground-alt);
-}
-.sub-counter,
-nav.social a[subs]::before {
-	content: attr(subs);
-
-	padding: var(--min-padding);
-
-	min-width: fit-content;
-
-	font-family: var(--monospace-font);
-	font-size: small;
-
-	vertical-align: middle;
-
-	border-radius: var(--control-corner-radius);
-	background: var(--background-alt);
-
-	animation: sub-counter-load var(--longer-animation) forwards alternate;
-}
-nav.social a[subs]:hover::before {
-	content: "++";
-
-	background: var(--primary);
-
-	animation: sub-counter-content var(--longer-animation) forwards alternate;
-}
-nav.social a[subs]:active::before {
-	content: ":D";
-
-	animation: sub-counter-added var(--longer-animation) forwards alternate;
-}
-@keyframes sub-counter-load {
-	0% {
-		content: "++";
-	}
-	50% {
-		color: transparent;
-	}
-	100% {
-		content: attr(subs);
-	}
-}
-@keyframes sub-counter-content {
-	0% {
-		content: attr(subs);
-	}
-	50% {
-		color: transparent;
-	}
-	100% {
-		content: "++";
-	}
-}
-@keyframes sub-counter-added {
-	0% {
-		content: "++";
-	}
-	50% {
-		color: transparent;
-	}
-	100% {
-		content: ":D";
-	}
-}
-
-article,
-dialog,
-summary {
-	max-width: 80ch;
-}
-article.post,
-article.message {
-	margin-left: var(--min-padding);
-	margin-right: var(--min-padding);
-
-	max-width: fit-content;
-}
-summary {
-	display: block;
-
-	padding-block-end: var(--min-padding);
-}
-
 li {
 	list-style: "├ ";
 }
@@ -415,81 +151,32 @@ li:last-of-type {
 	list-style: "└ ";
 }
 
-[icon]::before {
-	display: inline;
-	content: attr(icon);
-	margin-inline-end: var(--min-padding);
-}
-
 img {
 	vertical-align: middle;
 }
 
-.stuck {
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 12px;
+}
+nav a {
+	text-decoration: none;
+	color: var(--foreground);
+}
+nav a:hover {
+	font-size: 1.10rem;
 	color: var(--primary);
 }
-.stuck {
-	--background-gradient: var(--gradient);
-	background: var(--background-gradient);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-.stuck:hover {
-	font-size: var(--display-size);
-	font-weight: var(--display-weight);
-
-	--background-gradient: var(--gradient-alt);
-}
-.stuck::after {
-	content: " \10996";
-}
-
-figure,
-figure > img {
-	position: relative;
-
-	width: var(--card-width);
-
-	border-radius: var(--section-corner-radius);
-}
-figure.small,
-figure.small > img {
-	width: var(--card-width-small);
-}
-figure.large,
-figure.large > img {
-	width: var(--card-width-large);
-}
-figcaption {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-
-	padding: var(--section-padding);
-
-	width: inherit;
-	height: inherit;
-
-	border-radius: 0 0 var(--section-corner-radius) var(--section-corner-radius);
-	background: var(--background-alt);
-	opacity: var(--max-opacity);
-}
-
-icon,
-[icon]::before {
-	display: inline;
-
-	font-family: var(--icon-font);
-	font-size: var(--icon-size);
-
-	vertical-align: middle;
+nav img {
+	width: 1.25em;
+	height: auto;
 }
 
 .propic {
 	content: var(--propic);
 }
-
 img.propic {
 	margin-top: var(--min-padding);
 	margin-bottom: var(--min-padding);
@@ -503,6 +190,22 @@ h1 .propic {
 	--propic-size: 58px;
 }
 
+icon,
+[icon]::before {
+	display: inline;
+
+	font-family: var(--icon-font);
+	font-size: 1em;
+
+	vertical-align: middle;
+}
+[icon]::before {
+	display: inline;
+	content: attr(icon);
+}
+[icon]:not(:empty)::before {
+	margin-inline-end: 4px;
+}
 icon.propic {
 	--propic-size: var(--icon-size);
 	width: var(--propic-size);

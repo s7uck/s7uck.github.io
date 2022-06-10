@@ -1,28 +1,11 @@
-let socials = {
-	telegram: {
-		me: 211772602,
-		stucklounge: -1001388295920,
-		stucklings: -1001565929365,
-		portal: -1001542175762,
-		bot: "1861542114:AAFEySytSsmFuQ4BslQv22XfBh636O36eNs",
-		api: "https://api.telegram.org/bot",
-		history: {},
-		chat: {},
-		subCount: 0,
-	},
-	github: {
-		me: 71439748,
-	},
-	youtube: "UCVX9qM9QKKpQQ8PXSRWs_NA",
-};
+let telegramBot = "1861542114:AAFEySytSsmFuQ4BslQv22XfBh636O36eNs";
+let stucklounge = -1001388295920;
+stucklounge.__proto__.subCount = 0;
 
-Math["randint"] = (max) => {
-	return Math.floor(Math.random() * max);
-};
-Math["randomChoice"] = (list) => {
-	let randomIndex = Math.randint(list.length);
-	return list[randomIndex];
-};
+Math["randint"] = max =>
+	Math.floor(Math.random() * max);
+Math["randomChoice"] = list =>
+	list[Math.randint(list.length)];
 
 function telegramPost(
 	channel,
@@ -69,7 +52,7 @@ function telegramPost(
 function telegramApiRequest(method, args, then = (data) => {}) {
 	let result = {};
 	fetch(
-		`${socials.telegram.api}${socials.telegram.bot}/${method}?${args.join("&")}`
+		`https://api.telegram.org/bot${telegramBot}/${method}?${args.join("&")}`
 	)
 		.then((response) => {
 			return response.json();
@@ -104,35 +87,9 @@ function shishcatGetChannelHistory(
 
 telegramApiRequest(
 	"getChatMemberCount",
-	[`chat_id=${socials.telegram.stucklounge}`],
+	[`chat_id=${stucklounge}`],
 	(then = (data) => {
-		socials.telegram.subCount = data.result;
-		sl.setAttribute("subs", socials.telegram.subCount);
+		stucklounge.__proto__.subCount = data.result;
+		sl.setAttribute("subs", stucklounge.subCount);
 	})
 );
-
-telegramApiRequest(
-	"getChat",
-	[`chat_id=${socials.telegram.stucklounge}`],
-	(then = (data) => {
-		socials.telegram.chat = data.result;
-	})
-);
-
-/* shishcatGetChannelHistory(
-	`stucklounge`,
-	(before = 0),
-	(after = 0),
-	(then = (data) => {
-		socials.telegram.history = data.msgs;
-		let history = socials.telegram.history;
-		let recentOrderHistory = Object.keys(history).reverse();
-
-		recentOrderHistory.forEach((msgId) => {
-			if (!history[msgId].text?.includes("span dir")) {
-				let postWidget = telegramPost(`stucklounge`, msgId);
-				posts.innerHTML = postWidget.widget.html;
-			}
-		});
-	})
-); */
