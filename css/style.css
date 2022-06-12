@@ -119,16 +119,30 @@ h2, summary {
 }
 
 section {
-	margin-block-start: 10%;
+	margin-block-start: 5%;
 	padding: 12px;
 	margin-inline: clamp(0%, 15%, 20%);
 }
 article, dialog, summary {
 	max-width: 80ch;
 }
+article {
+	white-space: pre-line;
+}
 summary {
 	display: block;
 	padding-block-end: 4px;
+}
+
+@media only screen and (min-width: 800px) {
+	.flex {
+		display: flex;
+		gap: 8px;
+	}
+	.flex-spacy {
+		display: flex;
+		gap: 26px;
+	}
 }
 
 a {

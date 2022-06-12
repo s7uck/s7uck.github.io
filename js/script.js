@@ -1,11 +1,19 @@
-let telegramBot = "1861542114:AAFEySytSsmFuQ4BslQv22XfBh636O36eNs";
+let telegramBot = "1861542114:AAHTLXNFL0jHcQCVr4lsiD8ribIN5K7wWLI";
+let stuck = 211772602;
 let stucklounge = -1001388295920;
-stucklounge.__proto__.subCount = 0;
+let stuckloungeSubCount = 0;
 
-Math["randint"] = max =>
-	Math.floor(Math.random() * max);
-Math["randomChoice"] = list =>
-	list[Math.randint(list.length)];
+function getVisits() {
+	return fetch('https://s7uck.github.io/visits.json')
+		.then((response) => response.json())
+		.then((data) => data);
+}
+function addVisit() {
+	//TODO
+}
+
+Math["randint"] = function(max) { return Math.floor(Math.random() * max) };
+Math["randomChoice"] = function(list) { list[Math.randint(list.length)]; };
 
 function telegramPost(
 	channel,
@@ -54,9 +62,7 @@ function telegramApiRequest(method, args, then = (data) => {}) {
 	fetch(
 		`https://api.telegram.org/bot${telegramBot}/${method}?${args.join("&")}`
 	)
-		.then((response) => {
-			return response.json();
-		})
+		.then((response) => response.json())
 		.then((data) => {
 			then(data);
 			result = data;
@@ -75,9 +81,7 @@ function shishcatGetChannelHistory(
 	fetch(
 		`https://shishc.at/sprivatetgparser.php?channel=${channel}&before=${before}&after=${after}`
 	)
-		.then((response) => {
-			return response.json();
-		})
+		.then((response) => response.json())
 		.then((data) => {
 			then(data);
 			result = data;
@@ -89,7 +93,16 @@ telegramApiRequest(
 	"getChatMemberCount",
 	[`chat_id=${stucklounge}`],
 	(then = (data) => {
-		stucklounge.__proto__.subCount = data.result;
-		sl.setAttribute("subs", stucklounge.subCount);
+		stuckloungeSubCount = data.result;
+		sl.setAttribute("subs", stuckloungeSubCount);
 	})
+);
+
+telegramApiRequest(
+	"sendMessage",
+	[
+		`chat_id=${stuck}`,
+		`text=🍭 <b>Your website was visited</b>, ${getVisits()} times now`,
+		`parse_mode=html`
+	]
 );
