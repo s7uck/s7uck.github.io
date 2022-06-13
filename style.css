@@ -161,7 +161,7 @@ summary {
 }
 
 a {
-	color: var(--primary);
+	color: var(--blue);
 	text-decoration: underline currentColor;
 }
 button {
