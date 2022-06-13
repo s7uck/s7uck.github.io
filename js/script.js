@@ -98,11 +98,11 @@ telegramApiRequest(
 	})
 );
 
-telegramApiRequest(
-	"sendMessage",
-	[
-		`chat_id=${stuck}`,
-		`text=🍭 <b>Your website was visited</b>, ${getVisits()} times now`,
-		`parse_mode=html`
-	]
-);
+// telegramApiRequest(
+// 	"sendMessage",
+// 	[
+// 		`chat_id=${stuck}`,
+// 		`text=🍭 <b>Your website was visited</b>, ${getVisits()} times now`,
+// 		`parse_mode=html`
+// 	]
+// );

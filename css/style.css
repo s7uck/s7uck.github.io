@@ -135,13 +135,28 @@ summary {
 }
 
 @media only screen and (min-width: 800px) {
-	.flex {
-		display: flex;
-		gap: 8px;
+	body > main > section:nth-of-type(n) {
+		float: left;
 	}
-	.flex-spacy {
-		display: flex;
-		gap: 26px;
+	body > main > section:nth-of-type(2n) {
+		float: right;
+	}
+}
+
+.flex {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.flex.spacy {
+	gap: 26px;
+}
+.flex.wrap {
+	flex-wrap: wrap;
+}
+@media only screen and (min-width: 800px) {
+	.flex {
+		flex-direction: row;
 	}
 }
 
@@ -158,6 +173,10 @@ button {
 	border-radius: 3px;
 	background: var(--background-alt);
 }
+:not(nav) > a[href^="https://"]::after {
+  content: ' \E8A7';
+	font-size: 50%;
+}
 li {
 	list-style: "├ ";
 }
@@ -172,6 +191,7 @@ img {
 nav {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
 	gap: 12px;
 }
@@ -180,12 +200,41 @@ nav a {
 	color: var(--foreground);
 }
 nav a:hover {
-	font-size: 1.10rem;
 	color: var(--primary);
+	transform: scale(120%);
 }
 nav img {
 	width: 1.25em;
-	height: auto;
+}
+
+figure {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+
+	margin: unset;
+	overflow: hidden;
+	max-width: 100%;
+
+	background: var(--background-max-opacity);
+	border-radius: 6px;
+}
+figcaption {
+	padding: 16px;
+	width: 100%;
+	z-index: 10;
+
+	text-align: center;
+
+	background: var(--background-max-opacity);
+	backdrop-filter: var(--acrylic);
+}
+@media only screen and (min-width: 600px) {
+	figcaption {
+		position: absolute;
+		bottom: 0;
+	}
 }
 
 .propic {
@@ -205,9 +254,12 @@ h1 .propic {
 }
 
 icon,
-[icon]::before {
+[icon]::before,
+icon *,
+a::after {
 	display: inline;
 
+	width: 1em;
 	font-family: var(--icon-font);
 	font-size: 1em;
 
