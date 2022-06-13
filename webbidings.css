@@ -28,7 +28,7 @@
 
 	--spacefun: radial-gradient(circle at top left, var(--primary) 0%, #3364a3 38%, #000000 100%);
 	--acrylic: blur(4px);
-	--duck-svg: url("../res/DuckSVG_Light.svg");
+	--duck-svg: url("svg/DuckSVG_Light.svg");
 }
 [theme="dark"],
 [theme="auto"] {
@@ -54,7 +54,7 @@
 	--cursor-color: var(--foreground-alt);
 	--border-muted: var(--pass-through-black);
 	--box-shadow-color: var(--border-muted);
-	--duck-svg: url("../res/DuckSVG.svg");
+	--duck-svg: url("svg/DuckSVG.svg");
 }
 @media (prefers-color-scheme: light) {
 	[theme="auto"] {
@@ -68,6 +68,6 @@
 		--cursor-color: var(--foreground-alt);
 		--border-muted: var(--pass-through-black);
 		--box-shadow-color: var(--border-muted);
-		--duck-svg: url("../res/DuckSVG.svg");
+		--duck-svg: url("svg/DuckSVG.svg");
 	}
 }

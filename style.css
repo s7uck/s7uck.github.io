@@ -1,9 +1,9 @@
 @import url("webbidings.css");
 @import url("anime.css");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 @font-face {
 	font-family: "Segoe Fluent Icons";
-	src: url("../res/fonts/Segoe_Fluent_Icons.ttf");
+	src: url("fonts/Segoe_Fluent_Icons.ttf");
+	font-display: auto;
 }
 
 :root {
