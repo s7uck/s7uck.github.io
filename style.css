@@ -11,8 +11,8 @@
 
 	--propic: url("https://avatars.githubusercontent.com/u/71439748");
 
-	--font: "Inter";
-	--monospace-font: "JetBrains Mono NF";
+	--font: "Inter", sans-serif;
+	--monospace-font: monospace;
 	--icon-font: "Segoe Fluent Icons";
 	--hieroglyphs: "Roboto Hieroglyphs";
 
@@ -161,7 +161,7 @@ summary {
 }
 
 a {
-	color: var(--blue);
+	color: var(--primary);
 	text-decoration: underline currentColor;
 }
 button {
