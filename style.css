@@ -244,13 +244,7 @@ img.propic {
 	margin-top: var(--min-padding);
 	margin-bottom: var(--min-padding);
 
-	width: var(--propic-size);
-	height: var(--propic-size);
-
 	border-radius: var(--circle);
-}
-h1 .propic {
-	--propic-size: 58px;
 }
 
 icon,
