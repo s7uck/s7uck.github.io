@@ -183,10 +183,10 @@ time {
 	font-weight: bold;
 }
 
-li {
+ul li {
 	list-style: "├ ";
 }
-li:last-of-type {
+ul li:last-of-type {
 	list-style: "└ ";
 }
 
