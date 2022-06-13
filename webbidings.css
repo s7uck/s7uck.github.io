@@ -44,8 +44,8 @@
 	--box-shadow-color: var(--border-muted);
 }
 [theme="light"] {
-	--background: var(--bright-white);
-	--background-alt: var(--white);
+	--background: var(--white);
+	--background-alt: var(--bright-white);
 	--background-max-opacity: var(--pass-through-white);
 	--foreground: var(--bright-black);
 	--foreground-alt: var(--black);

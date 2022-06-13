@@ -92,7 +92,7 @@ header {
 	animation: slide-down var(--long-animation) forwards, background-show var(--longer-animation) forwards;
 }
 header > * {
-	margin-block-end: 4px;
+	margin-bottom: 4px;
 }
 footer {
 	background: var(--background-max-opacity);
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-weight: bolder;
+	font-family: bolder;
 }
 h2, summary {
 	font-size: 1.5rem;
@@ -119,7 +119,7 @@ h2, summary {
 }
 
 section {
-	margin-block-start: 5%;
+	margin-top: 5%;
 	padding: 12px;
 	margin-inline: clamp(0%, 15%, 20%);
 }
@@ -131,7 +131,7 @@ article {
 }
 summary {
 	display: block;
-	padding-block-end: 4px;
+	padding-bottom: 4px;
 }
 
 @media only screen and (min-width: 800px) {
@@ -163,7 +163,6 @@ summary {
 a {
 	color: var(--primary);
 	text-decoration: underline currentColor;
-	font-weight: bold;
 }
 button {
 	padding: 8px;
@@ -271,7 +270,7 @@ a::after {
 	content: attr(icon);
 }
 [icon]:not(:empty)::before {
-	margin-inline-end: 4px;
+	margin-right: 4px;
 }
 icon.propic {
 	--propic-size: var(--icon-size);
