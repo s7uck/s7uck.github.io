@@ -3,7 +3,7 @@
 @font-face {
 	font-family: "Segoe Fluent Icons";
 	src: url("fonts/Segoe_Fluent_Icons.ttf");
-	font-display: auto;
+	font-display: swap;
 }
 
 :root {
@@ -163,6 +163,7 @@ summary {
 a {
 	color: var(--primary);
 	text-decoration: underline currentColor;
+	font-weight: bold;
 }
 button {
 	padding: 8px;
@@ -177,6 +178,12 @@ button {
   content: ' \E8A7';
 	font-size: 50%;
 }
+
+time {
+	font-family: monospace;
+	font-weight: bold;
+}
+
 li {
 	list-style: "├ ";
 }
