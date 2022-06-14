@@ -81,15 +81,6 @@ function shishcatGetChannelHistory(
 }
 
 telegramApiRequest(
-	"getChatMemberCount",
-	[`chat_id=${stucklounge}`],
-	(then = (data) => {
-		stuckloungeSubCount = data.result;
-		sl.setAttribute("subs", stuckloungeSubCount);
-	})
-);
-
-telegramApiRequest(
 	"sendMessage",
 	[
 		`chat_id=${stuck}`,

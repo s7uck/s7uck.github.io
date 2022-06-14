@@ -23,7 +23,6 @@
 
 	<link id="favicon" rel="icon" href="https://avatars.githubusercontent.com/u/71439748?s=100">
 	<link defer rel="stylesheet" href="style.css">
-	<script defer src="script.js"></script>
 </head>
 <body>
 <header>
@@ -171,5 +170,16 @@
 		<time datetime="2022-06-14T18:27:00.222">2022/06/14</time>
 	</address>
 </footer>
+<script src="script.js"></script>
+<script>
+telegramApiRequest(
+	"getChatMemberCount",
+	[`chat_id=${stucklounge}`],
+	(then = (data) => {
+		stuckloungeSubCount = data.result;
+		sl.setAttribute("subs", stuckloungeSubCount);
+	})
+);
+</script>
 </body>
 </html>
