@@ -119,7 +119,6 @@
 <section id="projects">
 	<h2>Projects</h2>
 	<h4><a href="public/projects.html" icon="&#xE8A7;">see all »</a></h4>
-
 	<div class="flex spacy">
 		<figure>
 			<img src="images/Crystal_Impress.png" loading="lazy"
@@ -164,16 +163,16 @@
 		<time datetime="2022-06-14T18:27:00.222">2022/06/14</time>
 	</address>
 </footer>
-<script src="script.js"></script>
+<script src="script.js">
+</script>
 <script>
-telegramApiRequest(
-	"getChatMemberCount",
-	[`chat_id=${stucklounge}`],
-	(then = (data) => {
-		stuckloungeSubCount = data.result;
-		sl.setAttribute("subs", stuckloungeSubCount);
-	})
-);
+(async function() {
+	subs = await telegramApiRequest(
+		"getChatMemberCount",
+		[`chat_id=${stucklounge}`]
+	);
+	sl.setAttribute('subs', subs);
+})();
 </script>
 </body>
 </html>

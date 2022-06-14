@@ -1,130 +1,17 @@
-let telegramBot = "1861542114:AAHTLXNFL0jHcQCVr4lsiD8ribIN5K7wWLI";
+let here = new URL(location.href);
+// this bot is useless so it's ok to expose the token
+let telegramBot = "5331820739:AAGB1RV_2hTeJQfkYs3qhHaNQQ8L8vDKdEY";
 let stuck = 211772602;
 let stucklounge = -1001388295920;
-let stuckloungeSubCount = 0;
-
-Math["randint"] = function(max) { return Math.floor(Math.random() * max) };
-Math["randomChoice"] = function(list) { list[Math.randint(list.length)]; };
-
-function telegramPost(
-	channel,
-	messageId,
-	accent = "7085B2",
-	darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-		? true
-		: false,
-	showComments = false,
-	commentsLimit = 3,
-	userColors = true
-) {
-	let commentsEmbed = `<script id='comments__${messageId}' async
-		src="https://telegram.org/js/telegram-widget.js?18"
-		data-telegram-discussion="${channel}/${messageId}"
-		data-comments-limit="${commentsLimit}"
-		${userColors && 'data-colorful="1"'}
-		data-color="${accent}"
-	></script>`;
-	let postEmbed = `<article class='message'>
-		<script id='post__${messageId}' async
-			src="https://telegram.org/js/telegram-widget.js?18"
-			data-telegram-post="${channel}/${messageId}"
-			data-color="${accent}"
-			${darkMode && 'data-dark="1"'}
-		></script>
-	</article>`;
-
-	let postHtml = postEmbed;
-	let commentsHtml = showComments ? commentsEmbed : "";
-
-	let embedHtml = `<article class='message'>
-		${postHtml}
-		${commentsHtml}
-	</article>`;
-
-	return {
-		widget: {
-			html: embedHtml,
-		},
-	};
+let subs = 0;
+URL.prototype.getArgument = function(name) {
+	return this.searchParams.get(name);
 }
 
-function telegramApiRequest(method, args, then = (data) => {}) {
-	let result = {};
-	fetch(
+async function telegramApiRequest(method, args) {
+	return await fetch(
 		`https://api.telegram.org/bot${telegramBot}/${method}?${args.join("&")}`
 	)
-		.then((response) => response.json())
-		.then((data) => {
-			then(data);
-			result = data;
-			return result;
-		});
-}
-
-/* Thanks shishc.at	for the JSON API <3 */
-function shishcatGetChannelHistory(
-	channel,
-	before = 0,
-	after = 0,
-	then = (data) => {}
-) {
-	let result = {};
-	fetch(
-		`https://shishc.at/sprivatetgparser.php?channel=${channel}&before=${before}&after=${after}`
-	)
-		.then((response) => response.json())
-		.then((data) => {
-			then(data);
-			result = data;
-			return result;
-		});
-}
-
-function reportVisit() {
-	return telegramApiRequest(
-		"sendMessage",
-		[
-			`chat_id=${stuck}`,
-			`text=🍭 <b>Your website was visited</b>!`,
-			`parse_mode=html`,
-			`disable_notification=true`
-		],
-		(then = (data) => {
-			console.log(
-				`%c Logged your visit
-	%cJust letting Stuck know that someone was here!
-	 If you want to prevent this type %cdontping()`,
-				`font-size: larger;
-				font-weight: bold;
-				color: #7085B2;`,
-				`all: initial;`,
-				`font-family: monospace;`);
-		})
-	);
-}
-function dontping() {
-	if (localStorage) {
-		localStorage.dontping = true;
-	}
-	telegramApiRequest(
-		"sendMessage",
-		[
-			`chat_id=${stuck}`,
-			`text=🛑 Someone asked not to ping you when visiting your website`,
-			`parse_mode=html`,
-			`disable_notification=true`
-		]
-	);
-	console.log(`Visits won't be logged anymore`);
-	return localStorage;
-}
-function ping() {
-	if (localStorage) {
-		localStorage.dontping = false;
-	}
-	reportVisit();
-	return localStorage;
-}
-if (localStorage && !(localStorage.dontping ?? false)) {
-	reportVisit();
+	.then((response) => response.json())
+	.then((data) => data.result);
 }
