@@ -104,11 +104,13 @@ body > footer:last-child {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-block: 4px;
+	display: block;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 h1 {
-	font-family: bolder;
+	font-weight: bolder;
 }
 h2, summary {
 	font-size: 1.5rem;
@@ -121,7 +123,8 @@ h2, summary {
 section {
 	margin-top: 5%;
 	padding: 12px;
-	margin-inline: clamp(0%, 15%, 20%);
+	margin-left: clamp(0%, 10%, 15%);
+	margin-right: clamp(0%, 5%, 10%);
 }
 article, dialog, summary {
 	max-width: 80ch;
@@ -129,40 +132,29 @@ article, dialog, summary {
 article {
 	white-space: pre-line;
 }
-summary {
-	display: block;
-	padding-bottom: 4px;
-}
-
-@media only screen and (min-width: 800px) {
-	body > main > section:nth-of-type(n) {
-		float: left;
-	}
-	body > main > section:nth-of-type(2n) {
-		float: right;
-	}
-}
 
 .flex {
 	display: flex;
-	flex-direction: column;
 	gap: 8px;
 }
 .flex.spacy {
-	gap: 26px;
+	gap: 16px;
 }
 .flex.wrap {
 	flex-wrap: wrap;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (max-width: 975px) {
 	.flex {
-		flex-direction: row;
+		flex-wrap: wrap;
 	}
+}
+.flex.vertical {
+	flex-direction: column;
 }
 
 a {
 	color: var(--primary);
-	text-decoration: underline currentColor;
+	text-decoration: none;
 }
 button {
 	padding: 8px;
@@ -173,14 +165,10 @@ button {
 	border-radius: 3px;
 	background: var(--background-alt);
 }
-:not(nav) > a[href^="https://"]::after {
-  content: ' \E8A7';
-	font-size: 50%;
-}
 
 time {
 	font-family: monospace;
-	font-weight: bold;
+	font-size: 1.2em;
 }
 
 ul li {
@@ -189,8 +177,12 @@ ul li {
 ul li:last-of-type {
 	list-style: "└ ";
 }
+hr {
+	border-color: var(--background-alt);
+}
 
 img {
+	max-height: 100%;
 	vertical-align: middle;
 }
 
@@ -202,7 +194,6 @@ nav {
 	gap: 12px;
 }
 nav a {
-	text-decoration: none;
 	color: var(--foreground);
 }
 nav a:hover {
@@ -221,6 +212,7 @@ figure {
 
 	margin: unset;
 	overflow: hidden;
+	width: fit-content;
 	max-width: 100%;
 
 	background: var(--background-max-opacity);
@@ -241,6 +233,32 @@ figcaption {
 		position: absolute;
 		bottom: 0;
 	}
+	figure.small figcaption {
+		position: initial;
+		bottom: unset;
+	}
+}
+figure.full > img {
+	width: 100%;
+	height: auto;
+}
+figure.full figcaption {
+	position: initial;
+	bottom: unset;
+}
+figure.photo figcaption {
+	text-align: inherit;
+}
+figure.icon img, img.icon {
+	padding: 8px;
+	width: 48px;
+	height: 48px;
+
+	background: currentColor;
+	border-radius: var(--circle);
+}
+figure.icon img {
+	margin: 16px;
 }
 
 .propic {
@@ -255,8 +273,7 @@ img.propic {
 
 icon,
 [icon]::before,
-icon *,
-a::after {
+icon * {
 	display: inline;
 
 	width: 1em;
