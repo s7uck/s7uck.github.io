@@ -19,6 +19,7 @@
 	<meta property="og:image:width" content="460">
 	<meta property="og:image:height" content="460">
 	<meta property="og:image:alt" content="StuckDuck's profile picture">
+	<meta http-http-equiv="SameSite" content="Strict">
 
 	<link id="favicon" rel="icon" href="https://avatars.githubusercontent.com/u/71439748?s=100">
 	<link defer rel="stylesheet" href="style.css">
@@ -27,14 +28,13 @@
 <body>
 <header>
 	<img class="propic" src="https://avatars.githubusercontent.com/u/71439748?s=100" width="58" height="58" alt="My profile picture">
-	<hi>Hi, I'm <span class="stuck">StuckDuck 🦆</span></h1>
+	<h1>Hi, I'm <span class="stuck">StuckDuck 🦆</span></h1>
 
 	<nav id="navbar">
 		<a href="#about" icon="&#xE80F;">Home</a>
 		<a href="#skills" icon="&#xF156;">Skills</a>
-		<a href="#projects" icon="&#xF157;">Projects</a>
-		<a href="#contribs" icon="&#xF158;">Contributions</a>
-		<a href="public/setup.html" icon="&#xF159;">Setup</a>
+		<a href="#projects" icon="&#xF159;">Projects</a>
+			<a href="public/setup.html" icon="&#xF157;">Setup</a>
 	</nav>
 
 	<nav class="social">
@@ -42,292 +42,134 @@
 		<a id="sl" href="https://t.me/s/Stucklounge" title="Stucklounge" subs="++"></a>
 		<a href="https://github.com/s7uck" title="GitHub"><img src="https://img.icons8.com/fluent/48/github.png" width="20" height="20" alt="GitHub logo"></a>
 		<a href="https://discordapp.com/users/569798561844297768" title="Discord"><img src="https://img.icons8.com/fluent/48/discord.png" width="20" height="20" alt="Discord logo"></a>
-		<a href="https://github.com/s7uck/s7uck.github.io/" icon="&#xE943;">Source code</a>
 	</nav>
-
-	<address>
-		made by <a rel="author" href="https://t.me/Stucklounge">StuckDuck</a>
-		last modified on <time datetime="2022-06-13T18:27:00.222">2022/06/13</time>
-	</address>
 </header>
 
 <main>
-	<section>
-		<h2>About me</h2>
-		<article id="about" class="home">My name's StuckDuck and I write code for fun.
-			I'm a free software enthusiast, so I use and contribute to a lot open source software,
-			like <a href="https://atom.io">atom</a>, <a href="https://github.com/morethanwords/tweb">Telegram Messenger</a> and, of course, <a href="https://archlinux.org">Arch Linux</a>.
+<section>
+	<h2>About me</h2>
+	<article id="about" class="home">My name's StuckDuck and I write code for fun.
+		I'm a free software enthusiast, so I use and contribute to a lot open source software,
+		like <a href="https://atom.io">atom</a>, <a href="https://github.com/morethanwords/tweb">Telegram Messenger</a> and, of course, <a href="https://archlinux.org">Arch Linux</a>.
 
-			I approached tech (and later programming and CS) early in my life, which is why I'm so passionate about it nowadays.
-			Fairly unfortunately, my first experience ever with serious coding was a PHP 5 server with a stupid website, but thanks to it I was introduced to web development.
-			With web development came <b>JavaScript</b>, arguably my biggest <a href="#skills">skill</a> to date!
+		I approached tech (and later programming and CS) early in my life, which is why I'm so passionate about it nowadays.
+		Fairly unfortunately, my first experience ever with serious coding was a PHP 5 server with a stupid website, but thanks to it I was introduced to web development.
+		With web development came <b>JavaScript</b>, arguably my biggest <a href="#skills">skill</a> to date!
 
-			Oh, and I also love anime, which is why I literally abbreviate anything that has to do with animation down to "anime".
-			I'm a <em>huge</em> science nerd too. That's about all you need to know about me!
-		</article>
-	</section>
+		Oh, and I also love anime, which is why I literally abbreviate anything that has to do with animation down to "anime".
+		I'm a <em>huge</em> science nerd too. That's about all you need to know about me!
+	</article>
+</section>
 
-	<section id="skills">
-		<h2>Skills</h2>
+<section id="skills">
+	<h2>Skills</h2>
+	<div class="flex spacy">
+		<figure class="small icon">
+			<img src="https://img.icons8.com/fluent/48/node-js.png" alt="JavaScript logo">
+			<figcaption>
+				<h3>JavaScript</h3>
+				Started learning <time datetime="2021-08-21">2021/08/21</time>
+			</figcaption>
+		</figure>
+		<figure class="small icon">
+			<img src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="C# logo">
+			<figcaption>
+				<h3>C#</h3>
+				Started learning <time datetime="2021-07-14">2021/07/14</time>
+			</figcaption>
+		</figure>
+		<figure class="small icon">
+			<img src="https://img.icons8.com/color/48/typescript.png" alt="Typescript logo">
+			<figcaption>
+				<h3>TypeScript</h3>
+				Started learning <time datetime="2021-12-29">2021/12/29</time>
+			</figcaption>
+		</figure>
+		<figure class="small icon">
+			<img src="https://img.icons8.com/fluent/48/windows-11.png" alt="Windows 11 logo">
+			<figcaption>
+				<h3>WinUI 2</h3>
+				Started learning <time datetime="2022-05-23">2021/07/14</time>
+			</figcaption>
+		</figure>
+	</div>
+	<br>
+	<h3>I'm also learning:</h3>
+	<div class="flex spacy">
+		<figure class="small icon">
+			<img src="https://img.icons8.com/fluent/48/c.png" alt="C letter">
+			<figcaption>
+				<h3>C++</h3>
+			</figcaption>
+		</figure>
+		<figure class="small icon">
+			<img src="https://img.icons8.com/color/48/vue-js.png" alt="Vue.js logo">
+			<figcaption>
+				<h3>Vue</h3>
+			</figcaption>
+		</figure>
+		<figure class="small icon">
+			<img src="https://img.icons8.com/fluent/48/php.png" alt="PHP icon">
+			<figcaption>
+				<h3>PHP</h3>
+			</figcaption>
+		</figure>
+		<figure class="small icon">
+			<img src="https://img.icons8.com/fluent/48/windows8-tablet.png" alt="Windows 8 Tablet">
+			<figcaption>
+				<h3>WinRT</h3>
+			</figcaption>
+		</figure>
+	</div>
+</section>
 
-		<div class="flex spacy">
-			<figure class="small icon">
-				<img src="https://img.icons8.com/fluent/48/node-js.png" alt="JavaScript logo">
-				<figcaption>
-					<h3>JavaScript</h3>
-					Started learning <time datetime="2021-08-21">2021/08/21</time>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="C# logo">
-				<figcaption>
-					<h3>C#</h3>
-					Started learning <time datetime="2021-07-14">2021/07/14</time>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://img.icons8.com/color/48/typescript.png" alt="Typescript logo">
-				<figcaption>
-					<h3>TypeScript</h3>
-					Started learning <time datetime="2021-12-29">2021/12/29</time>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://img.icons8.com/fluent/48/database.png" alt="Database icon">
-				<figcaption>
-					<h3>.NET</h3>
-					Started learning <time datetime="2022-05-23">2022/05/23</time>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://img.icons8.com/fluent/48/windows-11.png" alt="Windows 11 logo">
-				<figcaption>
-					<h3>WinUI 2</h3>
-					Started learning <time datetime="2022-05-23">2021/07/14</time>
-				</figcaption>
-			</figure>
-		</div>
-		<h3>I'm also learning:</h3>
-		<br><br>
-		<div class="flex spacy">
-			<figure class="small icon">
-				<img src="https://img.icons8.com/fluent/48/c.png" alt="C letter">
-				<figcaption>
-					<h3>C++</h3>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://img.icons8.com/color/48/vue-js.png" alt="Vue.js logo">
-				<figcaption>
-					<h3>Vue</h3>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://img.icons8.com/fluent/48/php.png" alt="PHP icon">
-				<figcaption>
-					<h3>PHP</h3>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://img.icons8.com/fluent/48/windows8-tablet.png" alt="Windows 8 Tablet">
-				<figcaption>
-					<h3>WinRT</h3>
-				</figcaption>
-			</figure>
-		</div>
-	</section>
+<section id="projects">
+	<h2>Projects</h2>
+	<h4><a href="public/projects.html" icon="&#xE8A7;">see all »</a></h4>
 
-	<section id="projects">
-		<h2>Projects</h2>
-
-		<div class="flex spacy">
-			<figure>
-				<img src="images/Crystal_Impress.png" loading="lazy"
-				alt="Crystal logo">
-				<figcaption>
-					<icon>&#xE768;</icon> <h3>Crystal Browser</h3>
-					A hackable Windows browser
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/Webbidings_Impress.png" loading="lazy"
-				alt="Webbidings logo">
-				<figcaption>
-					<icon>&#xE73A;</icon> <h3>Webbidings</h3>
-					A soft, cyan-based theme
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/MoonPhases_Impress.png" loading="lazy"
-				alt="Photo of the crescent Moon during a sunset">
-				<figcaption>
-					<icon>&#xE768;</icon> <h3>Moon Phases</h3>
-					Real time phases of the Moon
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/Vuegram_Impress.png" loading="lazy"
-				alt="Vuegram logo">
-				<figcaption>
-					<icon>&#xE916;</icon> <h3>Vuegram</h3>
-					Vue-based Telegram client
-				</figcaption>
-			</figure>
-		</div>
-	</section>
-
-	<section id="contribs">
-		<summary>Contributions</summary>
-
-		<div class="flex spacy">
-			<figure>
-				<img src="images/TWeb_Impress.png" loading="lazy"
-				alt="Telegram logo">
-				<figcaption>
-					<icon>&#xE768;</icon> <h3>Telegram Web</h3>
-					A web client for Telegram based on React, that I <a href="https://github.com/s7uck/tweb-patch">forked</a> to include new features
-				</figcaption>
-			</figure>
-		</div>
-	</section>
-
-	<section id="setup">
-		<h2>My Setup</h2>
-
-		<article>
-			I use a 2017 Acer Aspire, running <b>Windows 11</b> Home, and (when my EFI config decides to cooperate) in parallel with <b>Arch Linux</b>.
-		</article>
-		<br><br>
-		<div class="flex">
-			<figure class="full photo">
-				<img src="images/win.png" loading="lazy"
-				alt="Screenshot of my Windows 11 rig">
-				<figcaption>
-					<div class="flex">
-						<img class="icon" src="https://img.icons8.com/fluent/48/windows-11.png" alt="Windows 11 Logo">
-						<div class="flex-row">
-							<h3>Windows 11</h3>
-							<time datetime="2022-06-14T12:54:30.222">2022/06/14</time>
-						</div>
-					</div>
-				</figcaption>
-			</figure>
-			<figure class="full photo">
-				<img src="images/arch.png" loading="lazy"
-				alt="Screenshot of my Arch Linux rig">
-				<figcaption>
-					<div class="flex">
-						<img class="icon" src="https://img.icons8.com/color/48/linux.png" alt="Tux">
-						<div class="flex-row">
-							<h3>Arch Linux</h3>
-							<time datetime="2022-05-15T11:15:04.222">2022/05/15</time>
-						</div>
-					</div>
-				</figcaption>
-			</figure>
-		</div>
-		<br>
-		<h3>Stack</h3>
-
-		<div class="flex">
-			<figure class="small icon">
-				<img src="https://img.icons8.com/fluent/48/windows-11.png" alt="Windows 11 logo">
-				<figcaption>
-					<h3>Windows 11</h3>
-					<nav>
-						<a href="https://microsoft.com/software-download/" icon="&#xECC5;">ISO</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://github.com/files-community/Files/blob/main/src/Files.Uwp/Assets/AppTiles/Square44x44Logo.targetsize-48.png?raw=true" alt="Files App logo">
-				<figcaption>
-					<h3>Files</h3>
-					<nav>
-						<a href="https://files.community" icon="&#xE896;">Download</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://git-scm.com/favicon.ico" alt="Git Logo">
-				<figcaption>
-					<h3>git</h3>
-					<nav>
-						<a href="https://git-scm.com" icon="&#xE896;">git it</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://www.chromium.org/_assets/customLogo.png" alt="Chromium Logo">
-				<figcaption>
-					<h3>Chromium</h3>
-					<nav>
-						<a href="https://download-chromium.appspot.com" icon="&#xE896;">Download</a>
-						<a href="https://source.chromium.org" icon="&#xE943;">Source code</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://avatars.githubusercontent.com/u/1089146?s=48" alt="Atom logo">
-				<figcaption>
-					<h3>Atom</h3>
-					<nav>
-						<a href="https://atom.io" icon="&#xE896;">Download</a>
-						<a href="https://github.com/atom" icon="&#xE943;">Source code</a>
-					</nav>
-				</figcaption>
-			</figure>
-		</div>
-		<hr>
-		<div class="flex">
-			<figure class="small icon">
-				<img src="https://img.icons8.com/color/48/linux.png" alt="Tux">
-				<figcaption>
-					<h3>Arch</h3>
-					<nav>
-						<a href="https://archlinux.org" icon="&#xE958;">Get Arch</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://kde.org/stuff/clipart/logo/plasma-logo-colorful-128x128.png" alt="KDE Plasma Logo">
-				<figcaption>
-					<h3>KDE Plasma</h3>
-					<nav>
-						<a href="https://kde.org" icon="&#xE896;">Get Plasma</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://git-scm.com/favicon.ico" alt="Git Logo">
-				<figcaption>
-					<h3>git</h3>
-					<nav>
-						<a href="https://git-scm.com" icon="&#xE896;">Git it</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Mozilla_Firefox_2004_Logo.png/240px-Mozilla_Firefox_2004_Logo.png" alt="Firefox Logo">
-				<figcaption>
-					<h3>Firefox</h3>
-					<nav>
-						<a href="https://mozilla.org" icon="&#xE896;">Download</a>
-					</nav>
-				</figcaption>
-			</figure>
-			<figure class="small icon">
-				<img src="https://avatars.githubusercontent.com/u/1089146?s=48" alt="Atom logo">
-				<figcaption>
-					<h3>Atom</h3>
-					<nav>
-						<a href="https://atom.io" icon="&#xE896;">Download</a>
-						<a href="https://github.com/atom" icon="&#xE943;">Source code</a>
-					</nav>
-				</figcaption>
-			</figure>
-		</div>
-	</section>
+	<div class="flex spacy">
+		<figure>
+			<img src="images/Crystal_Impress.png" loading="lazy"
+			alt="Crystal logo">
+			<figcaption>
+				<icon>&#xE768;</icon> <h3>Crystal Browser</h3>
+				A hackable Windows browser
+			</figcaption>
+		</figure>
+		<figure>
+			<img src="images/Webbidings_Impress.png" loading="lazy"
+			alt="Webbidings logo">
+			<figcaption>
+				<icon>&#xE73A;</icon> <h3>Webbidings</h3>
+				A soft, cyan-based theme
+			</figcaption>
+		</figure>
+		<figure>
+			<img src="images/MoonPhases_Impress.png" loading="lazy"
+			alt="Photo of the crescent Moon during a sunset">
+			<figcaption>
+				<icon>&#xE768;</icon> <h3>Moon Phases</h3>
+				Real time phases of the Moon
+			</figcaption>
+		</figure>
+		<figure>
+			<img src="images/Vuegram_Impress.png" loading="lazy"
+			alt="Vuegram logo">
+			<figcaption>
+				<icon>&#xE916;</icon> <h3>Vuegram</h3>
+				Vue-based Telegram client
+			</figcaption>
+		</figure>
+	</div>
+</section>
 </main>
+
+<footer>
+	<icon>&#xF159;</icon>
+	<address>
+		<a rel="author" href="https://t.me/Stucklounge">StuckDuck</a>,
+		<time datetime="2022-06-14T18:27:00.222">2022/06/14</time>
+	</address>
+</footer>
 </body>
 </html>

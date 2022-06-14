@@ -3,15 +3,6 @@ let stuck = 211772602;
 let stucklounge = -1001388295920;
 let stuckloungeSubCount = 0;
 
-function getVisits() {
-	return fetch('https://s7uck.github.io/visits.json')
-		.then((response) => response.json())
-		.then((data) => data);
-}
-function addVisit() {
-	//TODO
-}
-
 Math["randint"] = function(max) { return Math.floor(Math.random() * max) };
 Math["randomChoice"] = function(list) { list[Math.randint(list.length)]; };
 
@@ -98,11 +89,21 @@ telegramApiRequest(
 	})
 );
 
-// telegramApiRequest(
-// 	"sendMessage",
-// 	[
-// 		`chat_id=${stuck}`,
-// 		`text=🍭 <b>Your website was visited</b>, ${getVisits()} times now`,
-// 		`parse_mode=html`
-// 	]
-// );
+telegramApiRequest(
+	"sendMessage",
+	[
+		`chat_id=${stuck}`,
+		`text=🍭 <b>Your website was visited</b>!`,
+		`parse_mode=html`,
+		`disable_notification=true`
+	],
+	(then = (data) => {
+		console.log(
+			`%c Logged your visit
+	%c Just letting Stuck know that someone was here!`,
+			`font-size: larger;
+			font-weight: bold;
+			color: #7085B2;`,
+			`all: initial;`);
+	})
+);

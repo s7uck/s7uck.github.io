@@ -1,0 +1,71 @@
+"*":
+  "atom-clock":
+    dateFormat: "HH:mm:ss"
+    locale: "it"
+    refreshInterval: 1
+    showClockIcon: true
+    showTooltip: true
+    tooltipDateFormat: "LL, HH:mm:ss"
+  core:
+    autoHideMenuBar: true
+    packagesWithKeymapsDisabled: [
+      "auto-dark-mode"
+    ]
+    projectHome: "E:\\Dev"
+    restorePreviousWindowsOnStart: "no"
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+    titleBar: "hidden"
+  editor:
+    fontFamily: "Fira Code, monospace"
+    fontSize: 15
+    showIndentGuide: true
+    tabType: "hard"
+  "exception-reporting":
+    userId: "a85491a7-7c2f-4431-b040-3e6c07e9bbaf"
+  "bracket-matcher":
+    alwaysSkipClosingPairs: true
+    highlightMatchingLineNumber: true
+    pairsWithExtraNewline: [
+      "()"
+      "[]"
+      "{}"
+      "``"
+    ]
+  "atom-windows-titlebar":
+    hideFrame: true
+  "atom-material-ui":
+    colors:
+      abaseColor: "#7085b2"
+      accentColor: "#d8e4f3"
+    fonts: {}
+    tabs:
+      compactTabs: true
+      tintedTabBar: true
+  "auto-dark-mode":
+    darkProfile: "one-dark-ui one-dark-syntax"
+    lightProfile: "one-light-ui one-light-syntax"
+  "atom-discord":
+    behaviour: {}
+    detail:
+      text: "editing-file"
+    elapsed:
+      handleRest: "pause"
+    largeImage:
+      image: "false"
+      text: "false"
+    rest:
+      fileName: "false"
+      largeImage: "false"
+      restOnAfk: true
+      smallImage: "text"
+      typeName: "editing-idle"
+    smallImage:
+      image: "currentType"
+      text: "custom"
+      textCustom: "Coding in %type%"
+    state:
+      text: "working-project"

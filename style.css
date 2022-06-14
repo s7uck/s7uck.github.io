@@ -55,7 +55,7 @@ body {
 }
 
 :focus:not(:active) {
-	outline: var(--background-max-opacity) dashed 1px;
+	outline: currentColor dashed 1px;
 }
 
 body {
@@ -79,13 +79,12 @@ body > main {
 
 header,
 footer {
+	padding: 12px;
+	width: 100%;
 	text-align: center;
 }
 
 header {
-	padding: 12px;
-	width: 100%;
-
 	background-image: var(--duck-svg);
 	background-size: contain;
 
@@ -99,8 +98,6 @@ footer {
 	backdrop-filter: var(--acrylic);
 }
 body > footer:last-child {
-	position: fixed;
-	bottom: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
