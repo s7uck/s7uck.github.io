@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" theme="auto">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Introduzione</title>
+	<base href=".">
+	<link defer rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<main>
+<header>
+<nav>
+	<a href="index.html" icon="&#xE80D;">inizio</a>
+	<a href="index.html" icon="&#xE892;">indietro</a>
+	<a href="2_variables.html" icon="&#xE893;">avanti</a>
+</nav>
+</header>
+
+<h1>Introduzione</h1>
+
+<article>
+<dfn>C++ è un <b>superset</b> di C, un linguaggio di programmazione compilato, procedurale a basso livello.</dfn>
+C++ nasce per aggiungere le <b>classi</b> a C, che non le supporta, ma anche una ampia <abbr title="inclusa nel linguaggio"><b>libreria standard</b></abbr>, completa di funzioni di aiuto nella manipolazione dei numeri, degli array, del testo e così via.
+
+Ecco un esempio di codice C++:
+
+<code>// main.cpp
+#include &lt;iostream&gt;
+int main() {
+	std::cout << "Hello world!";
+	return 0;
+}
+</code>
+
+Analizziamo il codice riga per riga.
+<ol>
+	<li>
+		La prima linea è un <dfn>commento</dfn>. Non è importante per l'esecuzione del codice, quindi andiamo avanti.
+	</li>
+	<li>
+		La seconda linea <dfn>dichiara una funzione</dfn>. Qui specifichiamo il <i>tipo di ritorno</i> della funzione:
+		in questo caso, la nostra funzione ci restituisce un <i>numero</i>, che in C++ è chiamato <dfn>int</dfn>.
+	</li>
+	<li>
+		La terza linea <dfn>inserisce una stringa</dfn> in <samp>std::cout</samp>:
+		<ul>
+			<li><samp>::</samp> è l'<dfn>operatore di scope</dfn>, ossia ci permette di accedere agli elementi di una libreria. In questo caso recuperiamo <samp>cout</samp> da <samp>std</samp></li>
+			<li>l'operatore <samp>&lt;&lt;</samp> è l'<dfn>operatore di inserimento</dfn>: inserisce un valore all'interno di <samp>std::cout</samp></li>
+			<li>la linea termina con <samp>;</samp> come tutte le istruzioni C++</li>
+		</ul>
+	</li>
+	<li>
+		La quarta linea <dfn>restituisce un valore</dfn>, in questo caso numerico, 0. Nella funzione <samp>main()</samp>, ossia quella eseguita all'inizio del programma,
+		un valore di <samp>0</samp> significa uscita senza errori, mentre <samp>1</samp> o superiore indica una qualche forma di errore.
+	</li>
+</ol>
+
+Il programma viene poi passato a un qualunque compiler per trasformarlo in un eseguibile, che possiamo poi avviare.
+Il file si chiamerà, in questo caso, <samp>main.out</samp>.
+</article>
+</main>
+
+<footer>
+	<icon>&#xF159;</icon>
+	<address>
+		<a rel="author" href="https://t.me/Stucklounge">StuckDuck</a>,
+		<time datetime="2022-06-14T20:19:00.222">2022/06/14</time>
+	</address>
+</footer>
+</body>
+</html>
