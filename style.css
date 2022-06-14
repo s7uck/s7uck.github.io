@@ -7,32 +7,21 @@
 }
 
 :root {
-	--page-margin: clamp(0px, 15%, 25%);
-
 	--propic: url("https://avatars.githubusercontent.com/u/71439748");
 
 	--font: "Inter", sans-serif;
 	--monospace-font: monospace;
 	--icon-font: "Segoe Fluent Icons";
-	--hieroglyphs: "Roboto Hieroglyphs";
-
-	--corner-radius: 3px;
-	--circle: 100vmax;
-	--text-shadow: 0px 0px 4px var(--bright-black);
-	--box-shadow: 0px 0px 8px var(--box-shadow-color);
-	--border-indicator: 3px solid var(--border-muted);
 
 	--animation: 250ms ease;
 	--long-animation: 512ms ease;
 	--longer-animation: 864ms ease;
-	--background-animation: 10s;
 }
 @media (prefers-reduced-motion) {
 	:root {
 		--animation: 0ms;
 		--long-animation: 0ms;
 		--longer-animation: 0ms;
-		--background-animation: 0s;
 	}
 }
 
@@ -96,8 +85,6 @@ header > * {
 footer {
 	background: var(--background-max-opacity);
 	backdrop-filter: var(--acrylic);
-}
-body > footer:last-child {
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -252,7 +239,7 @@ figure.icon img, img.icon {
 	height: 48px;
 
 	background: currentColor;
-	border-radius: var(--circle);
+	border-radius: 100vmax;
 }
 figure.icon img {
 	margin: 16px;
@@ -265,7 +252,7 @@ img.propic {
 	margin-top: var(--min-padding);
 	margin-bottom: var(--min-padding);
 
-	border-radius: var(--circle);
+	border-radius: 100vmax;
 }
 
 icon,
@@ -291,5 +278,5 @@ icon.propic {
 	width: var(--propic-size);
 	height: var(--propic-size);
 
-	border-radius: var(--circle);
+	border-radius: 100vmax;
 }
