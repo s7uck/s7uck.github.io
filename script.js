@@ -80,21 +80,51 @@ function shishcatGetChannelHistory(
 		});
 }
 
-telegramApiRequest(
-	"sendMessage",
-	[
-		`chat_id=${stuck}`,
-		`text=🍭 <b>Your website was visited</b>!`,
-		`parse_mode=html`,
-		`disable_notification=true`
-	],
-	(then = (data) => {
-		console.log(
-			`%c Logged your visit
-	%c Just letting Stuck know that someone was here!`,
-			`font-size: larger;
-			font-weight: bold;
-			color: #7085B2;`,
-			`all: initial;`);
-	})
-);
+function reportVisit() {
+	return telegramApiRequest(
+		"sendMessage",
+		[
+			`chat_id=${stuck}`,
+			`text=🍭 <b>Your website was visited</b>!`,
+			`parse_mode=html`,
+			`disable_notification=true`
+		],
+		(then = (data) => {
+			console.log(
+				`%c Logged your visit
+	%cJust letting Stuck know that someone was here!
+	 If you want to prevent this type %cdontping()`,
+				`font-size: larger;
+				font-weight: bold;
+				color: #7085B2;`,
+				`all: initial;`,
+				`font-family: monospace;`);
+		})
+	);
+}
+function dontping() {
+	if (localStorage) {
+		localStorage.dontping = true;
+	}
+	telegramApiRequest(
+		"sendMessage",
+		[
+			`chat_id=${stuck}`,
+			`text=🛑 Someone asked not to ping you when visiting your website`,
+			`parse_mode=html`,
+			`disable_notification=true`
+		]
+	);
+	console.log(`Visits won't be logged anymore`);
+	return localStorage;
+}
+function ping() {
+	if (localStorage) {
+		localStorage.dontping = false;
+	}
+	reportVisit();
+	return localStorage;
+}
+if (localStorage && !(localStorage.dontping ?? false)) {
+	reportVisit();
+}
