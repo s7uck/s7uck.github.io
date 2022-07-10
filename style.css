@@ -1,4 +1,4 @@
-@import url("webbidings.css");
+@import url("colors.css");
 @import url("anime.css");
 @font-face {
 	font-family: "Segoe Fluent Icons";
@@ -8,42 +8,14 @@
 
 :root {
 	--propic: url("https://avatars.githubusercontent.com/u/71439748");
-
-	--font: "Inter", sans-serif;
-	--monospace-font: monospace;
-	--icon-font: "Segoe Fluent Icons";
-
-	--animation: 250ms ease;
-	--long-animation: 512ms ease;
-	--longer-animation: 864ms ease;
-}
-@media (prefers-reduced-motion) {
-	:root {
-		--animation: 0ms;
-		--long-animation: 0ms;
-		--longer-animation: 0ms;
-	}
 }
 
 * {
-	box-sizing: border-box;
-
-	font-family: var(--font);
-	color: var(--foreground);
-
 	scroll-behavior: smooth;
-	transition: var(--animation);
+	transition: 250ms;
 }
 
-html,
-body {
-	margin: 0;
-	padding: 0;
-
-	color-scheme: dark light;
-}
-
-:focus:not(:active) {
+:focus {
 	outline: currentColor dashed 1px;
 }
 
@@ -52,18 +24,11 @@ body {
 	flex-direction: column;
 	justify-items: center;
 	height: 100%;
-
-	background: var(--background);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
 }
 
 body > main {
-	margin-inline: var(--content-margin);
-
-	animation: slide-up var(--longer-animation) forwards alternate;
-	animation-delay: var(--longer-animation);
+	margin-left: var(--content-margin);
+	margin-right: var(--content-margin);
 }
 
 header,
@@ -77,44 +42,35 @@ header {
 	background-image: var(--duck-svg);
 	background-size: contain;
 
-	animation: slide-down var(--long-animation) forwards, background-show var(--longer-animation) forwards;
-}
-header > * {
-	margin-bottom: 4px;
-}
-footer {
-	background: var(--background-max-opacity);
-	backdrop-filter: var(--acrylic);
-}
-footer.bottom {
-	position: fixed;
-	bottom: 0;
+	animation: slide-down 512ms forwards, background-show 1s forwards;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	display: block;
-	margin-top: 4px;
-	margin-bottom: 4px;
+a {
+	text-decoration: none;
 }
-
-h1 {
-	font-weight: bolder;
+h1, h2, h3, h4 {
+	margin-top: unset;
+	margin-bottom: 4px;
 }
 h2, summary {
 	font-size: 1.5rem;
 	font-weight: bolder;
 }
 .stuck {
-	color: var(--primary);
+	color: #7085B2;
 }
 
 main {
 	padding-left: clamp(0%, 10%, 15%);
-	padding-right: clamp(0%, 5%, 10%);
+	padding-right: clamp(0%, 10%, 15%);
 }
-section {
-	margin-top: 5%;
-	padding: 12px;
+main, footer {
+	animation: slide-up 1s forwards alternate;
+}
+div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
 }
 article, dialog, summary, code {
 	max-width: 80ch;
@@ -130,50 +86,21 @@ code {
 
 	white-space: pre;
 	font-family: monospace;
-
-	background: var(--background-alt);
-	border-radius: 6px;
 }
 samp {
 	font-family: monospace;
 }
 
-.flex {
-	display: flex;
-	gap: 8px;
-}
-.flex.spacy {
-	gap: 16px;
-}
-.flex.wrap {
-	flex-wrap: wrap;
-}
-@media only screen and (max-width: 975px) {
-	.flex {
-		flex-wrap: wrap;
-	}
-}
-.flex.vertical {
-	flex-direction: column;
-}
-
-a {
-	color: var(--primary);
-	text-decoration: none;
-}
-button {
-	padding: 8px;
-
-	font-family: var(--monospace-font);
-
-	border: none;
-	border-radius: 3px;
-	background: var(--background-alt);
-}
-
 time {
 	font-family: monospace;
-	font-size: 1.2em;
+}
+
+table th {
+	text-align: left;
+}
+th, td {
+	padding: 4px;
+	outline: 1px dashed #1e1e1e;
 }
 
 ul li {
@@ -182,13 +109,34 @@ ul li {
 ul li:last-of-type {
 	list-style: "└ ";
 }
-hr {
-	border-color: var(--background-alt);
-}
 
 img {
 	max-height: 100%;
 	vertical-align: middle;
+}
+figure {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	margin: unset;
+	overflow: hidden;
+	width: fit-content;
+	max-width: 100%;
+	border-radius: 6px;
+}
+figcaption {
+	padding: 16px;
+	width: 100%;
+	text-align: center;
+	background: lightgrey;
+}
+figure > img {
+	width: 100%;
+	height: auto;
+}
+a figure:hover {
+	transform: scale(104%);
 }
 
 nav {
@@ -199,105 +147,35 @@ nav {
 	gap: 12px;
 }
 nav a {
-	color: var(--foreground);
+	text-decoration: none;
 }
 nav a:hover {
-	color: var(--primary);
+	color: #7085B2;
 	transform: scale(120%);
 }
 nav img {
 	width: 1.25em;
 }
 
-figure {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: relative;
-
-	margin: unset;
-	overflow: hidden;
-	width: fit-content;
-	max-width: 100%;
-
-	background: var(--background-max-opacity);
-	border-radius: 6px;
-}
-figcaption {
-	padding: 16px;
-	width: 100%;
-	z-index: 10;
-
-	text-align: center;
-
-	background: var(--background-max-opacity);
-	backdrop-filter: var(--acrylic);
-}
-@media only screen and (min-width: 600px) {
-	figcaption {
-		position: absolute;
-		bottom: 0;
-	}
-	figure.small figcaption {
-		position: initial;
-		bottom: unset;
-	}
-}
-figure.full > img {
-	width: 100%;
-	height: auto;
-}
-figure.full figcaption {
-	position: initial;
-	bottom: unset;
-}
-figure.photo figcaption {
-	text-align: inherit;
-}
-figure.icon img, img.icon {
-	padding: 8px;
-	width: 48px;
-	height: 48px;
-
-	background: currentColor;
-	border-radius: 100vmax;
-}
-figure.icon img {
-	margin: 16px;
-}
-
 .propic {
 	content: var(--propic);
 }
 img.propic {
-	margin-top: var(--min-padding);
-	margin-bottom: var(--min-padding);
-
 	border-radius: 100vmax;
 }
 
-icon,
-[icon]::before,
-icon * {
+icon {
 	display: inline;
 
 	width: 1em;
-	font-family: var(--icon-font);
+	font-family: "Segoe Fluent Icons";
 	font-size: 1em;
 
 	vertical-align: middle;
 }
-[icon]::before {
-	display: inline;
-	content: attr(icon);
-}
-[icon]:not(:empty)::before {
-	margin-right: 4px;
-}
 icon.propic {
-	--propic-size: var(--icon-size);
-	width: var(--propic-size);
-	height: var(--propic-size);
+	width: 1em;
+	height: 1em;
 
 	border-radius: 100vmax;
 }
