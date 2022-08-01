@@ -1,8 +1,9 @@
 @import url("colors.css");
 @import url("anime.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @font-face {
 	font-family: "Segoe Fluent Icons";
-	src: url("fonts/Segoe_Fluent_Icons.ttf");
+	src: url("https://s7uck.github.io/fonts/Segoe_Fluent_Icons.ttf");
 	font-display: swap;
 }
 
@@ -13,6 +14,7 @@
 * {
 	scroll-behavior: smooth;
 	transition: 250ms;
+	font-family: "Inter";
 }
 
 :focus {
@@ -129,11 +131,14 @@ figcaption {
 	padding: 16px;
 	width: 100%;
 	text-align: center;
-	background: lightgrey;
 }
 figure > img {
 	width: 100%;
 	height: auto;
+	object-fit: cover;
+}
+figure > img:hover {
+	object-fit: contain;
 }
 a figure:hover {
 	transform: scale(104%);
@@ -164,7 +169,8 @@ img.propic {
 	border-radius: 100vmax;
 }
 
-icon {
+icon,
+[icon]:before {
 	display: inline;
 
 	width: 1em;
@@ -172,6 +178,9 @@ icon {
 	font-size: 1em;
 
 	vertical-align: middle;
+}
+[icon]:before {
+	content: attr(icon) " ";
 }
 icon.propic {
 	width: 1em;
