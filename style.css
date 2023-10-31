@@ -48,6 +48,6 @@ header, .list { flex-direction: column;}
 ul, ol, menu { padding-left: 0;}
 figure { margin: 0;}
 .icon, menu img, button img {
-	max-width: 1em;
+	max-height: 1em;
 	vertical-align: middle;
 }
