@@ -46,6 +46,7 @@ header, .list { flex-direction: column;}
 	flex-wrap: nowrap;
 }
 ul, ol, menu { padding-left: 0;}
+figure { margin: 0;}
 .icon, menu img, button img {
 	max-width: 1em;
 	vertical-align: middle;
