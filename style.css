@@ -45,6 +45,13 @@ header, .list { flex-direction: column;}
 	flex-direction: row;
 	flex-wrap: nowrap;
 }
+.chip, button {
+	display: inline-block;
+	padding: 4px 10px;
+	border: 1px solid #08C7BB;
+	border-radius: 2px;
+	font-size: 0.8em;
+}
 ul, ol, menu { padding-left: 0;}
 figure { margin: 0;}
 .icon, menu img, button img {
