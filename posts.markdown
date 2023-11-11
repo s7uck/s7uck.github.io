@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Posts
+listing: true
 ---
 
 {% for post in site.posts %}
