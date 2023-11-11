@@ -24,3 +24,11 @@ listing: true
 	</div>
 </article>
 {% endfor %}
+
+<footer>
+	<nav>
+		<menu>
+			<li><a href="/feed.xml" title="RSS feed"><img src="/images/rss_icon.webp" alt="RSS feed"></a></li>
+		</menu>
+	</nav>
+</footer>
