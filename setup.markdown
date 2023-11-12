@@ -16,7 +16,7 @@ listing: true
 		<li><b>Storage</b>: Mechanical 1TB HDD 1TB</li>
 		<li><b>GPU</b>: Nvidia GeForce MX150 2GB VRAM</li>
 		<li><b>Screen</b>: TN 15,6" LCD</li>
-		<li><b>OS</b>: Kubuntu 23.04</li>
+		<li><b>OS</b>: Kubuntu 23.10</li>
 	</ul>
 </section>
 
