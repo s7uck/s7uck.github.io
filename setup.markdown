@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Setup
+listing: true
 ---
 
 <section id="laptop">
