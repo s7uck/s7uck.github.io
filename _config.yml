@@ -7,3 +7,5 @@ kramdown:
   hard_wrap: false
 plugins:
   - jekyll-feed
+collections:
+  - projects
