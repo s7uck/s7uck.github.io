@@ -40,7 +40,8 @@ header, footer, menu, .list {
 	column-gap: 2em;
 	flex-wrap: wrap;
 }
-header, footer, .list { flex-direction: column;}
+header, footer, .list, .card, figcaption { flex-direction: column;}
+.flex, .card, figcaption { display: -ms-flex; display: flex;}
 .horizontal {
 	flex-direction: row;
 	flex-wrap: nowrap;
