@@ -29,9 +29,11 @@ title: Showcase
 	}
 </style>
 
+{% assign projects = site.projects | sort: "priority" | sort: "finished" | reverse %}
+
 <section class="full-width">
 	<ol class="horizontal list" id="showcase-grid">
-		{% for project in site.projects %}
+		{% for project in projects %}
 		<li class="card{% if project.highlight %} big{%endif%}" style="background-image: url({{ project.image }})">
 			<figcaption>
 				<h3>{{ project.name }}</h3>
