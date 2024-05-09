@@ -29,7 +29,7 @@ title: Showcase
 	}
 </style>
 
-{% assign projects = site.projects | sort: "priority" | sort: "finished" | reverse %}
+{% assign projects = site.projects | sort: "priority" | reverse %}
 
 <section class="full-width">
 	<ol class="horizontal list" id="showcase-grid">
