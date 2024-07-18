@@ -1,13 +1,14 @@
 @font-face { font-family: 'Oxygen'; src: url(/oxygen.woff2); font-display: swap;}
 @font-face { font-family: 'Oxygen Mono'; src: url(/oxygen-mono.woff2); font-display: swap;}
+@font-face { font-family: 'Space Grotesk'; src: url(/space-grotesk.woff2); font-display: swap;}
 body {
 	background-color: black;
 	color: #eeeeee;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Oxygen', sans-serif;
 	margin: 0;
 }
 header, footer {
-	padding: 2em;
+	padding: 1em;
 	align-items: center;
 	justify-content: center;
 }
@@ -16,8 +17,8 @@ main {
 	max-width: 80ch;
 	margin: 0 auto;
 }
-h1, h2, h3, h4, summary, .title, header, footer { font-family: 'Oxygen', sans-serif; }
-tt, pre, code, header nav { font-family: 'Oxygen Mono', monospace;}
+h1, h2, h3, h4, summary, .title, header, footer { font-family: 'Space Grotesk', sans-serif; }
+tt, pre, code { font-family: 'Oxygen Mono', monospace;}
 a, .accent { color: #08C7BB;}
 a { text-decoration: none;}
 small, .faded, footer { color: #999;}
