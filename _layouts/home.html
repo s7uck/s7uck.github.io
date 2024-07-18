@@ -4,21 +4,17 @@ layout: default
 
 <style>
 	body > header {
-		min-height: 30vh;
-		padding-top: 10vh;
-		background-image: linear-gradient(black, transparent, black), url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%2308c7bb' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-		background-size: 1em;
-		background-position: 0% 50%;
-	}
-	.site-title {
-		font-size: 3rem; line-height: 0.9;
+		min-height: 20vh;
+		padding-top: 5vh;
+		background-image: linear-gradient(black, transparent, black), url(/images/topography.svg);
 	}
 </style>
 
 <script defer>
 	window.onscroll = function() {
-		scrollPercentage = Math.floor((Math.floor(window.scrollY) * 100) / document.body.clientHeight - window.innerHeight) * 2
-		document.querySelector('body>header').style.cssText = 'background-position: ' + scrollPercentage + '% 50%';
+		scrollPercentage = Math.floor((Math.floor(window.scrollY) * 100) / document.body.clientHeight)
+		console.log(scrollPercentage)
+		document.querySelector('body>header').style.cssText = 'background-position: ' + scrollPercentage + '% ' + scrollPercentage /2 + '%';
 		}
 </script>
 

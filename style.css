@@ -40,6 +40,11 @@ header, footer, menu, .list {
 	column-gap: 2em;
 	flex-wrap: wrap;
 }
+.texture {
+	background-position: 0% 0%;
+	background-image: linear-gradient(transparent, black), url(/images/topography.svg);
+}
+.list { column-gap: 1em;}
 header, footer, .list, .card, figcaption { flex-direction: column;}
 .flex, .card, figcaption { display: -ms-flex; display: flex;}
 .horizontal {
