@@ -2,6 +2,7 @@
 layout: page
 title: Posts
 listing: true
+permalink: /posts
 ---
 
 {% for post in site.posts %}

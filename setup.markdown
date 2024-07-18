@@ -2,6 +2,7 @@
 layout: page
 title: Setup
 listing: true
+permalink: /setup
 ---
 
 <section id="laptop">
