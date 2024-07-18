@@ -9,3 +9,12 @@ plugins:
   - jekyll-feed
 collections:
   - projects
+defaults:
+  - scope:
+      path: ""
+    values:
+      links:
+        showcase: "/showcase"
+        posts: "/posts"
+        gallery: "/gallery"
+        setup: "/setup"
