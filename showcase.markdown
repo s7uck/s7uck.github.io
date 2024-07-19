@@ -5,23 +5,19 @@ permalink: /showcase
 ---
 
 <style>
-	#showcase-grid {
-		flex-direction: row;
-		flex-wrap: wrap;
-		column-gap: 0; row-gap: 0;
-	}
 	.card {
 		justify-content: flex-end;
-		min-width: 40%;
-		aspect-ratio: 16/9;
+		width: 30%;
+		aspect-ratio: 3/2;
 		background-color: #333333;
 		background-size: cover;
 		margin: 0;
 		flex-grow: 1;
 	}
 	.card.big {
-		min-width: 60%;
-		flex-grow: 2;
+		min-width: 50%;
+		max-width: 70%;
+		aspect-ratio: 16/9;
 	}
 	.card figcaption {
 		padding: 1.5em;
@@ -33,7 +29,7 @@ permalink: /showcase
 {% assign projects = site.projects | sort: "priority" | reverse %}
 
 <section class="full-width">
-	<ol class="horizontal list" id="showcase-grid">
+	<ol class="grid" id="showcase-grid">
 		{% for project in projects %}
 		<li class="card{% if project.highlight %} big{%endif%}" style="background-image: url({{ project.image }})">
 			<figcaption>

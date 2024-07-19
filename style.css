@@ -34,7 +34,7 @@ menu a { color: inherit;}
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
-header, footer, menu, .list {
+header, footer, menu, .list, .grid {
 	display: -ms-flex;
 	display: flex;
 	row-gap: 2em;
@@ -51,6 +51,10 @@ header, footer, .list, .card, figcaption { flex-direction: column;}
 .horizontal {
 	flex-direction: row;
 	flex-wrap: nowrap;
+}
+.grid {
+	flex-direction: row;
+	column-gap: 0; row-gap: 0;
 }
 .chip, button {
 	display: inline-block;
