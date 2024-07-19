@@ -1,0 +1,15 @@
+---
+layout: page
+---
+
+<header>
+    <small><time>Last updated {{ page.date | date: "%b %-d, %Y" }}</time></small>
+    <h1>{{ page.title }}</h1>
+</header>
+
+{% if page.image %}
+<figure class="full-width cover" style="background-image: url({{ page.image }});">
+</figure>
+{% endif %}
+
+{{ content }}
