@@ -30,6 +30,17 @@ menu li {
 	margin: 4px 8px;
 }
 menu a { color: inherit;}
+menu a {
+	padding: 4px 8px;
+	background-color: rgba(10, 10, 10, 0.8);
+	border-radius: 3px;
+	backdrop-filter: blur(6px);
+	transition: background-color 0.25s ease;
+}
+menu a:hover, menu a.accent {
+	border-bottom: 0;
+	background-color: rgba(19, 19, 19, 0.9);
+}
 .title {
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -41,12 +52,9 @@ header, footer, menu, .list, .grid {
 	column-gap: 2em;
 	flex-wrap: wrap;
 }
-.texture {
-	background-position: 0% 0%;
-	background-image: linear-gradient(transparent, black), url(/images/topography.svg);
-}
 .list { column-gap: 1em;}
 header, footer, .list, .card, figcaption { flex-direction: column;}
+menu { justify-content: center;}
 .flex, .card, figcaption { display: -ms-flex; display: flex;}
 .horizontal {
 	flex-direction: row;
@@ -54,7 +62,7 @@ header, footer, .list, .card, figcaption { flex-direction: column;}
 }
 .grid {
 	flex-direction: row;
-	column-gap: 0; row-gap: 0;
+	/*column-gap: 0; row-gap: 0;*/
 }
 .chip, button {
 	display: inline-block;
@@ -77,6 +85,11 @@ figure { margin: 0;}
 .icon, menu img, button img {
 	max-height: 1em;
 	vertical-align: middle;
+}
+.texture {
+	background-position: 0% 0%;
+	background-image: linear-gradient(transparent, black), url(/images/topography.svg);
+	animation: map 0.5s ease;
 }
 .cover { height: 400px;}
 .full-width { /* credit: gomakethings.com */
