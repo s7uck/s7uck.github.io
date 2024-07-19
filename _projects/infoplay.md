@@ -1,6 +1,7 @@
 ---
 name: INFOPLAY
 image: /images/projects/infoplay.webp
+started: false
 finished: false
 priority: 4
 ---
