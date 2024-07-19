@@ -50,8 +50,8 @@ menu a:hover, menu a.accent {
 header, footer, menu, .list, .grid {
 	display: -ms-flex;
 	display: flex;
-	row-gap: 2em;
-	column-gap: 2em;
+	row-gap: 1em;
+	column-gap: 1em;
 	flex-wrap: wrap;
 }
 .list { column-gap: 1em;}
@@ -62,10 +62,7 @@ menu { justify-content: center;}
 	flex-direction: row;
 	flex-wrap: nowrap;
 }
-.grid {
-	flex-direction: row;
-	column-gap: 1em; row-gap: 1em;
-}
+.grid { flex-direction: row;}
 .chip, button {
 	display: inline-block;
 	padding: 4px 10px;
@@ -110,7 +107,6 @@ figure, .grid li { margin: 0;}
 	background-position: center;
 }
 @media only screen and (max-width: 600px) {
-	header, footer, menu, .list { column-gap: 1em; row-gap: 1em;}
 	nav menu { column-gap: 0;}
 	.card { width: 100% !important;
 		max-width: 100% !important;}
