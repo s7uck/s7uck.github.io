@@ -70,6 +70,13 @@ menu { justify-content: center;}
 	border-radius: 2px;
 	font-size: 0.8em;
 }
+.card {
+	justify-content: flex-end;
+	background-size: cover;
+	border-radius: 3px;
+	border: 1px solid #101010;
+	aspect-ratio: 4/3;
+}
 hr {
 	border: 0;
 	background-image: radial-gradient(transparent, black),

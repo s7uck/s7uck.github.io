@@ -6,16 +6,13 @@ permalink: /showcase
 
 <style>
 	.card {
-		justify-content: flex-end;
 		width: 30%;
-		aspect-ratio: 3/2;
-		background-size: cover;
-		border-radius: 3px;
-		border: 1px solid #101010;
 		flex-grow: 1;
 	}
 	.card.big {
-		width: 50%;
+		min-width: 40%;
+		max-width: 70%;
+		flex-grow: 2;
 		aspect-ratio: 3/2;
 	}
 	.card figcaption {
