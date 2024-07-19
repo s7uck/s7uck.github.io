@@ -87,7 +87,9 @@ figure, .grid li { margin: 0;}
 .icon, menu img, button img {
 	max-height: 1em;
 	vertical-align: middle;
+	max-width: unset;
 }
+.invert { filter: invert();}
 .texture {
 	background-position: 0% 0%;
 	background-image: linear-gradient(transparent, black), url(/images/topography.svg);
