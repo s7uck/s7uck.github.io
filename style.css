@@ -64,7 +64,7 @@ menu { justify-content: center;}
 }
 .grid {
 	flex-direction: row;
-	/*column-gap: 0; row-gap: 0;*/
+	column-gap: 1em; row-gap: 1em;
 }
 .chip, button {
 	display: inline-block;
@@ -83,7 +83,7 @@ hr {
 }
 ul, ol, menu { padding-left: 0;}
 li { margin: 12px 0;}
-figure { margin: 0;}
+figure, .grid li { margin: 0;}
 .icon, menu img, button img {
 	max-height: 1em;
 	vertical-align: middle;
