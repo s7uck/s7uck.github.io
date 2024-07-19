@@ -22,7 +22,9 @@ tt, pre, code { font-family: 'Oxygen Mono', monospace;}
 a, .accent { color: #08C7BB;}
 a { text-decoration: none;}
 small, .faded, footer { color: #999;}
-p { line-height: 1.75;}
+p { line-height: 1.75;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;}
 a:hover { border-bottom: 1px solid currentColor;}
 img { max-width: 100%;}
 menu li {
