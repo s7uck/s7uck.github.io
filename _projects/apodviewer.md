@@ -1,4 +1,5 @@
 ---
+layout: project
 name: APOD Viewer
 image: /images/projects/apod-viewer.webp
 url: https://apodviewer.github.io

@@ -1,4 +1,5 @@
 ---
+layout: project
 name: SunWatch
 image: /images/projects/sunwatch.webp
 url: https://sunwatch.org

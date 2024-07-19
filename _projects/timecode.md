@@ -1,4 +1,5 @@
 ---
+layout: project
 name: TimeCode
 image: /images/projects/timecode.webp
 url: https://github.com/s7uck/timecode

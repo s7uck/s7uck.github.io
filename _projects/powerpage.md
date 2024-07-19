@@ -1,4 +1,5 @@
 ---
+layout: project
 name: PowerPage
 image: /images/projects/powerpage.webp
 url: https://github.com/s7uck/PowerPage

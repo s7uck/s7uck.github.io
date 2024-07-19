@@ -1,4 +1,5 @@
 ---
+layout: project
 name: Special UX
 image: /images/projects/specialux.webp
 url: /posts/special-ux

@@ -1,4 +1,5 @@
 ---
+layout: project
 name: Veloran
 image: /images/projects/veloran.webp
 finished: false

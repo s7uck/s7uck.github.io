@@ -1,4 +1,5 @@
 ---
+layout: project
 name: INFOPLAY
 image: /images/projects/infoplay.webp
 started: false

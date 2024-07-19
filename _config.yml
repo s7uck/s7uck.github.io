@@ -8,7 +8,8 @@ kramdown:
 plugins:
   - jekyll-feed
 collections:
-  - projects
+  projects:
+    output: true
 defaults:
   - scope:
       path: ""

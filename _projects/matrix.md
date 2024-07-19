@@ -1,4 +1,5 @@
 ---
+layout: project
 name: PSMatrix
 image: /images/projects/matrix.webp
 url: https://github.com/s7uck/matrix
