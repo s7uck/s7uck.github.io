@@ -92,3 +92,13 @@ figure { margin: 0;}
 	background-attachment: fixed;
 	background-position: center;
 }
+@media only screen and (max-width: 600px) {
+	header, footer, menu, .list { column-gap: 1em; row-gap: 1em;}
+	nav menu { column-gap: 0;}
+	.card { width: 100% !important;
+		max-width: 100% !important;}
+}
+@keyframes map {
+	from { background-position-x: 100%;
+	} to { background-position-x: 0%; }
+}

@@ -8,15 +8,11 @@ layout: default
 		padding-top: 5vh;
 		background-image: linear-gradient(black, transparent, black), url(/images/topography.svg);
 	}
+	@keyframes map {
+		from { background-position-y: 100%;
+		} to { background-position-y: 0%; }
+	}
 </style>
-
-<script defer>
-	window.onscroll = function() {
-		scrollPercentage = Math.floor((Math.floor(window.scrollY) * 100) / document.body.clientHeight)
-		console.log(scrollPercentage)
-		document.querySelector('body>header').style.cssText = 'background-position: ' + scrollPercentage + '% ' + scrollPercentage /2 + '%';
-		}
-</script>
 
 <main class="list">
 	{{ content }}
