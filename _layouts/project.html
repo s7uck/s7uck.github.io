@@ -3,7 +3,6 @@ layout: page
 ---
 
 <header>
-    <small><time>last updated {{ page.date | date: "%b %-d, %Y" }}</time></small>
     <h1>{{ page.name }}</h1>
 </header>
 
@@ -11,5 +10,11 @@ layout: page
 <figure class="full-width cover" style="background-image: url({{ page.image }});">
 </figure>
 {% endif %}
+
+<header>{% if project.started != false %}
+    started <time datetime="{{ project.started }}">{{ project.started | date: "%b %-d, %Y" }}</time>
+    {% if project.finished != false %}, finished <time datetime="{{ project.finished }}">{{ project.finished | date: "%b %-d, %Y" }}</time>{% endif %}
+    {% else %}work in progress{% endif %}
+</header>
 
 {{ content }}
