@@ -30,7 +30,7 @@ permalink: /showcase
 
 {% assign projects = site.projects | sort: "priority" | reverse %}
 
-<ol class="grid" id="showcase-grid">{% for project in projects %}
+<ol class="grid" id="showcase-grid">{% for project in projects %}{% if project.started != false %}
 	<li class="card{% if project.highlight %} big{%endif%}" style="background-image: url({{ project.image }})">
 		<figcaption>
 			<span>
@@ -39,5 +39,5 @@ permalink: /showcase
 			</span>
 			<menu><a href="{{ project.url }}" title="Link"><img class="invert" src="/images/forward.svg"></a></menu>
 		</figcaption>
-	</li>{% endfor %}
+	</li>{% endif %}{% endfor %}
 </ol>
