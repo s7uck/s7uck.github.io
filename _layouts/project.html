@@ -11,10 +11,11 @@ layout: page
 </figure>
 {% endif %}
 
-<header>{% if project.started != false %}
-    started <time datetime="{{ project.started }}">{{ project.started | date: "%b %-d, %Y" }}</time>
-    {% if project.finished != false %}, finished <time datetime="{{ project.finished }}">{{ project.finished | date: "%b %-d, %Y" }}</time>{% endif %}
-    {% else %}work in progress{% endif %}
+<header>
+    <p>{% if page.started != false %}
+    started <time datetime="{{ page.started }}">{{ page.started | date: "%b %-d, %Y" }}</time>
+    {% if page.finished != false %}, finished <time datetime="{{ page.finished }}">{{ page.finished | date: "%b %-d, %Y" }}</time>{% endif %}
+    {% else %}work in progress{% endif %}</p>
 </header>
 
 {{ content }}
