@@ -5,8 +5,7 @@ listing: true
 permalink: /posts
 ---
 
-{% for post in site.posts %}
-<article>
+{% for post in site.posts %}<article>
 	<small>
 		<time datetime="{{ post.date }}">{{ post.date | date: "%-d %B %Y" }}</time>
 	</small>
@@ -18,13 +17,10 @@ permalink: /posts
 		{{ post.excerpt }}
 	</span>
 
-	<div class="list horizontal">
-		{% for category in post.categories %}
-		<span class="chip">{{ category }}</span>
-		{% endfor %}
+	<div class="list horizontal">{% for category in post.categories %}
+		<span class="chip">{{ category }}</span>{% endfor %}
 	</div>
-</article>
-{% endfor %}
+</article>{% endfor %}
 
 <footer>
 	<nav>
