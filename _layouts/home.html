@@ -3,19 +3,15 @@ layout: default
 ---
 
 <style>
-	body > header {
+	body > header.texture {
 		min-height: 20vh;
 		padding-top: 5vh;
 		background-image: linear-gradient(black, transparent, black), url(/images/topography.svg);
 	}
-	menu {
-		row-gap: 2em;
-		column-gap: 2em;
-	}
-	@keyframes map {
-		from { background-position-y: 100%;
-		} to { background-position-y: 0%; }
-	}
+</style>
+<style media="only screen and (min-width: 600px)">
+	menu { row-gap: 2em;
+		column-gap: 2em; }
 </style>
 
 <script>
