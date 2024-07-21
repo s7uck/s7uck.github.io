@@ -17,7 +17,7 @@ main {
 	max-width: 80ch;
 	margin: 0 auto;
 }
-h1, h2, h3, h4, summary, .title, header, footer { font-family: 'Space Grotesk', sans-serif; }
+h1, h2, h3, h4, summary, .title, header, footer, th { font-family: 'Space Grotesk', sans-serif; }
 tt, pre, code { font-family: 'Oxygen Mono', monospace;}
 a, .accent { color: #08C7BB;}
 a { text-decoration: none;}
@@ -65,11 +65,11 @@ menu { justify-content: center;}
 .grid { flex-direction: row;}
 .chip, button {
 	display: inline-block;
-	padding: 4px 10px;
 	border: 1px solid #08C7BB;
 	border-radius: 2px;
 	font-size: 0.8em;
 }
+.chip, button, td, th { padding: 4px 10px;}
 .card {
 	background-size: cover;
 	border-radius: 4px;
@@ -88,6 +88,12 @@ hr {
 ul, ol, menu { padding-left: 0;}
 li { margin: 12px 0;}
 figure, .grid li { margin: 0;}
+table { width: 100%;}
+table, td, th {
+	border: 1px solid #101010;
+	border-collapse: collapse;
+}
+th { background-color: #101010bb;}
 .icon, menu img, button img {
 	max-height: 1em;
 	vertical-align: middle;
