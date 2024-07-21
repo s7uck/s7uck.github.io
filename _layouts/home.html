@@ -16,12 +16,21 @@ layout: default
 
 <script>
 	header = document.querySelector("body > header.texture")
-	window.onmousemove = mouseMove
-	function mouseMove(e) {
+	function moveMap(x, y) {
+		header.style.backgroundPositionX = x+'%'
+		header.style.backgroundPositionY = y+'%'
+	}
+	onmousemove = function(e) {
 		mouse_xp = (e.clientX / window.innerWidth / 2) * 100
 		mouse_yp = (e.clientY / window.innerHeight/ 2) * 100
-		header.style.backgroundPositionX = mouse_xp + '%'
-		header.style.backgroundPositionY = mouse_yp + '%'
+		moveMap(mouse_xp, mouse_yp)
+	}
+	ondeviceorientation = function(e) {
+		x_deg = e.beta
+		y_deg = e.gamma
+		xp = (x_deg + 180) / 360 * 100
+		yp = (y_deg + 90) / 180 * 100
+		moveMap(yp, xp)
 	}
 </script>
 
