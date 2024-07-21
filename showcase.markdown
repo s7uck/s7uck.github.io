@@ -33,13 +33,13 @@ permalink: /showcase
 {% assign projects = site.projects | sort: "priority" | reverse %}
 
 <ol class="grid" id="showcase-grid">{% for project in projects %}{% if project.started != false %}
-	<li class="card{% if project.highlight %} big{%endif%}" style="background-image: url({{ project.image }})">
+	<li class="card{% if project.highlight %} big{%endif%}"{% if project.image %} style="background-image: url({{ project.image }})"{% endif %}{% if project.layout %} onclick="window.location = '{{ project.url }}'"{% endif %}>
 		<figcaption>
 			<span>
 				<h2>{{ project.name }}</h2>
 				<span>{{ project.content | remove: "<p>" | remove: "</p>" }}</span>
 			</span>
-			<menu><a href="{{ project.url }}" title="Link"><img class="invert" src="/images/forward.svg"></a></menu>
+			<menu><a href="{% if project.link %}{{ project.link }}{% else %}{{ project.url }}{% endif %}" title="Link"><img class="invert" src="/images/forward.svg"></a></menu>
 		</figcaption>
 	</li>{% endif %}{% endfor %}
 </ol>
