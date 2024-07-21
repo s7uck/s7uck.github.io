@@ -2,7 +2,7 @@
 layout: project
 name: Special UX
 image: /images/projects/specialux.webp
-url: /posts/special-ux
+link: /posts/special-ux
 highlight: true
 started: 2023-08-20 07:00 +0200
 finished: false
