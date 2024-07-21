@@ -8,42 +8,37 @@ permalink: /showcase
 	.card {
 		width: 30%;
 		flex-grow: 1;
+		box-shadow: 0 -80px 72px 16px rgba(0,0,0,0.7) inset;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
 	}
 	.card.big {
 		min-width: 40%;
 		max-width: 70%;
 		flex-grow: 2;
 		aspect-ratio: 3/2;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-end;
 	}
 	.card figcaption {
-		padding: 1.5em;
-		background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+		padding: 0.5em;
 		text-shadow: 0 0 1px black;
-		row-gap: 1em;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.card.big figcaption {
-		flex-direction: column;
 	}
 	.card[onclick] { cursor: pointer;}
 </style>
 
 {% assign projects = site.projects | sort: "priority" | reverse %}
-{% assign categories = projects | group_by: "category" %}
 
-<ol class="list">{% for cat in categories %}
-	<small class="title">{{ cat.name }}</small>
-	<ol class="grid" id="{{ cat.name }}">{% for project in cat.items %}{% if project.started != false %}
-		<li class="card{% if project.highlight %} big{%endif%}"{% if project.image %} style="background-image: url({{ project.image }})"{% endif %}{% if project.layout %} onclick="window.location = '{{ project.url }}'"{% endif %}>
-			<figcaption>
-				<span>
-					<h2>{{ project.name }}</h2>
-					<span>{{ project.content | remove: "<p>" | remove: "</p>" }}</span>
-				</span>
-				<menu><a href="{% if project.link %}{{ project.link }}{% else %}{{ project.url }}{% endif %}" title="Link"><img class="invert" src="/images/forward.svg"></a></menu>
-			</figcaption>
-		</li>{% endif %}{% endfor %}
-	</ol>{% endfor %}
+<ol class="grid" id="showcase-grid">{% for project in projects %}{% if project.started != false %}
+	<li class="card{% if project.highlight %} big{%endif%}"{% if project.image %} style="background-image: url({{ project.image }})"{% endif %}{% if project.layout %} onclick="window.location = '{{ project.url }}'"{% endif %}>
+		<figcaption>
+			<h2>{{ project.name }}</h2>
+			<span>{{ project.content | remove: "<p>" | remove: "</p>" }}</span>
+		</figcaption>
+		<menu>
+			<a href="{% if project.link %}{{ project.link }}{% else %}{{ project.url }}{% endif %}" title="Link"><img class="invert" src="/images/forward.svg"></a>
+		</menu>
+	</li>{% endif %}{% endfor %}
 </ol>
