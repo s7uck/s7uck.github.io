@@ -97,7 +97,7 @@ figure, .grid li { margin: 0;}
 .texture {
 	background-position: 0% 0%;
 	background-image: linear-gradient(transparent, black), url(/images/topography.svg);
-	animation: map 0.5s ease;
+	transition: background 200ms ease;
 }
 .cover { height: 400px;}
 .full-width { /* credit: gomakethings.com */
@@ -117,8 +117,4 @@ figure, .grid li { margin: 0;}
 	nav menu { column-gap: 0;}
 	.card { width: 100% !important;
 		max-width: 100% !important;}
-}
-@keyframes map {
-	from { background-position-x: 100%;
-	} to { background-position-x: 0%; }
 }

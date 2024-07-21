@@ -18,6 +18,17 @@ layout: default
 	}
 </style>
 
+<script>
+	header = document.querySelector("body > header.texture")
+	window.onmousemove = mouseMove
+	function mouseMove(e) {
+		mouse_xp = (e.clientX / window.innerWidth / 2) * 100
+		mouse_yp = (e.clientY / window.innerHeight/ 2) * 100
+		header.style.backgroundPositionX = mouse_xp + '%'
+		header.style.backgroundPositionY = mouse_yp + '%'
+	}
+</script>
+
 <main class="list">
 	{{ content }}
 </main>
