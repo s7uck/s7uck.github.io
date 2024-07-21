@@ -20,12 +20,14 @@ permalink: /showcase
 		background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
 		text-shadow: 0 0 1px black;
 		row-gap: 1em;
-	}
-	.card.big figcaption {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
 	}
+	.card.big figcaption {
+		flex-direction: column;
+	}
+	.card[onclick] { cursor: pointer;}
 </style>
 
 {% assign projects = site.projects | sort: "priority" | reverse %}
