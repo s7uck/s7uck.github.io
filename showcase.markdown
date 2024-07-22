@@ -17,7 +17,7 @@ permalink: /showcase
 		min-width: 40%;
 		max-width: 70%;
 		flex-grow: 2;
-		aspect-ratio: 3/2;
+		aspect-ratio: 4/3;
 		flex-direction: column;
 		align-items: stretch;
 		justify-content: flex-end;
