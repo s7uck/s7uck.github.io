@@ -95,6 +95,22 @@ permalink: /setup
 			<td>Sector 270 blue</td>
 		</tr>
 		<tr>
+			<th>Desk &amp; Chair</th>
+			<td>IKEA UTESPELARE (desk) + RENBERGET (swivel chair)</td>
+		</tr>
+		<tr>
+			<th>SD Card</th>
+			<td>SanDisk Extreme PRO 128 8GB</td>
+		</tr>
+		<tr>
+			<th>Ventoy USB</th>
+			<td>Kingston DataTraveler 3.0 16GB</td>
+		</tr>
+		<tr>
+			<th>TV &amp; VCR</th>
+			<td>Akai AKTV 2017 + Aiwa Stereo VCR</td>
+		</tr>
+		<tr>
 			<th>Bike</th>
 			<td>Escalation Mountain Bike</td>
 		</tr>
