@@ -58,11 +58,8 @@ header, footer, menu, .list, .grid {
 header, footer, .list, .card, figcaption { flex-direction: column;}
 menu { justify-content: center;}
 .flex, .card, figcaption { display: -ms-flex; display: flex;}
-.horizontal {
-	flex-direction: row;
-	flex-wrap: nowrap;
-}
-.grid { flex-direction: row;}
+.horizontal, .grid { flex-direction: row;}
+.nowrap { flex-wrap: nowrap;}
 .chip, button {
 	display: inline-block;
 	border: 1px solid #08C7BB;
@@ -103,6 +100,9 @@ th { background-color: #101010bb;}
 	background-position: 0% 0%;
 	background-image: linear-gradient(transparent, black), url(/images/topography.svg);
 	transition: background 200ms ease;
+}
+footer.texture {
+	background-image: linear-gradient(black, transparent), url(/images/topography.svg);
 }
 .cover { height: 400px;}
 .full-width { /* credit: gomakethings.com */
