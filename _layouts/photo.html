@@ -1,0 +1,28 @@
+---
+layout: page
+---
+
+<style>main {padding: 1em;}</style>
+
+<figure class="horizontal list">
+	<img class="card" style="max-height: 100vh" src="{{ page.image }}">
+
+	<figcaption>	
+		<header style="align-items: flex-start;">
+		    <small><time>{{ page.date | date: "%b %-d %Y, %H:%M:%S" }}</time></small>
+		    <small><img class="icon invert" src="/images/camera.svg"> {{ page.camera }} <img class="icon invert" src="/images/forward.svg"> {{ page.location }}</small>
+		    <h1>{{ page.title }}</h1>
+		    <ul class="horizontal list" style="align-items: center;">
+		    	<span class="chip">{{ page.mode | upcase }}</span>
+		    	<small>f/{{ page.aperture }}</small>
+		    	<small>{{ page.sspeed }} seconds</small>
+		    	<small>ISO {{ page.iso }}</small>
+		    	<small>{{ page.focal }} mm</small>
+		    </ul>
+		</header>
+	</figcaption>
+</figure>
+
+<article>
+	{{ content }}
+</article>
