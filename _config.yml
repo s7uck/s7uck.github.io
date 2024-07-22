@@ -10,6 +10,8 @@ plugins:
 collections:
   projects:
     output: true
+  photos:
+    output: true
 defaults:
   - scope:
       path: ""
@@ -19,3 +21,7 @@ defaults:
         posts: "/posts"
         gallery: "/gallery"
         setup: "/setup"
+  - scope:
+      type: "photos"
+    values:
+      noheader: true
