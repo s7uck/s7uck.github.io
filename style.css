@@ -118,6 +118,7 @@ footer.texture {
 	background-attachment: fixed;
 	background-position: center;
 }
+[onclick] { cursor: pointer;}
 @media only screen and (max-width: 600px) {
 	nav menu { column-gap: 0;}
 	.card { width: 100% !important;

@@ -26,7 +26,6 @@ permalink: /showcase
 		padding: 0.5em;
 		text-shadow: 0 0 1px black;
 	}
-	.card[onclick] { cursor: pointer;}
 </style>
 
 {% assign projects = site.projects | sort: "priority" | reverse %}
