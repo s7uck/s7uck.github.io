@@ -17,9 +17,9 @@ permalink: /posts
 		{{ post.excerpt }}
 	</span>
 
-	<div class="list horizontal">{% for category in post.categories %}
+	<ul class="list horizontal">{% for category in post.categories %}
 		<span class="chip">{{ category }}</span>{% endfor %}
-	</div>
+	</ul>
 </article>{% endfor %}
 
 <footer>
