@@ -8,7 +8,7 @@ module Jekyll
 			photos = []
 
 			modes = {
-				0 => "P",
+				0 => "AUTO",
 				1 => "M",
 				2 => "P",
 				3 => "A",
@@ -22,7 +22,7 @@ module Jekyll
 			Dir.glob("#{photos_dir}/*").each do |photo|
 				file_extension = File.extname(photo)
 				photo_name = File.basename(photo, file_extension)
-				photo_url = "#{output_url}/#{photo_name}.#{file_extension}"
+				photo_url = "#{output_url}/#{photo_name}#{file_extension}"
 
 				pic = MiniExiftool.new(photo)
 				capture_time = pic.date_time_original
@@ -30,9 +30,9 @@ module Jekyll
 				longitude = pic.gps_longitude
 				camera = pic.make + ' ' + pic.model
 				aperture = pic.aperture
-				sspeed = photo.shutter_speed
+				sspeed = pic.shutter_speed
 				iso = pic.iso
-				mode = modes[photo.exposure_program.to_i || '?']
+				mode = modes[pic.exposure_program.to_i || '?']
 
 				photo_data = {
 					'layout' => 'photo',
@@ -40,18 +40,19 @@ module Jekyll
 					'date' => capture_time,
 					'location' => "#{latitude} #{longitude}",
 					'camera' => camera,
-					'image' => "#{output_url}/#{photo}",
+					'image' => "#{photo_name}#{file_extension}",
 					'aperture' => aperture,
 					'sspeed' => sspeed,
 					'iso' => iso,
 					'mode' => mode
 				}
 
-				photo_page = PageWithoutAFile.new(site, site.source, "", "#{photo_name}.md")
+				photo_page = PageWithoutAFile.new(site, site.source, output_url, "#{photo_name}.md")
 				photo_page.content = ""
 				photo_page.data.merge!(photo_data)
 
 				site.pages << photo_page
+				FileUtils.cp(photo, File.join(site.dest, photo_url))
 			end
 		end
 	end
@@ -63,7 +64,7 @@ module Jekyll
 			@dir = dir
 			@name = name
 			self.process(name)
-			self.read_yaml(File.join(base, '_layout'), 'photo.html')
+			self.read_yaml(File.join(base, '_layouts'), 'photo.html')
 		end
 	end
 end

@@ -17,7 +17,7 @@ permalink: /gallery
 </style>
 
 <ol class="grid" id="photo-grid">
-{% for photo in site.photos %}
+{% for photo in site.pages %}{% if photo.path contains 'photos' %}
 	<li class="card{% if photo.highlight %} big{%endif%}" onclick="window.location = '{{ photo.url }}'">
 		<img src="/photos/{{ photo.image }}" alt="{{ photo.name }}">
 
@@ -34,5 +34,5 @@ permalink: /gallery
 			</small>
 		</figcaption>
 	</li>
-{% endfor %}
+{% endif %}{% endfor %}
 </ol>
