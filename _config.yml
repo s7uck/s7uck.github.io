@@ -8,8 +8,6 @@ kramdown:
 collections:
   projects:
     output: true
-  photos:
-    output: true
 defaults:
   - scope:
       path: ""

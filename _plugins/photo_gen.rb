@@ -2,10 +2,8 @@ require "mini_exiftool"
 
 module Jekyll
 	class PhotoPageGenerator < Generator
-		safe true
-
 		def generate(site)
-			photos_dir = "/home/user/Pictures/Gallery" # temp
+			photos_dir = "/home/lubuntu/Immagini/Gallery" # temp
 			output_url = "/photos"
 			photos = []
 
@@ -22,7 +20,7 @@ module Jekyll
 			}
 
 			Dir.glob("#{photos_dir}/*").each do |photo|
-				file_extension = File.extname(photo_path)
+				file_extension = File.extname(photo)
 				photo_name = File.basename(photo, file_extension)
 				photo_url = "#{output_url}/#{photo_name}.#{file_extension}"
 
@@ -49,7 +47,7 @@ module Jekyll
 					'mode' => mode
 				}
 
-				photo_page = PageWithoutAFile.new(site, site.source, "photos", "#{photo_name}.md")
+				photo_page = PageWithoutAFile.new(site, site.source, "", "#{photo_name}.md")
 				photo_page.content = ""
 				photo_page.data.merge!(photo_data)
 
