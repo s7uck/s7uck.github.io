@@ -1,52 +1,71 @@
 require "mini_exiftool"
 
-Jekyll::Hooks.register :site, :post_write do |site|
-	photos_dir = "/home/user/Pictures/Gallery" # temp
-	output_dir = "photos"
+module Jekyll
+	class PhotoPageGenerator < Generator
+		safe true
 
-	FileUtils.mkdir_p(output_dir)
+		def generate(site)
+			photos_dir = "/home/user/Pictures/Gallery" # temp
+			output_url = "/photos"
+			photos = []
 
-	modes = {
-		0 => "P",
-		1 => "M",
-		2 => "P",
-		3 => "A",
-		4 => "S",
-		5 => "SCNY",
-		6 => "ACTN",
-		7 => "PORT",
-		8 => "PANO"
-	}
+			modes = {
+				0 => "P",
+				1 => "M",
+				2 => "P",
+				3 => "A",
+				4 => "S",
+				5 => "SCNY",
+				6 => "ACTN",
+				7 => "PORT",
+				8 => "PANO"
+			}
 
-	Dir.glob("#{photos_dir}/*").each do |photo|
-		file_extension = File.extname(photo_path)
-		photo_name = File.basename(photo, file_extension)
-		photo_url = "/#{output_dir}"
+			Dir.glob("#{photos_dir}/*").each do |photo|
+				file_extension = File.extname(photo_path)
+				photo_name = File.basename(photo, file_extension)
+				photo_url = "#{output_url}/#{photo_name}.#{file_extension}"
 
-		pic = MiniExiftool.new(photo)
-		capture_time = pic.date_time_original
-		latitude = pic.gps_latitude
-		longitude = pic.gps_longitude
-		camera = pic.make + ' ' + pic.model
-		aperture = pic.aperture
-		sspeed = photo.shutter_speed
-		iso = pic.iso
-		mode = modes[photo.exposure_program.to_i || '?']
+				pic = MiniExiftool.new(photo)
+				capture_time = pic.date_time_original
+				latitude = pic.gps_latitude
+				longitude = pic.gps_longitude
+				camera = pic.make + ' ' + pic.model
+				aperture = pic.aperture
+				sspeed = photo.shutter_speed
+				iso = pic.iso
+				mode = modes[photo.exposure_program.to_i || '?']
 
-		photo_page_content = <<~MARKDOWN
-			---
-			layout: photo
-			name: #{photo_name}
-			date: #{capture_time}
-			location: #{latitude} #{longitude}
-			camera: #{camera}
-			image: /#{output_dir}/#{photo}
-			aperture: #{aperture}
-			sspeed: #{sspeed}
-			iso: #{iso}
-			mode: #{mode}
-		MARKDOWN
+				photo_data = {
+					'layout' => 'photo',
+					'name' => photo_name,
+					'date' => capture_time,
+					'location' => "#{latitude} #{longitude}",
+					'camera' => camera,
+					'image' => "#{output_url}/#{photo}",
+					'aperture' => aperture,
+					'sspeed' => sspeed,
+					'iso' => iso,
+					'mode' => mode
+				}
 
-		File.write("#{output_dir}/#{photo_name}.md", photo_page_content)
+				photo_page = PageWithoutAFile.new(site, site.source, "photos", "#{photo_name}.md")
+				photo_page.content = ""
+				photo_page.data.merge!(photo_data)
+
+				site.pages << photo_page
+			end
+		end
+	end
+
+	class PageWithoutAFile < Page
+		def initialize(site, base, dir, name)
+			@site = site
+			@base = base
+			@dir = dir
+			@name = name
+			self.process(name)
+			self.read_yaml(File.join(base, '_layout'), 'photo.html')
+		end
 	end
 end

@@ -5,8 +5,6 @@ url: "https://s7uck.github.io"
 kramdown:
   input: GFM
   hard_wrap: false
-plugins_dir:
-  - jekyll-feed
 collections:
   projects:
     output: true
