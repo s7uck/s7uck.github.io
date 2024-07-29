@@ -1,238 +1,186 @@
 ---
 layout: post
-title: "Use RCS Instead Of Messaging Apps"
+title: "Why Messaging Apps are Stupid"
 date: 2022-09-21 23:05:24 +0200
 categories: thoughts tech
 ---
 
-How do you message all of your friends and relatives? Is there more than
-one answer? When you know a lot of people, you just can't seem to agree
-on what messaging system to use.
+Cell phones. They've been around longer than me, and they've spring
+loaded our society into the often dubbed "communications age". It seems
+like today anyone can just talk to anybody, wherever they are, simply
+by pulling a phone out their pocket. Sounds great, right?
 
-Probably, you've had to sign up to some messaging service used by your
-workplace for communications and now everyone is starting to text you
-there, even though you wouldn't use it for anything else. It's really
-frustrating.
+Well, anybody who's been living within the past 10 years knows that the
+reality is far more nuanced. Yeah, to non-techies it *looks* like we
+communicate with phones in a straightforward way, but that couldn't be
+further from the truth. And this all started when app stores came along.
 
-This creates a massive communication barrier, and that seems ironic for
-a technology that was meant to open up information. Why does it have to
-be that way?
+It *looked* like the arrival of the smartphone was gonna make
+communications so much easier and richer in content. We now had better
+cameras on phones, the ability to make video calls, and all sorts of
+stuff that was previously relegated to "your home computer". But in
+reality, standards don't move nearly as fast as innovation, and so it
+was the duty of third party app developers to bring this richer
+experience to smartphones. As you may infer from the title of this, I'm
+specifically talking about **texting**.
 
-Back in the 2000's and early 2010's the answer to that question was
-obvious, you just hit them up with an SMS and they'd text you back,
-whatever phone you or they were using.
+Texting, for the longest time, had a pretty tight definition. It meant to
+exchange text messages via SMS. And while not all cell phones have always
+supported it, it's a fairly universal standard, one that lets a 20 year
+old phone communicate with a modern smartphone. And you just have to give
+it props for that.
 
-------------------------------------------------------------------------
+While for regular text message endeavors, SMS was fine, and honestly
+still is, it's not nearly flexible enough for the hardware that we now
+have and for the speeds of the internet. Yeah sure MMS was a thing, but it
+might as well not be for how awful (and expensive) it is.
 
-At the time, however, an SMS message usually cost about 50 cents if your
-mobile plan didn't cover them, and the simple mention of MMS would
-strike fear into any phone user. This was mostly a carrier problem, but
-it was widespread enough that, at least in my country, sending an SMS
-message was considered risky. Most people just called.
+Let's not beat around the bush anymore, we all know the story. Today, in
+2022, if you're living a life, you're not using SMS to text. You're using
+a **messaging app**. Yes, instant messaging has been around for years,
+some protocols have existed for longer than SMS. And IM has very obvious
+perks, like statuses, longer message support, discoverability, and
+importantly support for media.
 
-So in 2009 [WhatsApp](https://whatsapp.com) launched as a paid service,
-for around 89 cents a year. It stayed that way up until early 2014.
-WhatsApp got so popular in a matter of years because internet access was
-becoming cheaper and more widely available.
+But messaging apps are very distinct from classic IMs, because unlike the
+latter, messaging apps tend to be a) **proprietary**, and b)
+**incompatible with each other**. Pretty much **all** messaging apps out
+there use a **proprietary protocol**, allow only **one official client**,
+and **aren't compatible with any other protocol**.
 
-Because carriers didn't start lowering text fees until very late in
-2017, and app stores kept pushing these apps, the rise to power of
-WhatsApp and later Facebook started causing a vendor lock in issue *so
-big* that people nowadays don't even notice it.
+The result of this is the creation of big walled gardens that all reinvent
+the wheel of texting in their own way, and mostly support the same features,
+but all use different protocols, and no way to talk to each other. The extent
+of these walled gardens is *so* big that hardly anyone even notices.
+The transition to smartphones has been pretty gradual, and these apps have
+established themselves very early, thus they have pretty much become the
+standard, especially for people who don't know better.
 
-In fact, whatever person you talk to just takes for granted that you
-have WhatsApp on your phone and when I bring up the fact that I *don't*
-want it I just look "weird".
+In my country the big player in this space is WhatsApp. Which is no
+surprise, given that it was the first of its kind and is also the most
+popular in the world. Literally everyone with a smartphone here uses
+WhatsApp. Even people that don't use any of its IM features, but just use it
+to exchange text messages. That's how much of a monopoly it has. It's now
+become synonymous with texting here.
 
-Okay, so let me explain why I think messaging apps are really bad:
+There's also the odd Telegram user every now and then, usually a more tech
+inclined person, but I couldn't tell you about someone who doesn't have
+WhatsApp installed. It's the expected norm at this point.
 
-1.  If you use these apps you're creating a big vendor lock in barrier
-    around yourself. In order to receive and respond to your message,
-    all your friends need to have the app installed, which can be
-    uncomfortable if proprietary, and outright impossible in some cases,
-    like if they don't have a smartphone, access to the Internet or an
-    unsupported OS, all this further increasing the company's reach in
-    power and lock-in.
+It's not random the way these apps have become so popular.
+I have yet to encounter a messaging app that, when trying to reach a user,
+fallbacks to SMS or some other open protocol in case that user does not have
+the app installed or isn't online to receive the messages. This is bad for
+two reasons:
+1.  the obvious one, is that it creates **vendor lock in**. Once a
+    messaging app establishes itself as "*the* way to text" for a whole
+    country, if somebody doesn't have it, they're pretty much cut off from
+    everyone else. If these apps at least let you send messages in an
+    alternative protocol like SMS, when doing otherwise is not possible,
+    I guarantee you this wouldn't be as much of an issue at all.
 
-    Using these apps is massively detrimental to the world's freedom.
-    Not only does your recipient **need** to get a **smartphone**, a
-    **data plan** (which is often expensive in some countries) and an
-    **operating system** supported by the app, so either Android or iOS,
-    but they'll also have to be **forced** to download and use the
-    often proprietary app.
+    Nobody wants to think about the way they text, and no one does. Technical
+    stuff is for us techies. Everyone else just wants stuff to work. When
+    they see that you aren't reachable using WhatsApp, they think you're not
+    reachable, *full stop*.
 
-    Even if you don't believe that's an issue (and that's a very
-    selfish thing to believe), if at any point in time the company
-    behind your messagging app has a data breach, stops supporting your
-    OS, installs backdoors in the app, or outright bans you from using
-    their services (which has happened to a friend of mine *twice*), you
-    can **do nothing** but question your life choice of delegating all
-    of your data and communications to a single for profit company.
+2.  simply put, because messaging apps work through the internet, if you
+    don't have a connection in a particular moment, everyone who tries to
+    reach you using an app, will not be able to. SMS by contrast works using
+    GSM. If somebody just needs to send you a text message, that is more than
+    appropriate, but as I stated in point 1, if it's not done automatically,
+    people won't go to the extra mile to do it themselves, because 90% of
+    people have no idea about anything I just said.
 
-    WhatsApp has had numerous data breaches, cases of government
-    censorships and backdoor requests, user ban waves, and recently
-    stopped supporting Android versions 4.4 and lower, following the
-    steps of Google.
+And worst of all, messaging apps are a **redundancy**. We already have
+texing protocols that every phone supports. We already have a texting app on
+our phone. Rather than creating more and more of these apps looking to
+"solve every problem with messaging" (see [xkcd 927](https://xkcd.com/927)),
+we should look to improve and extend the systems already in place, to ensure
+that we get to have the new features, without cutting off everyone who doesn't
+have a certain device with a certain app installed. Communication should allow
+everyone to talk seamlessly, not **requiring** a certain technology, which
+average people shouldn't, and don't want to have to think about.
 
-    Just think about if for a moment. You can be **banned** from your
-    primary communication method if the company decides it is in their
-    interest to do so, and they won't guarantee that they'll give you
-    any reasoning or give you the services back. Also if you have an
-    unsupported device, good luck with finding an alternate way to talk
-    using a **proprietary protocol** that nobody knows how it works and
-    thus need to use the app for.
+The thing that saddens me most is that this *was* the standard, 15 years ago.
+I remember when we didn't have to think about "what app you use", Internet
+loading times, compatibility issues and all that stuff. It didn't even matter
+what phone you or your recipient had. It all just worked, like phone calls do.
 
-    If you, or your recipient, have a button phone with no Internet
-    connection, or even a Windows Phone, they won't be able to
-    communicate with you if you only use those apps. This causes many
-    issues in workplaces, families, and people in developing countries,
-    who usually need to communicate important stuff: using proprietary
-    services for this is very harmful.
+The same can't be said today. Have you ever read some news headline that
+WhatsApp or some other popular app is going to drop support for a whole stack
+of old Android versions? You look at them and think "cool, I'm not affected."
+"Was anyone even still using that version"? But when you come to think about
+it, it's actually a very big deal. Sure, Android 4.4 is a very old version.
+But (unsupported)software and hardware don't age the same way. A 10 year old
+OS sounds old, but a 10 year old phone is still capable. Not everybody needs
+or has the ability to upgrade their device. I can guarantee you that an
+Android 4.4 phone can fulfill the needs of someone who's just looking to call
+and text, and take the odd photo. But because "texting" now means "to use a
+proprietary messaging app", if the company decides you're cut off, *you're cut
+off*. And everyone around you **will** still expect to reach you through it.
+In other words, that perfectly good phone (think Galaxy S2 or Nexus 4) will
+now get thrown away and become e-waste, because a messaging app no longer
+works. (Keep in mind that the vast majority of people can't tell apart
+their hardware and the operating system.)
 
-2.  When you send a WhatsApp message to your friend, it first goes from
-    your phone to a WhatsApp data center, that makes sure to deliver
-    your message to the recipient. No one ever knows what happens in
-    those servers, for how long exactly your messages are stored, and
-    whoever could access them. The same can be said about Telegram and
-    other proprietary messaging apps.
+This level of control over compatibility means that essentially, a piece of
+hardware, or a software platform, has no hopes of establishing itself until
+the big messaging apps start deciding to support it. And even established
+systems may fall apart in days if the app decides to drop the support.
+This severely cripples innovation, strengthens the duopoly of the mobile
+space, and it's already happened so many times. Yes, I'm thinking of you,
+Windows Phone. And meego, Symbian, Firefox OS, Ubuntu touch, you name it.
 
-3.  I can't tell you the amount of times I have been told by friends,
-    professors, and relatives that I just "nEeD tO gEt WhAtsApp". No, if
-    you want to talk to me, you and I both have a phone number, just
-    text me, and I'll get back to you. Why would I have to be *forced*
-    to sign up for a proprietary service I don't want and agree to a
-    [terms and conditions contract](https://whatsapp.com/privacy) that I
-    don't even agree with just to chat with someone else? (If you are
-    the type of person to do this, I'd rather just not talk to you)
+I know, there are a lot of systems that are too old to keep supporting.
+And from a developer or a company's point of view, that makes sense. But in
+actuality, there's no reason why someone stuck on an older hardware or
+software shouldn't be able to keep communicating with other people. We've
+been giving that for granted for a long time, and now that planned
+obsolescence is becoming more and more stringent, the effects of this have
+become noticeable. Do you know how many Android 5 users there are today?
+215 million. 215 million, seemingly unable to talk to their contacts
+anymore, because the silo messaging app that's so widely used now stopped
+supporting it.
 
-    This goes for any messaging apps, and is the most obnoxious thing
-    about them. Most don't care to open source their protocol or to use
-    an existing open standard. They'd rather have the most amount of
-    people possible to use their private service and have *full control*
-    over them.
+These messaging apps are the reason why someone can't just go and buy a
+€24 Nokia 110 if they don't have a use for a smartphone, because texting
+in the eyes of most consumers has been replaced by the need of a
+messaging app. Think of everyone that is used to old cell phones, who now
+struggles using a smartphone that's not designed for them while using 0.2%
+of its feature set just because it needs to run WhatsApp.
 
-    This is one of the legal loopholes that companies love to use to get
-    around antitrust laws. Technically installing their app or not is
-    still your choice, but if you choose not to, you'll be missing out
-    on all those contacts and vice versa. And yeah, as hinted before,
-    that's precisely why messaging apps generally don't fallback. They
-    don't care about compatibility or accessibility, in fact they want
-    you to be *forced to use their service* in some way.
+Compatibility is not the only way these messaging apps can just screw a
+bunch of people over. Think now of security. What if the messaging app
+that you use for all your communications, and is also used by 3 billion
+people, suddenly has a data breach? Well, now you're screwed because all
+your messages go through that company's service. Yeah, sure, the company
+says they're using encryption, but realistically, end to end encryption
+is useless if a fault is found on the client side, and we're not even
+going to tackle government requests because you can leave that discussion
+to other people.
 
-4.  The big majority of messaging apps are proprietary. In the case of
-    Telegram and WhatsApp, their protocols and server software are
-    closed source, and even if they were publicly shared to be audited,
-    there is no guarantee that the published code is the same that's
-    running on the server. [Telegram's founder even says
-    so](https://t.me/durovschat/515221).
+This lets me briefly mention terms of service. When you use WhatsApp or
+whatever other messaging app on the planet that uses a proprietary
+client and a proprietary protocol, you're essentially signing a contract
+agreeing to a whole bunch of conditions that you didn't read (neither did
+I or anyone else really). But this entails a huge level of control on
+the company side, because if they decide that you've broken their terms
+of service, they can just ban you, and just like that you're cut off.
+Gotta get a new number or try to negotiate. All of this to access a
+service that shouldn't be behind closed walls anyway. Before you write
+this off as unlikely, this has happened to a friend of mine. twice.
 
-Also, most apps did not add anything useful to the **texting**
-experience. Exchanging text messages and talking on WhatsApp is roughly
-identical. Actually I bet the average WhatsApp experience in 2014 was
-indistinguishable from using MMS.
+<h3 class="faded"><pre># to be finished</pre></h3>
 
-But surely, they must have changed *something*. I mean how did they get
-popular otherwise? For WhatsApp, the answer is statuses, and for
-Telegram lossless media exchange, replies and stickers.
-
-Those seem pretty compelling as features, that are definitely lacking in
-SMS. But what if there was a **new standard**, a spiritual successor to
-SMS, that allows for a more modern chat experience across all kinds of
-phones, just like what MMS tried to do?
-
-------------------------------------------------------------------------
-
-## The solution is RCS!
-
-So what is the solution to all of this? I hinted before to an **open
-protocol** that allows everyone to talk with anyone else, just like SMS,
-but with more robust security and more features. It turns out, there is
-one: **[RCS](https://wikipedia.org/wiki/Rich_Communication_Service)**!
-
-I really love these kinds of open standards, the internet was built on
-them. Actually, most things we take for granted every day use standards
-that developers, providers and companies have agreed on for decades.
-HTML, Unicode, POSIX all come to mind.
-
-RCS, or Rich Communication Service is one such protocol. SMS has been
-included since the early '80s on basically all cellphones, and since
-then MMS was also launched for media capable phones.
-
-If you have an Android phone, **you can already start to use RCS** with
-all of your friends. RCS support is bundled with all Android 5.0+ phones
-and you can also install one on your own if for some reason that isn't
-the case. Generally, RCS apps also work as SMS apps and vice versa.
-
-By far the most popular RCS client is **[Google
-Messages](https://messages.google.com)**, but RCS is also supported by
-Samsung Messages, which is probably already the default SMS apps on your
-phone. So you can also text if you or your recipient don't have an
-internet connection or a smartphone.
-
-------------------------------------------------------------------------
-
-1.  You can just send a text message to anyone, as long as they have a
-    cell phone made after the year 1990. RCS clients fallback to SMS in
-    case the recipient's phone is not connected to the internet or if
-    it does not support RCS.
-
-    SMS support is completely independent of the operating system. In
-    fact, your phone doesn't even need to have one as long as the
-    hardware firmware has SMS.
-
-    It is up to the developers of the OS to preload a working SMS
-    client, but even if they for some reason didn't, there are loads
-    available like Textra for Android phones and you could always make
-    your own if you wanted.
-
-    Every Android phone with at least Android 5.0 fully supports all
-    features of RCS, and older phones can still use and receive SMS even
-    from RCS users.
-
-    So, with SMS, you can text even in remote places with no Internet.
-    No matter if your recipient is currently online, if they even have a
-    smartphone, or if they have low signal, they'll still be able to
-    read your message.
-
-2.  RCS systems use your mobile providers's RCS infrastructure to route
-    your messages over to your recipient. Conversely to apps like
-    Telegram there's no need for a data center that stores your
-    messages. These RCS services run a selfhosted software known as an
-    "RCS deployment". [Google](https://jibe.google.com) makes the
-    deployment used by the majority of providers. These deployments
-    should be GSMA compliant, so aligned with the RCS standard.
-
-    If you and your friend are on different carriers, **RCS hubs** come
-    in to play to send messages across the global RCS network.
-
-    SMS, the fallback, sends your message to an SMSC ("SMS Center") in
-    your radio coverage area, which is then sent over to your
-    recipient's area, just like phone calls (however, the phone line
-    and the SMS route are different).
-
-3.  Your messages are only on you and your recipient's phones,
-    including photos and videos. Also, unlike WhatsApp which does a
-    similar thing, there's no need for an expensive and often
-    unreliable cloud backup, because a lot of chats can be stored into a
-    SIM card.
-
-    As an added bonus, most RCS implementations are now end-to-end
-    encrypted.
-
-4.  The RCS protocol has full support for **message replies**, **message
-    deletion**, **high quality photos**, **location data**, reactions,
-    videos, stickers and as I've been able to test, even raw files.
-
-    RCS messages can even contain information like live locations,
-    stickers, GIFs, search results, and more.
-
-    In case there's some need to fall back to SMS, information about
-    replies and reactions is preserved (eg. a "Reply to: ..." text
-    will be shown to SMS users) and media is sent over MMS or using
-    links. This ensures integrity if you can't use RCS at a given time.
-
-------------------------------------------------------------------------
-
-So all of that said, why spend so much of your time trying to get
-someone else to download the same app you're using, when you could just
-open the Messages app and just... talk?
+<!--
+TODO:
+Write about alternate client support.
+Segway into the need for an open protocol, that falls back to established
+standards and is able to be used on any app.
+(Mention IM like XMPP, Matrix, etc in the process, because they're the best
+example).
+Then talk about RCS, what it solves and how to use it, and how it's better
+than using messaging apps. (The focus of the article has shifted quite a lot
+from the original, but should still mention RCS)
+-->
