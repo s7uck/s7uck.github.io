@@ -60,6 +60,7 @@ menu { justify-content: center;}
 .flex, .card, figcaption { display: -ms-flex; display: flex;}
 .horizontal, .grid { flex-direction: row;}
 .nowrap { flex-wrap: nowrap;}
+.horizontal.list { align-items: center;}
 .chip, button {
 	display: inline-block;
 	border: 1px solid #08C7BB;
@@ -83,7 +84,7 @@ hr {
 }
 ul, ol, menu { padding-left: 0;}
 li { margin: 12px 0;}
-figure, .grid li { margin: 0;}
+figure, .grid li, ul.list, ol.list { margin: 0;}
 table { width: 100%;}
 table, td, th {
 	border: 1px solid #101010;
@@ -118,6 +119,7 @@ footer.texture {
 	background-attachment: fixed;
 	background-position: center;
 }
+[onclick] { cursor: pointer;}
 @media only screen and (max-width: 600px) {
 	nav menu { column-gap: 0;}
 	.card { width: 100% !important;

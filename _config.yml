@@ -20,3 +20,7 @@ defaults:
         posts: "/posts"
         gallery: "/gallery"
         setup: "/setup"
+  - scope:
+      type: "photos"
+    values:
+      noheader: true
