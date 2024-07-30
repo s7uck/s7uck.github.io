@@ -1,5 +1,4 @@
 title: Stuck's Website
-baseurl: ""
 url: "https://s7uck.github.io"
 
 kramdown:
@@ -7,9 +6,11 @@ kramdown:
   hard_wrap: false
 plugins:
   - jekyll-feed
+
 collections:
   projects:
     output: true
+
 defaults:
   - scope:
       path: ""

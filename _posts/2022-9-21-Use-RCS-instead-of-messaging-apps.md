@@ -134,8 +134,8 @@ space, and it's already happened so many times. Yes, I'm thinking of you,
 Windows Phone. And meego, Symbian, Firefox OS, Ubuntu touch, you name it.
 
 Compatibility is not the only way these messaging apps can just screw a
-bunch of people over. Think now of *security* What if the messaging app
-that you use for all your communications, and is also used by 3 billion
+bunch of people over. Think now of *security*. What if the messaging app
+that you use for all your communications, along with another 3 billion
 people, suddenly has a data breach? Well, now you're fucked because all of
 your private messages go through that company's service. Yeah, sure, the
 company says they're using encryption, but realistically, end to end
