@@ -3,6 +3,8 @@ layout: post
 title: "Messaging Apps Aren't a Good Idea"
 date: 2022-09-21 23:05:24 +0200
 categories: thoughts tech
+redirect_from:
+  - /posts/you-should-stop-using-messaging-apps.html
 ---
 
 Cell phones. They've been around longer than me, and they've spring
