@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Why Messaging Apps are Stupid"
+title: "Messaging Apps Aren't a Good Idea"
 date: 2022-09-21 23:05:24 +0200
 categories: thoughts tech
 ---
@@ -92,15 +92,16 @@ two reasons:
     people won't go to the extra mile to do it themselves, because 90% of
     people have no idea about anything I just said.
 
-And worst of all, messaging apps are a **redundancy**. We already have
-texing protocols that every phone supports. We already have a texting app on
-our phone. Rather than creating more and more of these apps looking to
-"solve every problem with messaging" (see [xkcd 927](https://xkcd.com/927)),
-we should look to improve and extend the systems already in place, to ensure
-that we get to have the new features, without cutting off everyone who doesn't
-have a certain device with a certain app installed. Communication should allow
-everyone to talk seamlessly, not **requiring** a certain technology, which
-average people shouldn't, and don't want to have to think about.
+Plus, messaging apps are just a redundancy. We already have texing protocols
+that every phone supports and already have a texting app on our phones  . Rather
+than creating more and more of these apps looking to "solve every problem with
+messaging" (see [xkcd 927](https://xkcd.com/927)), we should look to improve and
+extend the systems already in place, to ensure that we get to have the new features,
+without cutting off everyone who doesn't have a certain device with a certain app
+installed. Instant messaging should allow everyone to talk seamlessly, not
+**requiring** a certain technology, or branching off in a whole lot of different
+technologies that in principle attempt to do the same thing yet are incompatible
+with each other.
 
 The thing that saddens me most is that this *was* the standard, 15 years ago.
 I remember when we didn't have to think about "what app you use", Internet
@@ -109,20 +110,20 @@ what phone you or your recipient had. It all just worked, like phone calls do.
 
 The same can't be said today. Have you ever read some news headline that
 WhatsApp or some other popular app is going to drop support for a whole stack
-of old Android versions? You look at them and think "cool, I'm not affected."
-"Was anyone even still using that version"? But when you come to think about
-it, it's actually a very big deal. Sure, Android 4.4 is a very old version.
-But (unsupported)software and hardware don't age the same way. A 10 year old
-OS sounds old, but a 10 year old phone is still capable. Not everybody needs
-or has the ability to upgrade their device. I can guarantee you that an
-Android 4.4 phone can fulfill the needs of someone who's just looking to call
-and text, and take the odd photo. But because "texting" now means "to use a
-proprietary messaging app", if the company decides you're cut off, *you're cut
-off*. And everyone around you **will** still expect to reach you through it.
-In other words, that perfectly good phone (think Galaxy S2 or Nexus 4) will
-now get thrown away and become e-waste, because a messaging app no longer
-works. (Keep in mind that the vast majority of people can't tell apart
-their hardware and the operating system.)
+of old Android versions? It might seem like it's reasonable. But when you come
+to think about it it's actually a very big deal. Due to the nature of messaging
+apps, the client not being supported means no way to communicate through it.
+
+Sure, Android 4.4 is a very old version, but not everybody needs or has the ability
+to upgrade their device. I can guarantee you that an Android 4.4 phone can fulfill
+the needs of someone who's just looking to call and text, and take the odd photo.
+But because "texting" now means "to use a proprietary messaging app", if the company
+decides you're cut off, *you're cut off*. And everyone around you **will** still
+expect to reach you through it. In other words, that perfectly good phone (think
+Galaxy S2 or Nexus 4) will now get thrown away and become e-waste, because a
+messaging app no longer works.
+Since the rise of proprietary messaging apps the bar for compatibility has dropped
+from 20+ years of support to just over 10.
 
 This level of control over compatibility means that essentially, a piece of
 hardware, or a software platform, has no hopes of establishing itself until
@@ -132,55 +133,81 @@ This severely cripples innovation, strengthens the duopoly of the mobile
 space, and it's already happened so many times. Yes, I'm thinking of you,
 Windows Phone. And meego, Symbian, Firefox OS, Ubuntu touch, you name it.
 
-I know, there are a lot of systems that are too old to keep supporting.
-And from a developer or a company's point of view, that makes sense. But in
-actuality, there's no reason why someone stuck on an older hardware or
-software shouldn't be able to keep communicating with other people. We've
-been giving that for granted for a long time, and now that planned
-obsolescence is becoming more and more stringent, the effects of this have
-become noticeable. Do you know how many Android 5 users there are today?
-215 million. 215 million, seemingly unable to talk to their contacts
-anymore, because the silo messaging app that's so widely used now stopped
-supporting it.
-
-These messaging apps are the reason why someone can't just go and buy a
-€24 Nokia 110 if they don't have a use for a smartphone, because texting
-in the eyes of most consumers has been replaced by the need of a
-messaging app. Think of everyone that is used to old cell phones, who now
-struggles using a smartphone that's not designed for them while using 0.2%
-of its feature set just because it needs to run WhatsApp.
-
 Compatibility is not the only way these messaging apps can just screw a
-bunch of people over. Think now of security. What if the messaging app
+bunch of people over. Think now of *security* What if the messaging app
 that you use for all your communications, and is also used by 3 billion
-people, suddenly has a data breach? Well, now you're screwed because all
-your messages go through that company's service. Yeah, sure, the company
-says they're using encryption, but realistically, end to end encryption
-is useless if a fault is found on the client side, and we're not even
-going to tackle government requests because you can leave that discussion
+people, suddenly has a data breach? Well, now you're fucked because all of
+your private messages go through that company's service. Yeah, sure, the
+company says they're using encryption, but realistically, end to end
+encryption is useless if a fault is found on the client side, and we're not
+even going to tackle government requests because you can leave that discussion
 to other people.
 
-This lets me briefly mention terms of service. When you use WhatsApp or
-whatever other messaging app on the planet that uses a proprietary
-client and a proprietary protocol, you're essentially signing a contract
-agreeing to a whole bunch of conditions that you didn't read (neither did
-I or anyone else really). But this entails a huge level of control on
-the company side, because if they decide that you've broken their terms
-of service, they can just ban you, and just like that you're cut off.
-Gotta get a new number or try to negotiate. All of this to access a
-service that shouldn't be behind closed walls anyway. Before you write
-this off as unlikely, this has happened to a friend of mine. twice.
+In short, the nature of these messaging apps involves a lot of incompatibility
+by design. No compatibility with older devices, no compatibility with
+unsupported systems, no compatibility with each other even. The issue is tied
+to the closed nature of these apps, in contrast to open protocols, which over
+the years have proven to work across a moltitude of different devices and
+configurations, because the **standard**, the **servers** and **clients** are
+all separate.
 
-<h3 class="faded"><pre># to be finished</pre></h3>
+With open protocols, an operating system's support for the protocol is
+dependent only on the OS itself, which can just include its own client, if
+none is available. Compare that to the silo-messaging apps, and there it's a
+whole different story: *the server, client and protocol spec are all in the
+hands of one company*, and even if they do provide an API, it's not a spec,
+and the servers are still theirs. In other words support is never guaranteed
+and is fully dependant on whatever company is behind the walled garden.
 
-<!--
-TODO:
-Write about alternate client support.
-Segway into the need for an open protocol, that falls back to established
-standards and is able to be used on any app.
-(Mention IM like XMPP, Matrix, etc in the process, because they're the best
-example).
-Then talk about RCS, what it solves and how to use it, and how it's better
-than using messaging apps. (The focus of the article has shifted quite a lot
-from the original, but should still mention RCS)
--->
+When it comes to instant messaging there are loads of examples of standard
+protocols, which have worked across a load of different systems over tens
+of years. Think xmpp, IRC, email, and recently, Matrix and Fediverse. I'm
+well aware that not all of these are appropriate for today or evolved in
+an adequate way, but they're built to be **interoperable** or can at least
+be **bridged** together, especially more recent standards.
+
+Alright, it's time for me to talk about the alternative to all of this mess.
+It's not perfect either, but it checks all the boxes of a good solution: it's
+a) a **standard**, b) designed for the **default messaging** clients of
+phones, c) **interoperable** across servers and d) **supports fallback to an
+established protocol**, in this case **SMS**. I'm, of course, talking about
+iMessage. Nah, just kidding, I'm talking about **RCS**. You may have heard of
+it: Google is pushing hard for its adoption and has its own in house client
+for it, Google Messages, which just so happens to be Android's default
+messaging app. But RCS is not Google, it was started and developed by the
+GSMA and designed for adoption by carriers, because RCS is thought of as a
+more modern revision of SMS.
+
+Essentially, RCS provides all the features of a messaging app, minus all the
+"walls". RCS support is not dependent on the type of device, rather it's the
+duty of OS developers to write a compatible stack, and if not, third party
+clients can be written. Ideally, all of these clients should be able
+to talk to each other, and all RCS servers should too.
+
+RCS runs over IP, so it requires an internet connection, but the good thing
+about it is that it's built to allow a fallback to SMS messages, which ensures
+that not only will text messages get across even without a stable connection,
+but also if either party doesn't support RCS. And all of this is done
+seamlessly by the client. Carriers typically also allow this happening on the
+server side, since they also have access to SMS infrastructure, which allows
+them to directly route RCS and SMS traffic together.
+
+Yes, RCS is not without its disadvantages. For one, the indisputed big player
+in the RCS space is Google, who provide both the most popular client as well
+as the most used server (see [Google Jibe](https://jibe.google.com)). This
+doesn't sound much better than proprietary messaging apps, but in this case
+we're at least still dealing with a standard, that technically anyone can
+implement. There's also plenty of existing carrier servers alongside Google's,
+so we can rest assured that they're not going to monopolize this space too.
+But the concern is still there and it might not be long before we're dealing
+with a Chromium-like situation.
+
+Anyways, the GSMA's [official FAQ](https://www.gsma.com/solutions-and-impact/technologies/networks/rcs-frequently-asked-questions/)
+actually explains a lot of my points quite well. So if you haven't been
+convinced yet, go and check that out, and then open your phone's default
+texting app and write to someone. And by someone I mean anyone, because
+you won't have to worry about what they're running ;)
+
+
+<i class="faded">Fun fact: Windows Phone was one of the first OS to include
+support for RCS and it still works fine. Name me something else that does.</i>
