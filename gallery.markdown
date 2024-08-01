@@ -9,11 +9,14 @@ permalink: /gallery
 		width: 40%;
 		padding: 0;
 		row-gap: 0;
+		overflow: hidden;
 	}
-	.card.big {
-		flex-grow: 1;
-	}
+	.card.big { flex-grow: 1;}
 	figcaption { padding: 1em;}
+	.card img {
+		height: 100%;
+		object-fit: cover;
+	}
 </style>
 
 <ol class="grid" id="photo-grid">
