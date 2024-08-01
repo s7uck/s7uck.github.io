@@ -4,8 +4,6 @@ url: "https://s7uck.github.io"
 kramdown:
   input: GFM
   hard_wrap: false
-plugins:
-  - jekyll-feed
 
 collections:
   projects:
@@ -21,6 +19,6 @@ defaults:
         gallery: "/gallery"
         setup: "/setup"
   - scope:
-      type: "photos"
+      path: "photos"
     values:
       noheader: true
