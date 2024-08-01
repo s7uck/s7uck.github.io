@@ -25,6 +25,7 @@ module Jekyll
 				photo_url = "#{output_url}/#{photo_name}#{file_extension}"
 
 				pic = MiniExiftool.new(photo)
+				pic.numerical = true
 				capture_time = pic.date_time_original
 				latitude = pic.gps_latitude
 				longitude = pic.gps_longitude
@@ -32,11 +33,12 @@ module Jekyll
 				aperture = pic.aperture
 				sspeed = pic.shutter_speed
 				iso = pic.iso
+				rating = pic.rating
 				mode = modes[pic.exposure_program.to_i || '?']
 
 				photo_data = {
 					'layout' => 'photo',
-					'name' => photo_name,
+					'title' => photo_name,
 					'date' => capture_time,
 					'location' => "#{latitude} #{longitude}",
 					'camera' => camera,
@@ -44,6 +46,7 @@ module Jekyll
 					'aperture' => aperture,
 					'sspeed' => sspeed,
 					'iso' => iso,
+					'rating' => rating,
 					'mode' => mode
 				}
 

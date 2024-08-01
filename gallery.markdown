@@ -18,15 +18,15 @@ permalink: /gallery
 
 <ol class="grid" id="photo-grid">
 {% for photo in site.pages %}{% if photo.path contains 'photos' %}
-	<li class="card{% if photo.highlight %} big{%endif%}" onclick="window.location = '{{ photo.url }}'">
-		<img src="/photos/{{ photo.image }}" alt="{{ photo.name }}">
+	<li class="card{% if photo.rating >= 4 %} big{%endif%}" onclick="window.location = '{{ photo.url }}'">
+		<img src="/photos/{{ photo.image }}" alt="{{ photo.title }}">
 
 		<figcaption>
 			<small>
 				{{ photo.date | date: "%-d %B %Y" }}
 			</small>
 			<big>
-				{{ photo.name }}
+				{{ photo.title }}
 			</big>
 
 			<small>
