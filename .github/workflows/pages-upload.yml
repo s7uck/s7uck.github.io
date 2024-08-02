@@ -1,4 +1,4 @@
-name: Deploy Jekyll site to Pages
+name: Upload to GitHub Pages
 
 on:
   push:
@@ -24,7 +24,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
+      - name: Checkout photos
+        uses: actions/checkout@v4
+        with:
+          repository: 's7uck/photos'
+      - name: Build site
         # Outputs to the './_site' directory by default
         run: jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
