@@ -17,7 +17,10 @@ module Jekyll
 				5 => "SCNY",
 				6 => "ACTN",
 				7 => "PORT",
-				8 => "PANO"
+				8 => "PANO",
+				"Manual" => "M",
+				"Aperture priority AE" => "A",
+				"Program AE" => "SCN"
 			}
 
 			Dir.glob("#{photos_dir}/*").each do |photo|
@@ -34,8 +37,9 @@ module Jekyll
 				aperture = pic.aperture
 				sspeed = pic.shutter_speed
 				iso = pic.iso
+				focal = pic.focallength
 				rating = pic.rating
-				mode = modes[pic.exposure_program.to_i || '?']
+				mode = modes[pic.exposure_program || 'AUTO']
 
 				photo_data = {
 					'layout' => 'photo',
@@ -47,6 +51,7 @@ module Jekyll
 					'aperture' => aperture,
 					'sspeed' => sspeed,
 					'iso' => iso,
+					'focal' => focal,
 					'rating' => rating,
 					'mode' => mode
 				}
