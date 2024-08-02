@@ -10,8 +10,9 @@ permalink: /gallery
 		padding: 0;
 		row-gap: 0;
 		overflow: hidden;
+		flex-grow: 1;
 	}
-	.card.big { flex-grow: 1;}
+	.card.big { width: 57%;}
 	figcaption { padding: 1em;}
 	.card img {
 		height: 100%;

@@ -74,6 +74,7 @@ menu { justify-content: center;}
 	border: 1px solid #101010;
 	padding: 1em;
 }
+figure { overflow-x: auto;}
 hr {
 	border: 0;
 	background-image: radial-gradient(transparent, black),
@@ -123,5 +124,6 @@ footer.texture {
 @media only screen and (max-width: 600px) {
 	nav menu { column-gap: 0;}
 	.card { width: 100% !important;
-		max-width: 100% !important;}
+		max-width: 100% !important;
+	   flex-basis: 100% !important;}
 }
