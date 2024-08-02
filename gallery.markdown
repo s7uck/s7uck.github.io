@@ -20,9 +20,10 @@ permalink: /gallery
 	}
 </style>
 
-<ol class="grid" id="photo-grid">
-{% for photo in site.pages %}{% if photo.path contains 'photos' %}
-	<li class="card{% if photo.rating >= 4 %} big{%endif%}" onclick="window.location = '{{ photo.url }}'">
+{% assign photos = site.pages | where: "dir", "/photos/" | sort: "date" | reverse %}
+
+<ol class="grid" id="photo-grid">{% for photo in photos %}
+	<li class="card{% if photo.rating >= 4 %} big{% endif %}" onclick="window.location = '{{ photo.url }}'">
 		<img src="/photos/{{ photo.image }}" alt="{{ photo.title }}">
 
 		<figcaption>
@@ -37,6 +38,5 @@ permalink: /gallery
 				<img class="icon invert" src="/images/camera.svg"> {{ photo.camera }} <img class="icon invert" src="/images/forward.svg"> {{ photo.location }}
 			</small>
 		</figcaption>
-	</li>
-{% endif %}{% endfor %}
+	</li>{% endfor %}
 </ol>
