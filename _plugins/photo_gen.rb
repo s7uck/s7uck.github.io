@@ -6,6 +6,7 @@ module Jekyll
 			photos_dir = "/home/lubuntu/Immagini/Gallery" # temp
 			output_url = "/photos"
 			photos = []
+			FileUtils.mkdir_p(File.join(site.dest, output_url))
 
 			modes = {
 				0 => "AUTO",
