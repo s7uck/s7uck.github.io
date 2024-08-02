@@ -40,6 +40,7 @@ module Jekyll
 				focal = pic.focallength
 				rating = pic.rating
 				mode = modes[pic.exposure_program || 'AUTO']
+				description = pic.comment
 
 				photo_data = {
 					'layout' => 'photo',
@@ -57,7 +58,7 @@ module Jekyll
 				}
 
 				photo_page = PageWithoutAFile.new(site, site.source, output_url, "#{photo_name}.md")
-				photo_page.content = ""
+				photo_page.content = description
 				photo_page.data.merge!(photo_data)
 
 				site.pages << photo_page
