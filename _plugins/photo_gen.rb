@@ -23,10 +23,13 @@ module Jekyll
 				"Program AE" => "SCN"
 			}
 
-			Dir.glob("#{photos_dir}/*").each do |photo|
+			Dir.glob("#{photos_dir}/**/*").each do |photo|
+				next unless File.file?(photo)
+
 				file_extension = File.extname(photo)
-				photo_name = File.basename(photo, file_extension)
-				photo_url = "#{output_url}/#{photo_name}#{file_extension}"
+				filename = File.basename(photo, file_extension)
+				photo_path = File.dirname(photo).sub(photos_dir, '')
+				photo_url = "#{output_url}#{photo_path}"
 
 				pic = MiniExiftool.new(photo)
 				pic.numerical = true
@@ -50,7 +53,7 @@ module Jekyll
 					'date' => capture_time,
 					'location' => location,
 					'camera' => camera,
-					'image' => "#{photo_name}#{file_extension}",
+					'image' => File.join(photo_url, filename + file_extension),
 					'aperture' => aperture,
 					'sspeed' => sspeed,
 					'iso' => iso,
@@ -59,12 +62,17 @@ module Jekyll
 					'mode' => mode
 				}
 
-				photo_page = PageWithoutAFile.new(site, site.source, output_url, "#{photo_name}.md")
+				photo_data.reject! { |p| p.empty? }
+
+				dest = File.join(site.dest, photo_url)
+				FileUtils.mkdir_p dest
+
+				photo_page = PageWithoutAFile.new(site, site.source, photo_url, "#{filename}.md")
 				photo_page.content = description
 				photo_page.data.merge!(photo_data)
 
 				site.pages << photo_page
-				FileUtils.cp(photo, File.join(site.dest, photo_url))
+				FileUtils.cp(File.expand_path(photo), dest)
 			end
 		end
 	end

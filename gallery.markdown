@@ -20,11 +20,11 @@ permalink: /gallery
 	}
 </style>
 
-{% assign photos = site.pages | where: "dir", "/photos/" | sort: "date" | reverse %}
+{% assign photos = site.pages | where_exp: "item", "item.dir contains '/photos/'" | sort: "date" | reverse %}
 
 <ol class="grid" id="photo-grid">{% for photo in photos %}
 	<li class="card{% if photo.rating >= 4 %} big{% endif %}" onclick="window.location = '{{ photo.url }}'">
-		<img src="/photos/{{ photo.image }}" alt="{{ photo.title }}">
+		<img src="{{ photo.image }}" alt="{{ photo.title }}">
 
 		<figcaption>
 			<small>
