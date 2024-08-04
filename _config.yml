@@ -22,3 +22,5 @@ defaults:
       path: "photos"
     values:
       noheader: true
+
+include: ["_*.JPG", "_*.jpg"]
