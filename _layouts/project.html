@@ -3,7 +3,24 @@ layout: page
 ---
 
 <header>
-    <h1>{{ page.name }}</h1>
+    <h1 style="margin: 0">
+    	{{ page.name }}
+    </h1>
+
+    <small>
+    	{% if page.started != false %}started <time datetime="{{ page.started }}">{{ page.started | date: "%b %-d, %Y" }}</time>{% if page.finished != false %}, finished <time datetime="{{ page.finished }}">{{ page.finished | date: "%b %-d, %Y" }}</time>{% endif %}
+    	{% else %}work in progress{% endif %}
+    </small>
+
+	<ul class="list horizontal">{% for category in page.categories %}
+		<span class="chip">{{ category }}</span>{% endfor %}
+		{% if page.link %}<menu>
+			<a href="{{ page.link }}" title="Link">
+				<span>{{ page.link | split: '://' | last }} </span>
+				<img class="invert" src="/images/forward.svg">
+			</a>
+		</menu>{% endif %}
+	</ul>
 </header>
 
 {% if page.image %}
@@ -11,11 +28,8 @@ layout: page
 </figure>
 {% endif %}
 
-<header>
-    <p>{% if page.started != false %}
-    started <time datetime="{{ page.started }}">{{ page.started | date: "%b %-d, %Y" }}</time>
-    {% if page.finished != false %}, finished <time datetime="{{ page.finished }}">{{ page.finished | date: "%b %-d, %Y" }}</time>{% endif %}
-    {% else %}work in progress{% endif %}</p>
-</header>
+<center>
+	{{ page.excerpt }}
+</center>
 
-{{ content }}
+{{ content | replace: page.excerpt, "" }}
