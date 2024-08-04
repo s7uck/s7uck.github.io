@@ -30,9 +30,9 @@ permalink: /gallery
 			<small>
 				{{ photo.date | date: "%-d %B %Y" }}
 			</small>
-			<big>
+			{% if photo.title %}<big>
 				{{ photo.title }}
-			</big>
+			</big>{% endif %}
 
 			<small>
 				<img class="icon invert" src="/images/camera.svg"> {{ photo.camera }} <img class="icon invert" src="/images/forward.svg"> {{ photo.location }}

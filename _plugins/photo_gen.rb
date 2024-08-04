@@ -30,9 +30,11 @@ module Jekyll
 
 				pic = MiniExiftool.new(photo)
 				pic.numerical = true
+				title = pic.title || pic['Landmark']
 				capture_time = pic.date_time_original
 				latitude = pic.gps_latitude
 				longitude = pic.gps_longitude
+				location = pic['Location'] || latitude + ' ' + longitude
 				camera = pic.make + ' ' + pic.model
 				aperture = pic.aperture
 				sspeed = pic.shutter_speed
@@ -44,9 +46,9 @@ module Jekyll
 
 				photo_data = {
 					'layout' => 'photo',
-					'title' => photo_name,
+					'title' => title,
 					'date' => capture_time,
-					'location' => "#{latitude} #{longitude}",
+					'location' => location,
 					'camera' => camera,
 					'image' => "#{photo_name}#{file_extension}",
 					'aperture' => aperture,
