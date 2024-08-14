@@ -29,6 +29,7 @@ jobs:
         with:
           repository: 's7uck/photos'
           path: './photos'
+          lfs: true
       - name: Build site
         # Outputs to the './_site' directory by default
         run: jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
