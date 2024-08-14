@@ -30,6 +30,11 @@ jobs:
           repository: 's7uck/photos'
           path: './photos'
           lfs: true
+      - name: Checkout photos (LFS)
+        uses: actions/checkout@v2
+        with:
+          repository: 's7uck/photos'
+          path: './photos'
       - name: Checkout LFS objects
         working-directory: './photos'
         run: git lfs checkout
