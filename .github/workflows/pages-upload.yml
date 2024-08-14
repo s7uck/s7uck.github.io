@@ -29,15 +29,6 @@ jobs:
         with:
           repository: 's7uck/photos'
           path: './photos'
-          lfs: true
-      - name: Checkout photos (LFS)
-        uses: actions/checkout@v2
-        with:
-          repository: 's7uck/photos'
-          path: './photos'
-      - name: Checkout LFS objects
-        working-directory: './photos'
-        run: git lfs checkout
       - name: Build site
         # Outputs to the './_site' directory by default
         run: jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
