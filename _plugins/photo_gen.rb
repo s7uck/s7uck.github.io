@@ -3,7 +3,7 @@ require "mini_exiftool"
 module Jekyll
 	class PhotoPageGenerator < Generator
 		def generate(site)
-			photos_dir = "photos" # aka my repo s7uck/photos
+			photos_dir = "/home/lubuntu/Scaricati/photos" # aka my repo s7uck/photos
 			output_url = "/photos"
 			photos = []
 			FileUtils.mkdir_p(File.join(site.dest, output_url))

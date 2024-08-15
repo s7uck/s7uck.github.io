@@ -20,7 +20,7 @@ jobs:
       - name: Install SSG
         run: sudo apt-get install ruby jekyll ruby-jekyll-feed
       - name: Install exiftool
-        run: sudo apt-get install exiftool ruby-mini-exiftool
+        run: sudo apt-get install exiftool ruby-mini-exiftool webp
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -34,6 +34,9 @@ jobs:
         run: jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Create compressed versions of each photo
+        working-directory: './photos'
+        run: for file in **/**/*; do echo "$file"; cwebp "$file" -o "${file%.*}.webp" -size 524288; done 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
