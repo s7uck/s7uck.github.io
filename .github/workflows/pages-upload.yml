@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install SSG
-        run: sudo apt-get install ruby jekyll
+        run: sudo apt-get install ruby jekyll ruby-jekyll-feed
       - name: Install exiftool
         run: sudo apt-get install exiftool ruby-mini-exiftool
       - name: Setup Pages
