@@ -33,48 +33,52 @@ module Jekyll
 				photo_path = File.dirname(photo).sub(photos_dir, '')
 				photo_url = "#{output_url}#{photo_path}"
 
-				pic = MiniExiftool.new(photo)
-				pic.numerical = true
-				title = pic.title || pic['Landmark']
-				capture_time = pic.date_time_original
-				latitude = pic.gps_latitude
-				longitude = pic.gps_longitude
-				location = pic['Location'] || latitude + ' ' + longitude
-				camera = pic.make + ' ' + pic.model
-				aperture = pic.aperture
-				sspeed = pic.shutter_speed
-				iso = pic.iso
-				focal = pic.focallength
-				rating = pic.rating
-				mode = modes[pic.exposure_program || 'AUTO']
-				description = pic.comment
+				begin
+					pic = MiniExiftool.new(photo)
+					pic.numerical = true
+					title = pic.title || pic['Landmark']
+					capture_time = pic.date_time_original
+					latitude = pic.gps_latitude
+					longitude = pic.gps_longitude
+					location = pic['Location'] || latitude + ' ' + longitude
+					camera = pic.make + ' ' + pic.model
+					aperture = pic.aperture
+					sspeed = pic.shutter_speed
+					iso = pic.iso
+					focal = pic.focallength
+					rating = pic.rating
+					mode = modes[pic.exposure_program || 'AUTO']
+					description = pic.comment
 
-				photo_data = {
-					'layout' => 'photo',
-					'title' => title,
-					'date' => capture_time,
-					'location' => location,
-					'camera' => camera,
-					'image' => File.join(photo_url, filename + file_extension),
-					'aperture' => aperture,
-					'sspeed' => sspeed,
-					'iso' => iso,
-					'focal' => focal,
-					'rating' => rating,
-					'mode' => mode
-				}
+					photo_data = {
+						'layout' => 'photo',
+						'title' => title,
+						'date' => capture_time,
+						'location' => location,
+						'camera' => camera,
+						'image' => File.join(photo_url, filename + file_extension),
+						'aperture' => aperture,
+						'sspeed' => sspeed,
+						'iso' => iso,
+						'focal' => focal,
+						'rating' => rating,
+						'mode' => mode
+					}
 
-				photo_data.reject! { |p| p.empty? }
+					photo_data.reject! { |p| p.empty? }
 
-				dest = File.join(site.dest, photo_url)
-				FileUtils.mkdir_p dest
+					dest = File.join(site.dest, photo_url)
+					FileUtils.mkdir_p dest
 
-				photo_page = PageWithoutAFile.new(site, site.source, photo_url, "#{filename}.md")
-				photo_page.content = description
-				photo_page.data.merge!(photo_data)
+					photo_page = PageWithoutAFile.new(site, site.source, photo_url, "#{filename}.md")
+					photo_page.content = description
+					photo_page.data.merge!(photo_data)
 
-				site.pages << photo_page
-				FileUtils.cp(File.expand_path(photo), dest)
+					site.pages << photo_page
+					FileUtils.cp(File.expand_path(photo), dest)
+				rescue
+					puts "#{photo} didn't work"
+				end				
 			end
 		end
 	end
