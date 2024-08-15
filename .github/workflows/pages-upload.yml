@@ -29,8 +29,6 @@ jobs:
         with:
           repository: 's7uck/photos'
           path: './photos'
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
       - name: Build site
         # Outputs to the './_site' directory by default
         run: jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"

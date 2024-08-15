@@ -26,6 +26,8 @@ module Jekyll
 			Dir.glob("#{photos_dir}/**/*").each do |photo|
 				next unless File.file?(photo)
 
+                                puts photo
+
 				file_extension = File.extname(photo)
 				filename = File.basename(photo, file_extension)
 				photo_path = File.dirname(photo).sub(photos_dir, '')
