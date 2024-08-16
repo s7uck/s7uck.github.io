@@ -77,7 +77,6 @@ menu { justify-content: center;}
 	border: 1px solid #101010;
 	padding: 1em;
 }
-figure { overflow-x: auto;}
 hr {
 	border: 0;
 	background-image: radial-gradient(transparent, black),
