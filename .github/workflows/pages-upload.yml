@@ -36,7 +36,7 @@ jobs:
           JEKYLL_ENV: production
       - name: Create compressed versions of each photo
         working-directory: './photos'
-        run: find . | parallel -eta cwebp "{}" -o "{.}.webp" -size 524288 
+        run: find . -type f -not -path "./.git/*" | parallel -eta cwebp "{}" -o "_site/{.}.webp" -size 524288 -mt || continue
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
