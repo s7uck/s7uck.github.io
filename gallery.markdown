@@ -24,7 +24,7 @@ permalink: /gallery
 
 <ol class="grid" id="photo-grid">{% for photo in photos %}
 	<li class="card{% if photo.rating >= 4 %} big{% endif %}" onclick="window.location = '{{ photo.url }}'">
-		<img src="{{ photo.slug }}.webp" alt="{{ photo.title }}">
+		<img src="{{ photo.image }}.webp" alt="{{ photo.title }}">
 
 		<figcaption>
 			<small>
