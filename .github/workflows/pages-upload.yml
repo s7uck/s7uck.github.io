@@ -22,7 +22,9 @@ jobs:
       - name: Install exiftool
         run: sudo apt-get install exiftool ruby-mini-exiftool webp
       - name: Install plugins
-        run: sudo gem install jekyll-webp jekyll-redirect-from
+        run: |
+          sudo apt-get install libjpeg-dev libpng-dev libtiff-dev libwebp-dev
+          sudo gem install webp-ffi jekyll-redirect-from
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5

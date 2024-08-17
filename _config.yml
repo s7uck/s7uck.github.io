@@ -24,10 +24,3 @@ defaults:
       noheader: true
 
 include: ["_*.JPG", "_*.jpg", "_*.webp"]
-webp:
-  enabled: true
-  quality: 90
-  img_dir: ["/photos"]
-  nested: true
-  formats: [".JPG", ".jpg", ".jpeg"]
-  append_ext: true

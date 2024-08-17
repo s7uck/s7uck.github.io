@@ -1,4 +1,5 @@
 require "mini_exiftool"
+require "webp_ffi"
 
 module Jekyll
 	class PhotoPageGenerator < Generator
@@ -25,13 +26,17 @@ module Jekyll
 
 			Dir.glob("#{photos_dir}/**/*").each do |photo|
 				next unless File.file?(photo)
-
-                                puts photo
+				puts photo
 
 				file_extension = File.extname(photo)
 				filename = File.basename(photo, file_extension)
 				photo_path = File.dirname(photo).sub(photos_dir, '')
 				photo_url = "#{output_url}#{photo_path}"
+
+				dest = File.join(site.dest, photo_url)
+				FileUtils.mkdir_p dest
+				image_filename = File.join(photo_url, filename + file_extension)
+				preview_filename = File.join(photo_url, filename + '.webp')
 
 				begin
 					pic = MiniExiftool.new(photo)
@@ -56,7 +61,8 @@ module Jekyll
 						'date' => capture_time,
 						'location' => location,
 						'camera' => camera,
-						'image' => File.join(photo_url, filename + file_extension),
+						'image' => image_filename,
+						'preview_image' => preview_filename,
 						'aperture' => aperture,
 						'sspeed' => sspeed,
 						'iso' => iso,
@@ -67,15 +73,13 @@ module Jekyll
 
 					photo_data.reject! { |p| p.empty? }
 
-					dest = File.join(site.dest, photo_url)
-					FileUtils.mkdir_p dest
-
 					photo_page = PageWithoutAFile.new(site, site.source, photo_url, "#{filename}.md")
 					photo_page.content = description
 					photo_page.data.merge!(photo_data)
 
 					site.pages << photo_page
 					FileUtils.cp(File.expand_path(photo), dest)
+					WebP.encode(File.expand_path(photo), File.join(dest, preview_filename), target_size: 524288)
 				rescue
 					puts "#{photo} didn't work"
 				end				
