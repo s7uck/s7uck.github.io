@@ -2,7 +2,7 @@
 layout: post
 title: Taking a photo of the Blue Supermoon
 image: /photos/2024/08/_1250588_blue_supermoon.JPG
-date: 2024-08-20 16:21:54 +CEST
+date: 2024-08-20 16:21:54 +0200
 ---
 
 Last year around this time I took some pictures of the [supermoon](/photos/2023/08/_1220408_supermoonrise_01.html), that technically happened on August 30th but due to a few technical challenges (ie. me hearing my 3 AM alarm in my sleep and proceeding to *dream* that I'd taken the photo, never actually getting out of bed) I had to test my luck again the next day. It went for the better though, because it was actually full that day and I was able to catch it rising on the Adriatic right after dusk which made a great photo.

@@ -9,6 +9,9 @@ collections:
   projects:
     output: true
 
+plugins:
+  - jekyll-feed
+
 defaults:
   - scope:
       path: ""
