@@ -51,6 +51,15 @@ module Jekyll
 					focal = pic.focallength
 					rating = pic.rating
 					mode = modes[pic.exposure_program || 'AUTO']
+					if pic['OPMedia:IsBokehActive']
+						mode = 'MACRO'
+					end
+					if pic['OPMedia:IsHDRActive']
+						mode += ' HDR'
+					end
+					if pic['OPMedia:IsNightModeActive'] || image.end_with? "NIGHT.jpg"
+						mode = 'NIGHT'
+					end
 					description = pic.comment
 
 					photo_data = {
