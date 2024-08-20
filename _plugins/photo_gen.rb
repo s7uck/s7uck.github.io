@@ -57,7 +57,7 @@ module Jekyll
 					if pic['OPMedia:IsHDRActive']
 						mode += ' HDR'
 					end
-					if pic['OPMedia:IsNightModeActive'] || image.end_with("NIGHT.jpg")
+					if pic['OPMedia:IsNightModeActive']
 						mode = 'NIGHT'
 					end
 					description = pic.comment
