@@ -50,7 +50,7 @@ permalink: /setup
 	<h2 class="title">Phone</h2>
 	<p>The <strong>motorola edge 30 neo</strong> I bought to replace my OnePlus Nord, which sadly died in an accident a while ago. I managed to buy the last few stocks for basically half the price, and I can say it was a great deal, especially given the hardware. It's not as compact as I'd like but it's much better than anything at its price range.</p>
 	<figure>
-		<img src="/images/phone2.webp">
+		<img src="/images/phone.webp">
 	</figure>
 
 	<table>
