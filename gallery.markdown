@@ -18,10 +18,11 @@ permalink: /gallery
 		padding: 1em;
 		position: absolute;
 		background: linear-gradient(#1e1e1eaa, transparent);
-		width: 51%;
+		width: 37.25%;
 		font-family: 'Space Grotesk';
 		backdrop-filter: blur(4px);
 	}
+	.card.big figcaption { width: 42%;}
 	.card img {
 		height: 100%;
 		object-fit: cover;
@@ -39,7 +40,7 @@ permalink: /gallery
 				{{ photo.title }}
 			</big>{% endif %}
 			<small>
-				<img class="icon" src="/images/camera.svg" alt="Camera"> {{ photo.camera }} · <img class="icon" src="/images/location.svg" alt="Location"> {{ photo.location }} · {{ photo.date | date: "%-d %B %Y %h:%m:%s" }}
+				<img class="icon" src="/images/camera.svg" alt="Camera"> {{ photo.camera }} · <img class="icon" src="/images/location.svg" alt="Location"> {{ photo.location }} · {{ photo.date | date: "%-d %B %Y %H:%M" }}
 			</small>
 		</figcaption>
 	</li>{% endfor %}
