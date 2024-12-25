@@ -35,7 +35,7 @@ permalink: /gallery
 			</big>{% endif %}
 
 			<small>
-				<img class="icon invert" src="/images/camera.svg" alt="Camera"> {{ photo.camera }} <img class="icon invert" src="/images/forward.svg" alt="Location"> {{ photo.location }}
+				<img class="icon" src="/images/camera.svg" alt="Camera"> {{ photo.camera }} <img class="icon" src="/images/location.svg" alt="Location"> {{ photo.location }}
 			</small>
 		</figcaption>
 	</li>{% endfor %}
