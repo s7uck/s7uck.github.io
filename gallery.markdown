@@ -5,15 +5,23 @@ permalink: /gallery
 ---
 
 <style>
+	main { max-width: 120ch;}
 	.card {
-		width: 40%;
+		width: 35%;
 		padding: 0;
 		row-gap: 0;
 		overflow: hidden;
 		flex-grow: 1;
 	}
-	.card.big { width: 57%;}
-	figcaption { padding: 1em;}
+	.card.big { width: 47.5%;}
+	figcaption {
+		padding: 1em;
+		position: absolute;
+		background: linear-gradient(#1e1e1eaa, transparent);
+		width: 51%;
+		font-family: 'Space Grotesk';
+		backdrop-filter: blur(4px);
+	}
 	.card img {
 		height: 100%;
 		object-fit: cover;
@@ -27,15 +35,11 @@ permalink: /gallery
 		<img src="{{ photo.image }}" alt="{{ photo.title }}">
 
 		<figcaption>
-			<small>
-				{{ photo.date | date: "%-d %B %Y" }}
-			</small>
 			{% if photo.title %}<big>
 				{{ photo.title }}
 			</big>{% endif %}
-
 			<small>
-				<img class="icon" src="/images/camera.svg" alt="Camera"> {{ photo.camera }} <img class="icon" src="/images/location.svg" alt="Location"> {{ photo.location }}
+				<img class="icon" src="/images/camera.svg" alt="Camera"> {{ photo.camera }} · <img class="icon" src="/images/location.svg" alt="Location"> {{ photo.location }} · {{ photo.date | date: "%-d %B %Y %h:%m:%s" }}
 			</small>
 		</figcaption>
 	</li>{% endfor %}
