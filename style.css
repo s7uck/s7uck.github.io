@@ -17,7 +17,7 @@ main {
 	max-width: 80ch;
 	margin: 0 auto;
 }
-h1, h2, h3, h4, summary, .title, header, footer, th { font-family: 'Space Grotesk', sans-serif; }
+h1, h2, h3, h4, summary, time, .title, header, footer, th { font-family: 'Space Grotesk', sans-serif; }
 tt, pre, code { font-family: 'Oxygen Mono', monospace;}
 a, .accent { color: #08C7BB;}
 a { text-decoration: none;}
