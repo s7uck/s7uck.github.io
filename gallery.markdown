@@ -17,12 +17,9 @@ permalink: /gallery
 	figcaption {
 		padding: 1em;
 		position: absolute;
-		background: linear-gradient(#1e1e1eaa, transparent);
-		width: 37.25%;
 		font-family: 'Space Grotesk';
-		backdrop-filter: blur(4px);
+		text-shadow: 0 0 4px black;
 	}
-	.card.big figcaption { width: 42%;}
 	.card img {
 		height: 100%;
 		object-fit: cover;
