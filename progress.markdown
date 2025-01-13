@@ -41,6 +41,9 @@ noheader: true
 		height: inherit;
 		background-image: linear-gradient(to right, transparent, #ccc9 90%, #ccc6);
 		content: '';
+/*		animation: swipe 0.5s ease;*/
+	}
+	.progress.swipe:before {
 		animation: swipe 0.5s ease;
 	}
 	@keyframes swipe {
@@ -121,24 +124,66 @@ noheader: true
 		clock.innerText = datetime
 	}
 
-	function progressbar(bar, percent) {
-		bar.style.width = (100*percent) + '%'
+	function progressbar(id, percent) {
+		bar = document.querySelector('#'+id)
+		previous = bar.style.width
+		newwidth = (100*percent) + '%'
+		bar.style.width = newwidth
+	}
+
+	function progress(time, eventStart, eventEnd) {
+		datetime = time ?? new Date()
+		return (datetime - eventStart)/(eventEnd - eventStart)
 	}
 
 	function markProgress(time) {
+		let now = new Date()
+
+		let events = {
+			'minute': {
+				'current': new Date().setSeconds(0),
+				'next': new Date().setSeconds(60),
+			},
+			'hour': {
+				'current': new Date().setMinutes(0, 0),
+				'next': new Date().setMinutes(60, 0),
+			},
+			'day': {
+				'current': new Date().setHours(0, 0, 0),
+				'next': new Date().setHours(24, 0, 0),
+			},
+			'week': {
+				'current': new Date().setHours(new Date().getDay()*(-24), 0, 0),
+				'next': new Date().setHours((7-new Date().getDay())*24, 0, 0),
+			},
+			'month': {
+				'current': new Date(now.getFullYear(), now.getMonth(), 1),
+				'next': new Date(now.getFullYear(), now.getMonth() + 1, 1),
+			},
+			'year': {
+				'current': new Date(now.getFullYear(), 0).setHours(0, 0, 0),
+				'next': new Date(now.getFullYear(), 12).setHours(0, 0, 0),
+			},
+			/*'decade': {
+				'current': ,
+				'next': ,
+			},
+			'century': {
+				'current': ,
+				'next': ,
+			},
+			'millennium': {
+				'current': ,
+				'next': ,
+			},*/
+		}
+
 		datetime = time ?? new Date()
-		currentMonth = new Date(datetime.getFullYear(), datetime.getMonth(), 1)
-		nextMonth = new Date(datetime.getFullYear(), datetime.getMonth() + 1, 1)
-		currentMonth.setDate(1)
-		nextMonth.setDate(1)
-		currentYear = new Date(datetime.getFullYear(), 0)
-		nextYear = new Date(datetime.getFullYear(), 12)
-		progressbar(minute, datetime.getSeconds()/60)
-		progressbar(hour, datetime.getMinutes()/60)
-		progressbar(day, datetime.getHours()/24)
-		progressbar(week, datetime.getDay()/7)
-		progressbar(month, (datetime - currentMonth)/(nextMonth - currentMonth))
-		progressbar(year, (datetime - currentYear)/(nextYear - currentYear))
+		for (event in events) {
+			current = events[event].current
+			next = events[event].next
+			progressbar(event, (datetime - current)/(next - current))
+		}
 	}
 
 	setInterval('markProgress()', 1000)
