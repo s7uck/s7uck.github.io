@@ -16,9 +16,7 @@ permalink: /gallery
 	.card.big { width: 47.5%;}
 	figcaption {
 		padding: 1em;
-		position: absolute;
 		font-family: 'Space Grotesk';
-		text-shadow: 0 0 4px black;
 	}
 	.card img {
 		height: 100%;
