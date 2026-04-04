@@ -19,23 +19,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Install SSG
         run: sudo apt-get install ruby jekyll ruby-jekyll-feed
-      - name: Install exiftool
-        run: sudo apt-get install exiftool ruby-mini-exiftool webp
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Checkout photos2
-        run: |
-          gh api repos/s7uck/photos/git/trees/main?recursive=1 > tree.json
-          mkdir photos
-          cat tree.json | jq -r '.tree[] | select(.type=="blob") | .path' | while read file; do
-            case "$file" in
-              *.jpg|*.JPG|*.jpeg|*.png)
-                mkdir -p "photos/$(dirname "$file")"
-                touch "photos/$file"
-                ;;
-            esac
-          done
       # - name: Checkout photos
       #   uses: actions/checkout@v4
       #   with:
