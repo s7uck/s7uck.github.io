@@ -17,10 +17,10 @@ defaults:
       path: ""
     values:
       links:
-        showcase: "/showcase"
-        posts: "/posts"
         gallery: "/gallery"
         setup: "/setup"
+#        showcase: "/showcase"
+#        posts: "/posts"
   - scope:
       path: "photos"
     values:

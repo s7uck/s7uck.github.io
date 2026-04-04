@@ -1,12 +1,32 @@
+require "open-uri"
 require "mini_exiftool"
 
 module Jekyll
 	class PhotoPageGenerator < Generator
 		def generate(site)
-			photos_dir = "photos" # aka my repo s7uck/photos
-			output_url = "/photos"
+			photo_repo = "s7uck/photos" # aka my repo s7uck/photos
+			photo_baseurl = "https://raw.githubusercontent.com/#{photo_repo}/master/"
+			output_url = "photos"
 			photos = []
 			FileUtils.mkdir_p(File.join(site.dest, output_url))
+
+			all_exifdata = File.join(site.dest, output_url, "EXIFDATA.json")
+			remote_exif_url = "#{photo_baseurl}EXIFDATA.json"
+
+			begin
+				URI.open(remote_exif_url) do |remote|
+					File.open(all_exifdata, "wb") do |local|
+					local.write(remote.read)
+				end
+			end
+			rescue => e
+				Jekyll.logger.warn "PhotoPageGenerator:", "Failed to download EXIFDATA.json (#{e.message})"
+			end
+
+			unless File.exist?(all_exifdata)
+				Jekyll.logger.warn "PhotoPageGenerator:", "EXIFDATA.json not found, skipping photo pages."
+				return
+			end
 
 			modes = {
 				0 => "AUTO",
@@ -23,71 +43,63 @@ module Jekyll
 				"Program AE" => "SCN"
 			}
 
-			Dir.glob("#{photos_dir}/**/*").each do |photo|
-				next unless File.file?(photo)
-				puts photo
+			all_exif = JSON.parse(File.read(all_exifdata))
 
-				file_extension = File.extname(photo)
-				filename = File.basename(photo, file_extension)
-				photo_path = File.dirname(photo).sub(photos_dir, '')
-				photo_url = "#{output_url}#{photo_path}"
+			all_exif.each do |relative_path, exif|
+				container_dir = File.join(output_url, File.dirname(relative_path))
 
-				dest = File.join(site.dest, photo_url)
-				FileUtils.mkdir_p dest
-				image_filename = File.join(photo_url, filename + file_extension)
+				image_url = "#{photo_baseurl}#{relative_path}"
+				image_filename = File.basename(relative_path)
+				image_thumbnail_filename = image_filename # FIXME
 
-				begin
-					pic = MiniExiftool.new(photo)
-					pic.numerical = true
-					title = pic.title || pic['Landmark']
-					capture_time = pic.date_time_original
-					latitude = pic.gps_latitude
-					longitude = pic.gps_longitude
-					location = pic['Location'] || latitude + ' ' + longitude
-					camera = pic.make + ' ' + pic.model
-					aperture = pic.aperture
-					sspeed = pic.shutter_speed
-					iso = pic.iso
-					focal = pic.focallength
-					rating = pic.rating
-					mode = modes[pic.exposure_program || 'AUTO']
-					if pic['OPMedia:IsBokehActive']
-						mode = 'MACRO'
-					end
-					if pic['OPMedia:IsHDRActive']
-						mode += ' HDR'
-					end
-					if pic['OPMedia:IsNightModeActive']
-						mode = 'NIGHT'
-					end
-					description = pic.comment
+				title = exif['Title'] || exif['Landmark']
+				capture_time = exif['DateTimeOriginal']
+				latitude = exif['GPSLatitude']
+				longitude = exif['GPSLongitude']
+				location = exif['Location'] || "#{latitude.to_s} #{longitude.to_s}".strip
+				#FINISH
+				camera = "#{exif['Make'].to_s} #{exif['Model'].to_s}".strip
+				aperture = exif['Aperture']
+				sspeed = exif['ShutterSpeed']
+				iso = exif['ISO']
+				focal = exif['FocalLength']
+				rating = exif['Rating']
+				mode = modes[exif['ExposureProgram'] || 'AUTO']
+				if exif['OPMedia:IsBokehActive']
+					mode = 'MACRO'
+				end
+				if exif['OPMedia:IsNightModeActive']
+					mode = 'NIGHT'
+				end
+				if exif['OPMedia:IsHDRActive']
+					mode += ' HDR'
+				end
+				description = exif['Comment']
 
-					photo_data = {
-						'layout' => 'photo',
-						'title' => title,
-						'date' => capture_time,
-						'location' => location,
-						'camera' => camera,
-						'image' => image_filename,
-						'aperture' => aperture,
-						'sspeed' => sspeed,
-						'iso' => iso,
-						'focal' => focal,
-						'rating' => rating,
-						'mode' => mode
-					}
+				photo_data = {
+					'layout' => 'photo',
+					'title' => title,
+					'date' => capture_time,
+					'location' => location,
+					'camera' => camera,
+					'image' => image_url,
+					'aperture' => aperture,
+					'sspeed' => sspeed,
+					'iso' => iso,
+					'focal' => focal,
+					'rating' => rating,
+					'mode' => mode,
+					'filename' => image_filename,
+					'mini' => image_thumbnail_filename,
+				}
 
-					photo_data.reject! { |p| p.empty? }
+				photo_data.reject! { |p| p.empty? }
 
-					photo_page = PageWithoutAFile.new(site, site.source, photo_url, "#{filename}.md")
-					photo_page.content = description
-					photo_page.data.merge!(photo_data)
+				photo_page = PageWithoutAFile.new(site, site.source, container_dir, "#{image_filename}.md")
+				photo_page.data.merge!(photo_data)
+				photo_page.content = description
 
-					site.pages << photo_page
-					FileUtils.cp(File.expand_path(photo), dest)
-				rescue
-					puts "#{photo} didn't work"
-				end				
+				site.pages << photo_page
 			end
 		end
 	end
