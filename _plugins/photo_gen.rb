@@ -1,5 +1,4 @@
 require "open-uri"
-require "mini_exiftool"
 
 module Jekyll
 	class PhotoPageGenerator < Generator
