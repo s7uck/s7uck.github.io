@@ -13,8 +13,8 @@
 	{{ content }}
 	{% endif %}
 
-	<{% if page.noheader %}footer{% else %}header{% endif %} class="texture">
-		<nav>
+	<{% if page.noheader %}footer{% else %}header{% endif %} class="texture">{% if page.layout == "home" %}
+		<small><i>Site is being updated</i></small>{% endif %}<nav>
 			<menu>{% if page.url != "/" %}
 				<li><a href=/ title="home"><img src="/images/home.webp" alt="home"></a>{% endif %}{% for link in page.links %}
 				<li><a href="{{ link[1] }}"{% if link[1] == page.url %} class="accent"{% endif %}>{{ link[0] }}</a>{% endfor %}

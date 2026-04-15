@@ -7,6 +7,7 @@ layout: default
 		min-height: 20vh;
 		padding-top: 5vh;
 		background-image: linear-gradient(black, transparent, black), url(/images/topography.svg);
+		height: 80vh;
 	}
 </style>
 <style media="only screen and (min-width: 600px)">
@@ -32,6 +33,13 @@ layout: default
 		yp = (y_deg + 90) / 180 * 100
 		moveMap(yp, xp)
 	}
+	function godere() {
+		if (social.style.display == "none") {
+			social.style.display = "revert-layer"
+		} else {
+			social.style.display = "none"
+		}
+	}
 </script>
 
 <main class="list">
@@ -39,8 +47,11 @@ layout: default
 </main>
 
 <footer>
-	<nav>
+	<nav class="flex horizontal">
 		<menu>
+			<li><a style="border: 1px solid #222; background: transparent;" onclick="godere()">social media &gt;</a>
+		</menu>
+		<menu id="social" style="display: none">
 			<li><a href="https://github.com/s7uck">Git</a>
 			<li><a href="https://techhub.social/@stuck">TechHub</a>
 			<li><a href="https://youtube.com/@StuckDuck">YouTube</a>
